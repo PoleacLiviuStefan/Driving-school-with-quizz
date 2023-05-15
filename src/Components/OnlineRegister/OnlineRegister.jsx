@@ -22,24 +22,24 @@ const OnlineRegister = () => {
                 </div>
                 <div className='mt-[5rem] flex flex-col items-center text-center lg:text-left lg:items-start w-full'>
                     <h3 className='text-black font-bold w-[90%] lg:w-[35rem] text-[16px] lg:text-[24px] '>COMPLETEAZA FORMULARUL URMATOR SI NE VEDEM DIRECT LA ORE</h3>
-                    <form className='flex flex-col items-center lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full' onSubmit={(e)=>{e.preventDefault()}}>
-                        <div className='flex flex-col group'>
+                    <form className='flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full' onSubmit={(e)=>{e.preventDefault()}}>
+                        <div className='mt-[2rem] lg:mt-0 flex flex-col text-left group'>
                             <label className=''>Nume</label>
                             <input className=' border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0' type="text" ></input>
                         </div>
-                        <div className='flex flex-col group'>
+                        <div className='mt-[2rem] lg:mt-0 flex flex-col text-left group'>
                             <label className=''>Prenume</label>
                             <input className='border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0' type="text" ></input>
                         </div>
-                        <div className='flex flex-col group'>
+                        <div className='mt-[2rem] lg:mt-0 flex flex-col text-left group'>
                             <label className=''>Prenumele Tatalui</label>
                             <input className='border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0' type="text" ></input>
                         </div>
-                        <div className='mt-[3rem] flex flex-col group'>
+                        <div className=' mt-[2rem] lg:mt-[3rem] flex flex-col text-left group'>
                             <label className=''>Prenumele Mamei</label>
                             <input className='border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0' type="text" ></input>
                         </div>
-                        <div className='mt-[3rem] flex flex-col group'>
+                        <div className='mt-[2rem] lg:mt-[3rem] flex flex-col text-left group'>
                             <label className=''>CNP*</label>
                             <input className='border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0' type="number" ></input>
                         </div>
