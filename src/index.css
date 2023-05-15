@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cookie&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Fasthand&family=Herr+Von+Muellerhoff&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mr+Dafoe&family=Norican&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html {
+  max-width: 100%;
+  overscroll-behavior: none
+}
+body {
+  margin: 0;
+  font-family: "Noto Sans",sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+  
+}
+.custom-shape-divider-bottom-1683908117 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1683908117 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 37px;
+}
+
+.custom-shape-divider-bottom-1683908117 .shape-fill {
+  fill: #FFFFFF;
+}
+.custom-shape-divider-bottom-1683992127 {
+  position: relative;
+  bottom: -4rem;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1683992127 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.2px);
+  height: 96px;
+}
+
+.custom-shape-divider-bottom-1683992127 .shape-fill {
+  fill: #F9F9F9;
+}
+.custom-shape-divider-top-1683994501 {
+  position: absolute;
+  top: 7.2rem;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1683994501 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+}
+
+.custom-shape-divider-top-1683994501 .shape-fill {
+  fill: #ff0000;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(85, 85, 85);
+  outline: 1px solid slategrey;
+  border-radius: 5rem;
+  height: 12rem;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 1279px){
+  html{
+    overflow-x: hidden;
+  }
+  body{
+    overflow: hidden;
+  }
+  }
