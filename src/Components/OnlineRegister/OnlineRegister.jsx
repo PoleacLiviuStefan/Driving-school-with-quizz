@@ -16,13 +16,13 @@ const OnlineRegister = () => {
                 <a className='cursor-pointer'>Inscrieri Online</a>
                 </div>
             
-                    <h2 className='text-[26px] text-center lg:text-left lg:text-[42px] font-extrabold text-white '>TE POTI INSCRIE <span className='text-[#DC2626]'>DIRECT ONLINE</span> </h2>
+                    <h2 className='text-[26px] w-[90%] lg:w-[49rem] text-center lg:text-left lg:text-[42px] font-extrabold text-white '>TE POTI INSCRIE <span className='text-[#DC2626]'>DIRECT ONLINE</span> </h2>
                
                 </div>
                 </div>
-                <div className='mt-[5rem] flex flex-col items-left w-full'>
-                    <h3 className='text-black font-bold w-[35rem] text-[24px] '>COMPLETEAZA FORMULARUL URMATOR SI NE VEDEM DIRECT LA ORE</h3>
-                    <form className='grid grid-cols-3 bg-white p-[1rem] w-full h-full' onSubmit={(e)=>{e.preventDefault()}}>
+                <div className='mt-[5rem] flex flex-col items-center text-center lg:text-left lg:items-start w-full'>
+                    <h3 className='text-black font-bold w-[90%] lg:w-[35rem] text-[16px] lg:text-[24px] '>COMPLETEAZA FORMULARUL URMATOR SI NE VEDEM DIRECT LA ORE</h3>
+                    <form className='flex flex-col items-center lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full' onSubmit={(e)=>{e.preventDefault()}}>
                         <div className='flex flex-col group'>
                             <label className=''>Nume</label>
                             <input className=' border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0' type="text" ></input>

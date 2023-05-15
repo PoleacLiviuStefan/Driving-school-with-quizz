@@ -26,7 +26,7 @@ const DriverLicense = () => {
           <a className="cursor-pointer">Obtine Permisul</a>
         </div>
         <div className="flex flex-col items-center">
-          <h2 className="text-[26px]  lg:text-[42px] text-center font-extrabold leading-[1.7rem] lg:leading-[4rem]">
+          <h2 className="text-[26px] w-[90%] lg:w-full  lg:text-[42px] text-center font-extrabold leading-[1.7rem] lg:leading-[4rem]">
             TE AJUTAM SA OBTII{" "}
             <span className="text-red-600">PERMISUL AUTO</span>{" "}
           </h2>
