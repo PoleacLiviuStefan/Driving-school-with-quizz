@@ -21,7 +21,7 @@ const DefensiveDriving = () => {
           <a className="cursor-pointer">Conducere Defensiva</a>
         </div>
         <div className="flex flex-col items-center">
-          <h2 className="text-[26px]  lg:text-[42px] text-center font-extrabold leading-[1.7rem] lg:leading-[4rem] font-roboto">
+          <h2 className="text-[26px]  lg:text-[42px] text-center font-extrabold leading-[1.7rem] lg:leading-[4rem] ">
                 CONDUCERE{" "}
             <span className="text-red-600">DEFENSIVA</span>{" "}
           </h2>
