@@ -40,7 +40,7 @@ const OnlineRegister = () => {
                             <input className='border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0' type="text" ></input>
                         </div>
                         <div className='mt-[3rem] flex flex-col group'>
-                            <label className=''>CNP</label>
+                            <label className=''>CNP*</label>
                             <input className='border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0' type="number" ></input>
                         </div>
                     </form>
