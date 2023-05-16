@@ -22,7 +22,7 @@ const Hero = () => {
     },[currentCard])
   return (
     <div className="relative left-0 top-0 text-white">
-      <div className="bg-bgHero bg-cover bg-center w-screen h-[40rem]">
+      <div className="bg-bgHero bg-cover bg-left lg:bg-center w-screen h-[40rem]">
         <div className="flex flex-col justify-center items-center bg-gradient-to-b from-black/60 from-[35%] to-transparent   w-full h-full ">
           <h2 className="flex flex-col z-30 text-center font-extrabold text-[22px] lg:text-[42px] mt-[-17rem] leading-[1.6rem] lg:leading-[3.6rem]">
             SCOALA DE SOFERI{" "}
@@ -58,23 +58,24 @@ const Hero = () => {
           <div className="absolute flex flex-col lg:flex-row  items-center lg:items-start justify-between w-[90%] lg:w-[55rem] bottom-[-50rem] lg:bottom-[-8rem] z-20 ">
           <BenefitsCard
             titleCard="OBTINE PERMISUL"
-            descriptionCard="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis quibusdam vel at. Nisi nulla, et explicabo qui in quia doloremque?"
+            descriptionCard="Te-ai hotarat sa dai de permis? Suntem o echipa de instructori care te putem ajuta sa iti indeplinesti dorinta de a obtine permisul auto atat pentru categoria A cat si pentru categoria B"
             iconCard={<BsFillPersonVcardFill /> }
             selected={currentCard===0 ? true : false}
-        
+            navigateTo="http://localhost:5173/servicii/obtine-permisul"
           />
          <BenefitsCard
             titleCard="CURS DE CONDUCERE DEFENSIVA"
-            descriptionCard="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis quibusdam vel at. Nisi nulla, et explicabo qui in quia doloremque?"
+            descriptionCard="Te-ai gandit vreodata ca ai putea fi pus intr-o situatie periculoasa atunci cand cand conduci vehiculul? Haide sa inveti cum sa eviti aceste evenimente prin cursurile noastre"
             iconCard={<TbSteeringWheel />}
             selected={currentCard===1 ? true : false}
-        
+            navigateTo="/servicii/conducere-defensiva"
           />
            <BenefitsCard
             titleCard="CURS MOTO PENTRU PERFECTIONARE "
-            descriptionCard="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis quibusdam vel at. Nisi nulla, et explicabo qui in quia doloremque?"
+            descriptionCard="Vrei sa iti perfectionezi abilitatea de a conduce motoicleta proprie? Te putem ajuta sa iti dezvolti aceasta abilitate si de a capata mai multa incredere"
             iconCard={<FaMotorcycle />}
             selected={currentCard===2 ? true : false}
+            navigateTo="/servicii/perfectionare-moto"
           />
         </div>
         </div>
