@@ -53,8 +53,8 @@ const Navbar = () => {
            
             <div className={`flex justify-center bg-white w-[18rem] h-full `}>
             <ul className={`  flex flex-col items-start   w-[10rem]  py-[.5rem] px-[1rem]  text-[13px] font-bold text-black`} >
-            <li onClick={()=>{navigate("/");setShowMobileMenu(false)}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.8rem] `}>ACASA</li>
-            <li>DESPRE NOI</li>
+            <li onClick={()=>{navigate("/");setShowMobileMenu(false)}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>ACASA</li>
+            <li  className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>DESPRE NOI</li>
             <li onClick={()=>{navigate("/oferte");setShowMobileMenu(false)}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>OFERTE</li>
             <li onClick={()=>{navigate("/produse");setShowMobileMenu(false)}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>PRODUSE</li>
             <li className={`flex flex-col  cursor-pointer transition ease-in-out group    hover:text-red-500 duration-300 my-[.7rem] `}> <span onClick={()=>{setServicesMenu(prev=>!prev)}} className='flex items-center '>SERVICII <span className={`ml-2 text-[16px] ${servicesMenu ? "animate-[rotateArrow_.3s_ease-in-out_forwards]":"animate-[reverseRotateArrow_.3s_ease-in-out_forwards]"}`}><AiFillCaretRight /></span></span>
