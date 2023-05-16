@@ -65,7 +65,7 @@ const Navbar = () => {
                 <li onClick={()=>{navigate("/servicii/curs-cu-masina-personala");setShowMobileMenu(false)}} className='flex items-center py-[.5rem] px-[1rem] cursor-pointer transition ease-in-out hover:bg-red-600 hover:text-white duration-300'><span className='absolute text-white  left-0  transition ease-in-out duration-300 group-hover:left-4'><BsChevronRight /></span><span className='ml-6'>CURS CU MASINA PERSONALA</span></li>
               </ul>
             </li>
-            <li onClick={()=>{navigate("/inscrieri-online")}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>INSCRIERI ONLINE</li>
+            <li onClick={()=>{navigate("/inscrieri-online");setShowMobileMenu(false)}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>INSCRIERI ONLINE</li>
             <li className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>LEGISLATIE</li>
             <li className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>NOUTATI</li>
             <li className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>GALERIE</li>
