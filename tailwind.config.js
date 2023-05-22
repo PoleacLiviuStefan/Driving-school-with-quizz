@@ -23,6 +23,7 @@ export default {
     backgroundImage:{
       'bgHero': "url('/public/Images/bgHero.jpg')",
       'bgRegister': "url('/public/Images/bmwInterior.jpg')",
+      'roadBg': "url('/public/Images/roadTexture.jpg')",
     }
   },
   keyframes:{

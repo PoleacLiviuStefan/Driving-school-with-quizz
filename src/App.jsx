@@ -8,6 +8,8 @@ import Products from './Components/Products/Products'
 import DriverLicense from './Components/Services/DriverLicense'
 import DefensiveDriving from './Components/Services/DefensiveDriving'
 import OnlineRegister from './Components/OnlineRegister/OnlineRegister'
+import Steps from './Components/Steps/Steps'
+import Contact from './Components/Contact/Contact'
 
 function App() {
 
@@ -19,12 +21,14 @@ function App() {
         <Route path="/" element={     <main>
           <Hero />
           <About />
+          <Steps />
         </main>} />
         <Route path="/oferte" element={ <Offers />} />
         <Route path="/produse" element={<Products />} />
         <Route path="/servicii/obtine-permisul" element={<DriverLicense />} />
         <Route path="/inscrieri-online" element={<OnlineRegister />} />
         <Route path="/servicii/conducere-defensiva" element={<DefensiveDriving />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   )
