@@ -39,10 +39,10 @@ const Navbar = () => {
               </ul>
             </li>
             <li onClick={()=>{navigate("/inscrieri-online")}}>INSCRIERI ONLINE</li>
-            <li>LEGISLATIE</li>
+            <li onClick={()=>{navigate("/legislatie/chstionare-online");window.scrollTo({top:0,left:0})}}>LEGISLATIE</li>
             <li>NOUTATI</li>
-            <li>GALERIE</li>
-            <li>CONTACT</li>
+            <li onClick={()=>{navigate("/galerie");window.scrollTo({top:0,left:0})}}>GALERIE</li>
+            <li onClick={()=>{navigate("/contact");window.scrollTo({top:0,left:0})}} >CONTACT</li>
         </ul>
         <div onClick={()=>setShowMobileMenu(prev=>!prev)} className='absolute lg:hidden   left-[1.5rem] top-0  flex flex-col items-left justify-center h-[2rem]  w-[1.5rem]'>
               <span className={`relative ${showMobileMenu ? " animate-[topLine_.5s_ease-in-out_forwards]" :" animate-[topLineReverse_.5s_ease-in-out_forwards]"} top-[.3rem] w-[1.3rem] h-[2px] bg-black`} />
@@ -66,10 +66,10 @@ const Navbar = () => {
               </ul>
             </li>
             <li onClick={()=>{navigate("/inscrieri-online");setShowMobileMenu(false)}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>INSCRIERI ONLINE</li>
-            <li className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>LEGISLATIE</li>
+            <li onClick={()=>{navigate("/legislatie/chstionare-online");window.scrollTo({top:0,left:0})}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>LEGISLATIE</li>
             <li className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>NOUTATI</li>
-            <li className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>GALERIE</li>
-            <li className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>CONTACT</li>
+            <li onClick={()=>{navigate("/galerie");window.scrollTo({top:0,left:0})}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>GALERIE</li>
+            <li onClick={()=>{navigate("/contact");window.scrollTo({top:0,left:0})}} className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] `}>CONTACT</li>
         </ul>
             </div>
         </div>

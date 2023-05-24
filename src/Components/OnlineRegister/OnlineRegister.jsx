@@ -46,12 +46,13 @@ const OnlineRegister = () => {
             </h2>
           </div>
         </div>
-        <div className="mt-[5rem] flex flex-col items-center text-center lg:text-left lg:items-start w-full">
-          <h3 className="text-black font-bold w-[90%] lg:w-[35rem] text-[16px] lg:text-[24px] ">
+        <div className="mt-[5rem] flex flex-col items-center text-center  w-full">
+          <h3 className="mb-[2rem] lg:mb-[4rem] text-black font-bold w-[90%] lg:w-[35rem] text-[16px] lg:text-[24px] ">
             COMPLETEAZA FORMULARUL URMATOR SI NE VEDEM DIRECT LA ORE
           </h3>
+          <h4 className="text-[18px] font-bold">1.Completeaza cu datele personale toate campurile de mai jos</h4>
           <form
-            className="flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full"
+            className="mt-[1rem] flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full"
             onSubmit={(e) => {
               e.preventDefault();
             }}
@@ -59,109 +60,118 @@ const OnlineRegister = () => {
             <div className="mt-[2rem] lg:mt-0 flex flex-col text-left group">
               <label className="">Nume</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-0 flex flex-col text-left group">
               <label className="">Prenume</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-0 flex flex-col text-left group">
               <label className="">Prenumele Tatalui</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className=" mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Prenumele Mamei</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">CNP*</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="number"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+              <label className="">Sex</label>
+              <select className="mt-[1rem] w-[18rem]">
+                <option>Alege din lista</option>
+                <option>Masculin</option>
+                <option>Feminin</option>
+                <option>Altul</option>
+              </select>
+            </div>
+            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Data de Nastere</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="number"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Tara Nasterii</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Judetul</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Localitate/Sector</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Serie</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Numar</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Emis de</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Emis la</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Expira la</label>
               <input
-                className="mt-[1rem] border-b-[1px] border-black w-[15rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
-            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group"></div>
+            
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col w-full text-left group">
               <label className="">
                 Categorii permis de conducere detinute deja{" "}
               </label>
               <div
                 onClick={() => setShowCategories((prev) => !prev)}
-                className="flex cursor-pointer border-[1px] border-black w-[57rem] h-[2rem] px-[1rem] items-center"
+                className="flex flex-wrap cursor-pointer border-[1px] border-black text-[13px] lg:text-[15px] lg:w-[57rem] lg:h-[2rem] px-[1rem] items-center"
               > 
                 {(!showCategories && selectCategory.length===0) ? "APASA PENTRU A VEDEA TOATE CATEGORIILE": selectCategory.map((val) => {
                   let categoryLabel = "";
@@ -198,7 +208,7 @@ const OnlineRegister = () => {
                       break;
                   }
                   return (
-                    <div onClick={(e)=>{e.stopPropagation();setSelectedCategory(current=>current.filter((el)=>el!==val))}} className="flex justify-center items-center bg-red-500 text-white w-[4rem] h-[90%] px-[1rem] mr-[.5rem] z-20 rounded-[8px]">
+                    <div onClick={(e)=>{e.stopPropagation();setSelectedCategory(current=>current.filter((el)=>el!==val))}} className="flex justify-center items-center bg-red-500 text-white w-[4rem] h-[90%] px-[1rem] my-1 lg:my-0 mx-[.25rem] z-20 rounded-[8px]">
                       <span className="text-[20px] mr-2">
                         <AiOutlineCloseCircle />
                       </span>
@@ -209,7 +219,7 @@ const OnlineRegister = () => {
               </div>
 
               <ul
-                className={` mt-[.5rem] w-[2.5rem]  bg-white shadow-xl  ${
+                className={`flex flex-row mt-[.5rem]  bg-white shadow-xl  ${
                   !showCategories && "hidden"
                 }`}
               >
@@ -220,7 +230,7 @@ const OnlineRegister = () => {
                       if (element === 0) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   A1
@@ -232,7 +242,7 @@ const OnlineRegister = () => {
                       if (element === 1) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   A2
@@ -244,7 +254,7 @@ const OnlineRegister = () => {
                       if (element === 2) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   A
@@ -256,7 +266,7 @@ const OnlineRegister = () => {
                       if (element === 3) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   B1
@@ -268,7 +278,7 @@ const OnlineRegister = () => {
                       if (element === 4) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   B
@@ -280,7 +290,7 @@ const OnlineRegister = () => {
                       if (element === 5) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   BE
@@ -292,7 +302,7 @@ const OnlineRegister = () => {
                       if (element === 6) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   C1
@@ -304,7 +314,7 @@ const OnlineRegister = () => {
                       if (element === 7) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   C1E
@@ -316,7 +326,7 @@ const OnlineRegister = () => {
                       if (element === 8) {
                         return true;
                       }
-                    }) && "bg-red-500"
+                    }) && "bg-red-500 text-white"
                   } w-full h-[2rem] cursor-pointer`}
                 >
                   C
