@@ -426,7 +426,7 @@ const OnlineRegister = () => {
               e.preventDefault();
             }}>
               <div className="flex flex-col lg:flex-row w-full justify-between">
-              <select ref={generalCategory} onClick={()=>setCategory(generalCategory.current.value)}  className="w-[20rem] h-[2rem] border-[1px] border-red-600 focus:outline-none text-center font-bold">
+              <select ref={generalCategory} onChange={()=>setCategory(generalCategory.current.value)}  className="w-[20rem] h-[2rem] border-[1px] border-red-600 focus:outline-none text-center font-bold">
                 <option value="Categoria A1">Categoria A1</option>
                 <option value="Categoria A2">Categoria A2</option>
                 <option value="Categoria AM">Categoria AM</option>

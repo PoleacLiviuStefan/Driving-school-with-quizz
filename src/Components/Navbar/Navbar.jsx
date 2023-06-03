@@ -50,7 +50,7 @@ const Navbar = () => {
         }`}>
         <ul className="flex relative animate-[textSlideMobile_30s_linear_infinite] lg:animate-[textSlide_30s_linear_infinite]  justify-between items-center ">
             <li className="absolute whitespace-nowrap text-[14px]  font-bold">Reducere de 100 lei pentru studenti, elevi si someri</li>
-            <li className="absolute whitespace-nowrap left-[20rem] lg:left-[50rem] text-[14px] font-bold">Serie noua incepand cu 20 iunie</li>
+            <li className="absolute whitespace-nowrap left-[25rem] lg:left-[50rem] text-[14px] font-bold">Serie noua incepand cu 20 iunie</li>
             <li className="absolute whitespace-nowrap left-[40rem] lg:left-[100rem] text-[14px]  font-bold">Reducere de 10% daca te mai inscri alaturi de cineva</li>
         </ul>
       </div>
