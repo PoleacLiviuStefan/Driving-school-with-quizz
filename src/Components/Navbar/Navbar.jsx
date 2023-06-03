@@ -48,7 +48,7 @@ const Navbar = () => {
             ? "  lg:top-0 "
             : "lg:hidden"
         }`}>
-        <ul className="flex relative animate-[textSlide_30s_linear_infinite]  justify-between items-center ">
+        <ul className="flex relative animate-[textSlideMobile_30s_linear_infinite] lg:animate-[textSlide_30s_linear_infinite]  justify-between items-center ">
             <li className="absolute whitespace-nowrap text-[14px]  font-bold">Oferta pentru studenti, elevi si someri</li>
             <li className="absolute whitespace-nowrap left-[20rem] lg:left-[50rem] text-[14px] font-bold">Serie noua incepand cu 20 iunie</li>
             <li className="absolute whitespace-nowrap left-[40rem] lg:left-[100rem] text-[14px]  font-bold">Reducere de 10% daca te mai inscri alaturi de cinva</li>
@@ -264,7 +264,7 @@ const Navbar = () => {
       >
         <div className={`flex justify-center bg-white w-0 ${showMobileMenu ? "animate-[showMobileMenu_.3s_ease-in-out_forwards_.5s]" : "animate-[showMobileMenuReverse_.3s_ease-in-out_forwards]"} h-full overflow-hidden`}>
           <ul
-            className={`  flex flex-col items-start   w-[10rem]  py-[.5rem] px-[1rem]  text-[13px] font-bold text-black`}
+            className={`  flex flex-col  items-start   w-[10rem]  py-[.5rem] px-[1rem]  text-[13px] font-bold text-black`}
           >
             <li
               onClick={() => {
@@ -272,7 +272,7 @@ const Navbar = () => {
                 window.scrollTo({top:0,left:0});
                 setShowMobileMenu(false);
               }}
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               ACASA
             </li>
@@ -286,7 +286,7 @@ const Navbar = () => {
                         href="About"
                       >
             <li
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               DESPRE NOI
             </li>
@@ -297,7 +297,7 @@ const Navbar = () => {
                 window.scrollTo({top:0,left:0});
                 setShowMobileMenu(false);
               }}
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               OFERTE
             </li>
@@ -307,12 +307,12 @@ const Navbar = () => {
                 window.scrollTo({top:0,left:0});
                 setShowMobileMenu(false);
               }}
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               PRODUSE
             </li>
             <li
-              className={`flex flex-col  cursor-pointer transition ease-in-out group    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap  cursor-pointer transition ease-in-out group    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               {" "}
               <span
@@ -335,7 +335,7 @@ const Navbar = () => {
               <ul
                 className={`relative ${
                   !servicesMenu && "hidden"
-                } left-[-2.5rem] top-[.7rem]  group  bg-white   w-[15rem] h-[11.5rem] flex-col items-left justify-between  text-black `}
+                } left-[-2.5rem] top-[.7rem]   group  bg-white   w-[15rem] h-[11.5rem] flex-col items-left justify-between  text-black `}
               >
                 <li
                   onClick={() => {
@@ -343,7 +343,7 @@ const Navbar = () => {
                     window.scrollTo({top:0,left:0});
                     setShowMobileMenu(false);
                   }}
-                  className="relative flex items-center py-[.5rem] px-[1rem]  cursor-pointer transition ease-in-out hover:bg-red-600 hover:text-white duration-300"
+                  className="relative flex whitespace-nowrap items-center py-[.5rem] px-[1rem]  cursor-pointer transition ease-in-out hover:bg-red-600 hover:text-white duration-300"
                 >
                   <span className="absolute text-white  left-0  transition ease-in-out  group-hover:left-4 duration-300">
                     <BsChevronRight />
@@ -356,7 +356,7 @@ const Navbar = () => {
                     window.scrollTo({top:0,left:0});
                     setShowMobileMenu(false);
                   }}
-                  className={`flex items-center py-[.5rem] px-[1rem] cursor-pointer transition ease-in-out  hover:bg-red-600 hover:text-white  ${!showMobileMenu && "hidden"}`}
+                  className={`flex items-center whitespace-nowrap py-[.5rem] px-[1rem] cursor-pointer transition ease-in-out  hover:bg-red-600 hover:text-white  ${!showMobileMenu && "hidden"}`}
                 >
                   <span className="absolute text-white  left-0  transition duration-500 ease-in-out group-hover:left-4">
                     <BsChevronRight />
@@ -369,7 +369,7 @@ const Navbar = () => {
                     window.scrollTo({top:0,left:0});
                     setShowMobileMenu(false);
                   }}
-                  className={`flex items-center py-[.5rem] px-[1rem] cursor-pointer transition ease-in-out hover:bg-red-600 hover:text-white duration-300 ${!showMobileMenu && "hidden"}`}
+                  className={`flex items-center  whitespace-nowrap py-[.5rem] px-[1rem] cursor-pointer transition ease-in-out hover:bg-red-600 hover:text-white duration-300 ${!showMobileMenu && "hidden"}`}
                 >
                   <span className="absolute text-white  left-0  transition ease-in-out duration-300 group-hover:left-4">
                     <BsChevronRight />
@@ -382,7 +382,7 @@ const Navbar = () => {
                     window.scrollTo({top:0,left:0});
                     setShowMobileMenu(false);
                   }}
-                  className={`flex items-center py-[.5rem] px-[1rem] cursor-pointer transition ease-in-out hover:bg-red-600 hover:text-white duration-300 ${!showMobileMenu && "hidden"}`}
+                  className={`flex items-center whitespace-nowrap py-[.5rem] px-[1rem] cursor-pointer transition ease-in-out hover:bg-red-600 hover:text-white duration-300 ${!showMobileMenu && "hidden"}`}
                 >
                   <span className="absolute text-white  left-0  transition ease-in-out duration-300 group-hover:left-4">
                     <BsChevronRight />
@@ -397,7 +397,7 @@ const Navbar = () => {
                 window.scrollTo({top:0,left:0});
                 setShowMobileMenu(false);
               }}
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               INSCRIERI ONLINE
             </li>
@@ -407,7 +407,7 @@ const Navbar = () => {
                 window.scrollTo({top:0,left:0});
                 setShowMobileMenu(false);
               }}
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               LEGISLATIE
             </li>
@@ -417,7 +417,7 @@ const Navbar = () => {
                 window.scrollTo({top:0,left:0});
                 setShowMobileMenu(false);
               }}
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               NOUTATI
             </li>
@@ -427,7 +427,7 @@ const Navbar = () => {
                 window.scrollTo({top:0,left:0});
                 setShowMobileMenu(false);
               }}
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               GALERIE
             </li>
@@ -437,7 +437,7 @@ const Navbar = () => {
                 window.scrollTo({ top: 0, left: 0 });
                 setShowMobileMenu(false);
               }}
-              className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               CONTACT
             </li>

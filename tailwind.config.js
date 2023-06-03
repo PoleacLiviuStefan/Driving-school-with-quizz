@@ -133,7 +133,7 @@ export default {
       '100%':{
         width: "0"
       }
-    },
+    },    
     textSlide:{
       '0%':{
         left:'-100%'
@@ -143,6 +143,17 @@ export default {
       },
       '100%':{
         left:'-100%'
+      }
+    },
+    textSlideMobile:{
+      '0%':{
+        left:'-200%'
+      },
+      '99.9%':{
+        left:'100%'
+      },
+      '100%':{
+        left:'-200%'
       }
     },
     slideLeft:{
