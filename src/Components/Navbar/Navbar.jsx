@@ -43,7 +43,7 @@ const Navbar = () => {
           : "fixed lg:absolute text-white  lg:top-[2.5rem]"
       } bg-white lg:bg-transparent  z-40 flex justify-center items-center   w-full h-[5rem] lg:h-[9rem] px-[3rem] font-lexend`}
     >
-      <div className={`fixed  flex items-center absolute top-0 left-0 h-[1.8rem] w-[150%] bg-white px-[2rem] ${
+      <div className={`fixed   flex items-center absolute top-0 left-0 h-[1.8rem] w-[150%] bg-white px-[2rem] text-black ${
   (scrollValue > 400 || located.pathname !=="/")
             ? "  lg:top-0 "
             : "lg:hidden"
