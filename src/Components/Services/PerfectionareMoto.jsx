@@ -1,12 +1,14 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
 import { AiOutlineRight } from "react-icons/ai";
-import { CiTimer } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 import { GiCarWheel } from "react-icons/gi";
-import PriceCard from './PriceCard';
+import PriceCard from "./PriceCard";
+import { CiTimer } from "react-icons/ci";
 
-const DefensiveDriving = () => {
-    const navigate= useNavigate();
+const PerfectionareMoto = () => {
+
+    const navigate=useNavigate();
+
   return (
     <div className="flex justify-center items-center w-full h-full ">
         <div className="relative flex flex-col items-center w-full lg:w-[65rem] h-full ">
@@ -25,14 +27,14 @@ const DefensiveDriving = () => {
                 <span className="mx-[1rem] ">
                   <AiOutlineRight />
                 </span>
-                <a className="cursor-pointer">Conducere Defensiva</a>
+                <a className="cursor-pointer">Perfectionare Moto</a>
               </div>
               <div className="flex flex-col items-center">
               <h2 className="text-[26px]  lg:text-[42px] text-center font-extrabold leading-[1.7rem] lg:leading-[4rem] text-white ">
-                    CONDUCERE{" "}
-                <span className="text-red-600">DEFENSIVA</span>{" "}
+                    PERFECTIONARE{" "}
+                <span className="text-red-600">MOTO</span>{" "}
               </h2>
-                <p className='mt-[.5rem] lg:mt-0 text-center lg:text-[20px] font-bold text-gray-100'>INVATA CUM POTI AVEA O SIGURANTA MAI MARE IN TRAFIC</p>
+                <p className='mt-[.5rem] lg:mt-0 text-center lg:text-[20px] font-bold text-gray-100'>CUM SA ITI IMBUNATATESTI ABILITATILE DE A CONDUCE</p>
             </div>
           </div>
         </div>
@@ -42,16 +44,13 @@ const DefensiveDriving = () => {
          
          
           <div className="flex flex-col px-[1rem] mt-[4rem] lg:px-0 lg:ml-[3rem] w-full lg:w-[65rem]    leading-[1.1rem] lg:leading-[1.3rem]  ">
-              <h3 className=' text-[16px] lg:text-[24px] font-bold'>Cursuri conducere Defensiva nivelul 1 </h3>
+              <h3 className=' text-[16px] lg:text-[24px] font-bold'>Curs MOTO pentru perfectionare durata 2 zile</h3>
               <p className='flex mt-[.5rem] lg:mt-[1rem]'> <span className="mr-2">
                   <GiCarWheel />
-                </span>Scopul acestui curs este de a preveni accidentele rutiere si de a oferi un suport teoretic dar si practic tuturor soferilor indiferent de varsta si experienta. Prin conduita preventiva putem evita multe neplaceri in traficul rutier si astfel ne putem bucura de placerea de a conduce in siguranta.
+                </span>Un curs destinat motociclistilor de toate varstele, in care se vor aprofunda notiunile teoretice si practice, vom perfectiona stilul de conducere astfel incat sa reducem la minim situatiile extreme in care poti fi pus in traficul urban. Este un curs care poate ajuta pe cei care se deplaseaza pentru livrari rapide. 
+
               </p>
-              <h3 className='mt-[2rem] text-[16px] lg:text-[24px] font-bold'>Cursuri conducere Defensiva nivelul 2 </h3>
-              <p className='flex mt-[.5rem] lg:mt-[1rem]'> <span className="mr-2">
-                  <GiCarWheel />
-                </span>	Acest curs vine in sprijinul celor care au parcurs conducere defensiva nivelul 1. In acest curs soferii se vor intalnii cu situatii de derapaj, franare de urgenta la diferite viteze, franare de urgenta cu evitare, evitarea obstacolelor. 
-              </p>
+              
        
           </div>
           <div className='mt-[3rem] flex flex-wrap justify-center'>
@@ -65,24 +64,13 @@ const DefensiveDriving = () => {
             <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PLATA IN RATE</li>
             <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
           </ul>}
-              priceCard="800"
+              priceCard="1000"
             />
-                <PriceCard
-              durationCard="30"
-              titleCard="Conducere Defensiva Nivelul 2
-              "
-              benefitsCard={    <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
-          
-            <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]"> <span className="mr-4 text-[24px]"><CiTimer /> </span> 30 ORE PRACTICE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PLATA IN RATE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
-          </ul>}
-              priceCard="800"
-            />
+           
           </div>
         </div>
     </div>
   )
 }
 
-export default DefensiveDriving;
+export default PerfectionareMoto

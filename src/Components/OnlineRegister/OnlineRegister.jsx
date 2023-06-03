@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
-import { AiOutlineRight, AiOutlineCloseCircle } from "react-icons/ai";
+import { AiOutlineRight, AiOutlineCloseCircle,AiOutlineCheck } from "react-icons/ai";
 
 const OnlineRegister = () => {
   const navigate = useNavigate();
   const [showCategories, setShowCategories] = useState(false);
   const [selectCategory, setSelectedCategory] = useState([]);
+  const [registerCompleted,setRegisterCompleted]=useState(false);
+  const [checkedCategory,setCheckedCategory]=useState([]);
+  const generalCategory=useRef();
+  const [category,setCategory]=useState("Categoria A1");
   const handleSelectCategory = (position) => {
     if (
       !selectCategory.some((element) => {
@@ -20,6 +24,16 @@ const OnlineRegister = () => {
         current.filter((element) => element !== position)
       );
   };
+
+  const handleCheckedCategory = (element) => {
+    if(checkedCategory.find(elementFind=>elementFind === element))
+      setCheckedCategory(checkedCategory.filter(item=>item!==element))
+      
+    else
+      setCheckedCategory(allElements=> [...allElements, element]);
+  }
+  
+
   return (
     <div className="flex justify-center items-center w-full h-full ">
       <div className="relative flex flex-col items-center w-[65rem] h-full ">
@@ -165,13 +179,13 @@ const OnlineRegister = () => {
               ></input>
             </div>
             
-            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col w-full text-left group">
-              <label className="">
+            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col w-[90%] text-left group">
+              <label className="lg:w-[25rem]">
                 Categorii permis de conducere detinute deja{" "}
               </label>
               <div
                 onClick={() => setShowCategories((prev) => !prev)}
-                className="flex flex-wrap cursor-pointer border-[1px] border-black text-[13px] lg:text-[15px] lg:w-[57rem] lg:h-[2rem] px-[1rem] items-center"
+                className="flex flex-wrap justify-center  cursor-pointer border-[1px] border-black text-[12px] lg:text-[15px]  lg:w-[57rem] lg:h-[2rem] px-[.5rem] lg:px-[1rem] items-center"
               > 
                 {(!showCategories && selectCategory.length===0) ? "APASA PENTRU A VEDEA TOATE CATEGORIILE": selectCategory.map((val) => {
                   let categoryLabel = "";
@@ -219,7 +233,7 @@ const OnlineRegister = () => {
               </div>
 
               <ul
-                className={`flex flex-row mt-[.5rem]  bg-white shadow-xl  ${
+                className={` flex flex-row mt-[.5rem]  bg-white shadow-xl  ${
                   !showCategories && "hidden"
                 }`}
               >
@@ -334,6 +348,229 @@ const OnlineRegister = () => {
               </ul>
             </div>
           </form>
+          <h4 className="mt-[2rem] text-[18px] w-[90%] lg:w-full font-bold">2.Completeaza cu datele cu datele de contact pentru ca noi sa putem lua legatura</h4>
+          <form    className="mt-[1rem] flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full"
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}>
+              
+              <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+            <label>Email</label>
+            <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text"
+              ></input>
+              </div>
+              <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+              <label>Telefon</label>
+              <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" required
+              ></input>
+              </div>
+              <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+                 <label>Adresa</label>
+                 <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" placeholder="STRADA" required
+              ></input>
+              </div>
+              <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" placeholder="NUMAR" required
+              ></input>
+                 <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" required
+                placeholder="BLOC"
+              ></input>
+                 <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" placeholder="SCARA" required
+                
+              ></input>
+                 <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" placeholder="ETAJ" required
+              ></input>
+               <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" placeholder="APARTAMENT" required
+              ></input>
+             
+                  
+                 <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" 
+                placeholder="LOCALITATE"
+              ></input>
+          
+              <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+                <label>Judet/Sector</label>
+                 <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" 
+              ></input>
+              </div>
+              <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+                <label>Tara</label>
+                 <input
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text" defaultValue="Romania"
+              ></input>
+              </div>
+          </form>
+          <h4 className="mt-[3rem] text-[18px] font-bold">3. Alege categoriile pe care le doresti</h4>
+          <form    className="relative mt-[1rem] flex flex-col  items-center  bg-white p-[1rem] w-[90%] lg:w-full h-[20rem]"
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}>
+              <div className="flex flex-col lg:flex-row w-full justify-between">
+              <select ref={generalCategory} onClick={()=>setCategory(generalCategory.current.value)}  className="w-[20rem] h-[2rem] border-[1px] border-red-600 focus:outline-none text-center font-bold">
+                <option value="Categoria A1">Categoria A1</option>
+                <option value="Categoria A2">Categoria A2</option>
+                <option value="Categoria AM">Categoria AM</option>
+                <option value="Categoria A">Categoria A</option>
+                <option value="Categoria B1">Categoria B1</option>
+                <option value="Categoria B">Categoria B</option>
+                <option value="Categoria B extins">Categoria B extins</option>
+                <option value="Categoria BE">Categoria BE</option>
+              </select>
+              <div className="hidden flex flex-col items-center">
+                <div className="flex">
+                  <input type="radio" value="B Manuala" className="mx-[.5rem] rounded-[0px]"  />
+                  <label>B Manuala</label>
+                </div>
+                <div className="flex">
+                  <input type="radio" value="B Manuala Engleza"  />
+                  <label>B Manuala in Limba Engleza</label>
+                </div>
+                <div className="flex">
+                  <input type="radio" value="B Automata - Dizabilitati"  />
+                  <label>B Automata Pentru Persoane cu Dizabilitati</label>
+                </div>
+                <div className="flex">
+                  <input type="radio" value="B Automata Engleza"  />
+                  <label>B Automata in Limba Engleza</label>
+                </div>
+                <div className="flex">
+                <input type="radio" value="B1"  />
+                  <label>B1</label>
+                </div>
+                <div className="flex">
+                <input type="radio" value="B Extins"  />
+                  <label>B Extins</label>
+                </div>
+                <div className="flex">
+                <input type="radio" value="BE"  />
+                  <label>BE</label>
+                </div>
+                <div className="flex">
+                  <input type="radio" value="A"  />
+                  <label>A</label>
+                </div>
+                <div className="flex">
+                <input type="radio" value="A Engleza"  />
+                <label>A in Limba Engleza</label>
+                </div>
+                <div className="flex">
+                  <input type="radio" value="A1"  />
+                  <label>A1</label>
+                </div>
+                <div className="flex">
+                <input type="radio" value="A1 Engleza"  />
+                <label>A1 in Limba Engleza</label>
+                </div>
+                <div className="flex">
+                  <input type="radio" value="A2"  />
+                  <label>A2</label>
+                </div>
+                <div className="flex">
+                <input type="radio" value="A2 Engleza"  />
+                <label>A2 in Limba Engleza</label>
+                </div>
+                <div className="flex">
+                  <input type="radio" value="AM"  />
+                  <label>AM</label>
+                </div>
+                <div className="flex">
+                <input type="radio" value="AM Engleza"  />
+                <label>AM in Limba Engleza</label>
+                </div>
+              </div>
+              <div className="mt-[1rem] lg:mt-0 flex flex-col items-start w-[21rem] lg:w-[25rem] text-[14px] lg:text-[15px]">
+                <div  className={`flex my-2 ${category!="Categoria B" && "hidden"}`}>
+                  <span onClick={()=>handleCheckedCategory("B Manuala")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} > <span className={` ${!checkedCategory.find((element=>element==="B Manuala")) && "hidden"}`}><AiOutlineCheck /></span> </span>
+                  <label>B Manuala</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria B" && "hidden"}`}>
+                  <span onClick={()=>handleCheckedCategory("B Manuala in Limba Engleza")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} > <span className={` ${!checkedCategory.find((element=>element==="B Manuala in Limba Engleza")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>B Manuala in Limba Engleza</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria B" && "hidden"}`}>
+                  <span onClick={()=>handleCheckedCategory("B Automata Pentru Persoane cu Dizabilitati")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="B Automata Pentru Persoane cu Dizabilitati")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>B Automata Pentru Persoane cu Dizabilitati</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria B" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("B Automata in Limba Engleza")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="B Automata in Limba Engleza")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>B Automata in Limba Engleza</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria B1" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("B1")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="B1")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>B1</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria B extins" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("B Extins")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="B Extins")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>B Extins</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria BE" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("BE")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="BE")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>BE</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria A" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("A")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="A")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>A</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria A" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("A in Limba Engleza")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="A in Limba Engleza")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                <label>A in Limba Engleza</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria A1" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("A1")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="A1")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>A1</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria A1" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("A1 in Limba Engleza")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="A1 in Limba Engleza")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                <label>A1 in Limba Engleza</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria A2" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("A2")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="A2")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>A2</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria A2" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("A2 in Limba Engleza")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="A2 in Limba Engleza")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                <label>A2 in Limba Engleza</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria AM" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("AM")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="AM")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                  <label>AM</label>
+                </div>
+                <div className={`flex my-2 ${category!="Categoria AM" && "hidden"}`}>
+                <span onClick={()=>handleCheckedCategory("AM in Limba Engleza")} className={`flex justify-center items-center text-[20px] text-red-600 w-6 h-6 border-[2px] border-red-600 mr-2`} ><span className={` ${!checkedCategory.find((element=>element==="AM in Limba Engleza")) && "hidden"}`}> <AiOutlineCheck /> </span> </span>
+                <label>AM in Limba Engleza</label>
+                </div>
+              </div>
+              </div>
+                  <button onClick={()=>{navigate("/inscrieri-online")}}  className="absolute bottom-[1rem] btn2 w-[12rem] lg:w-[16rem] h-[3rem] rounded-[15px]  border border-red-500 bg-red-500 font-semibold tracking-wider leading-none overflow-hidden trasition ease-in-out duration-300 text-white cursor-pointer"
+       
+        >
+          <span className="absolute inset-0 bg-red-600 trasition ease-in-out duration-300"  ></span>
+          <span className="absolute inset-0 flex justify-center items-center font-bold">
+          {registerCompleted ? "Multumim, formular a fost trimis! Cat de curand veti fi contactat de cineva din echipa noastra": "INSCRIE-TE ACUM"}
+          </span>
+          {registerCompleted ? "Multumim, formular a fost trimis! Cat de curand veti fi contactat de cineva din echipa noastra": "INSCRIE-TE ACUM"}</button>
+              
+            </form>
         </div>
       </div>
     </div>

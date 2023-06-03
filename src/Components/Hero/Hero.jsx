@@ -5,7 +5,7 @@ import BenefitsCard from "./BenefitsCard";
 import {TbSteeringWheel} from 'react-icons/tb';
 import {FaMotorcycle} from 'react-icons/fa'
 import {useNavigate} from 'react-router-dom'
-
+import Fade from 'react-reveal'
 const Hero = () => {
     const [currentCard,setCurrentCard] = useState(0);
     
