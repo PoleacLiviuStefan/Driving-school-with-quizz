@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "../../Images/logo.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
-import { AiFillCaretRight, AiOutlineDown } from "react-icons/ai";
+import { AiFillCaretRight } from "react-icons/ai";
 import { Link, animateScroll as scroll } from "react-scroll";
 import Fade from 'react-reveal'
 
@@ -40,8 +40,8 @@ const Navbar = () => {
       className={` ${
         scrollValue > 400 || located.pathname !== "/"
           ? "fixed text-black  lg:top-0 "
-          : "fixed lg:absolute text-white  lg:top-[2.5rem]"
-      } bg-white lg:bg-transparent  z-40 flex justify-center items-center   w-full h-[5rem] lg:h-[9rem] px-[3rem] font-lexend`}
+          : "fixed lg:absolute text-white  "
+      } ${localStorage.getItem("modChestionar") && located.pathname ==="/legislatie/chstionare-online" && "hidden"} bg-white lg:bg-transparent  z-40 flex justify-center items-end   w-full h-[5rem] lg:h-[7.5rem] px-[3rem] font-lexend`}
     >
       <div className={`fixed   flex items-center absolute top-0 left-0 h-[1.8rem] w-[150%] bg-white px-[2rem] text-black ${
   (scrollValue > 400 || located.pathname !=="/")

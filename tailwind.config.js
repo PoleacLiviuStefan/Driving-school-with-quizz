@@ -25,6 +25,7 @@ export default {
       'bgHero': "url('/public/Images/bgHero.jpg')",
       'bgRegister': "url('/public/Images/bmwInterior.jpg')",
       'roadBg': "url('/public/Images/roadTexture.jpg')",
+      'chestionareBg': "url('/public/Images/chestionareBg.jpg')",
     }
   },
   keyframes:{

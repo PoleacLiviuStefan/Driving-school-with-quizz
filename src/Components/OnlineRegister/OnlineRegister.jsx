@@ -35,9 +35,9 @@ const OnlineRegister = () => {
   
 
   return (
-    <div className="flex justify-center items-center w-full h-full ">
+    <div className="flex justify-center items-center w-full h-full pb-[10rem] ">
       <div className="relative flex flex-col items-center w-[65rem] h-full ">
-        <div className="relative   bg-bgRegister bg-cover  w-screen h-[32rem]">
+        <div className="relative   bg-bgRegister bg-cover  w-screen h-[32rem] ">
           <div className="flex flex-col items-center justify-center bg-black bg-opacity-[50%] w-full h-full ">
             <div className="relative top-0 left-[1rem] lg:left-0 flex items-center text-[12px] lg:text-[14px] text-white w-full lg:w-[65rem] ">
               <a
