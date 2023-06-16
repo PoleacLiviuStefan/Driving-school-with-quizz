@@ -28,6 +28,7 @@ const ChestionariiOnline = () => {
   const [laterQuestions,setLaterQuestions]=useState([]);
   const [randomNumber,setRandomNumber]=useState(Math.floor(Math.random() * 38) )
   const [timeExpired,setTimerExpired]=useState(false);
+  const [currentLaterQuestion,setCurrentLaterQuestion]=useState(0);
   const passwordInput = useRef(null);
   const comfirmedPasswordInput = useRef(null);
   const checkExistence = (element) => {
@@ -46,7 +47,7 @@ const ChestionariiOnline = () => {
 
   const handleChildValue = (value) => {
     setCurrentQuestionsAnswers(value);
-    console.log(currentQuestionsAsnwers);
+
   };
   const handleChildTimer=(value)=>{
       setTimerExpired(true);
@@ -54,12 +55,12 @@ const ChestionariiOnline = () => {
         setStart(7);
       else if(timeExpired===true && correctAnswers>=22)
         setStart(8);
-      console.log(timeExpired);
+
   }
 
   const checkValueCorrectitude = () => {
     //verificare daca raspunsul este corect
-    console.log(data.questions.correctOptionsExamen[randomNumber]);
+
  
 
     if (currentQuestionsAsnwers.length !== 0) {
@@ -81,7 +82,7 @@ const ChestionariiOnline = () => {
 
       } else {
         setWrongAnswers((prev) => prev + 1);
-        console.log(wrongAnswers);
+   
         if (wrongAnswers === 4) {
           setStart(7);
         }
@@ -99,9 +100,12 @@ const ChestionariiOnline = () => {
             setStart(7);
         }
     }
-    if(questionNumber+laterQuestions.length>=25)
-    { let i=0;
-      setRandomNumber(laterQuestions[i])
+    if((questionNumber+laterQuestions.length>=25 && currentLaterQuestion===0) || (questionNumber+laterQuestions.length>=26 && currentLaterQuestion>0))
+    {  
+      console.log(questionNumber,"intrebarea la care suntem,","si numarul de intrebari ramase",laterQuestions);
+      setRandomNumber(laterQuestions[currentLaterQuestion]);
+      setCurrentLaterQuestion(prev=>prev+1)
+
     }
     else
     {
@@ -113,13 +117,32 @@ const ChestionariiOnline = () => {
     setRandomNumber(currentRandom);
     setUsedQuestionsIndex([...usedQuestionsIndex, currentRandom])
   }
-    console.log(usedQuestionsIndex);
+
     window.scrollTo({ top: 0, left: 0 });
   };
 
   const handleLaterQuestion= () =>{
-      
+
       setLaterQuestions([...laterQuestions, randomNumber]);
+      if(questionNumber+laterQuestions.length>=25)
+      { 
+        const firstIndex=laterQuestions[0];
+
+        console.log(firstIndex);
+        
+        const shiftedArray = [...laterQuestions.slice(1), laterQuestions[0]];
+        console.log(laterQuestions);
+        console.log(shiftedArray);
+        const newArray = [...shiftedArray];
+        newArray[shiftedArray.length-1] = firstIndex;
+        setLaterQuestions(newArray);
+        setRandomNumber(laterQuestions[currentLaterQuestion]);
+     
+     
+  
+      }
+      else
+      {
       let currentRandom=Math.floor(Math.random() * 38)
       while(checkExistence(currentRandom))
       {
@@ -127,7 +150,8 @@ const ChestionariiOnline = () => {
       }
       setRandomNumber(currentRandom);
       setUsedQuestionsIndex([...usedQuestionsIndex, currentRandom])
-      console.log(laterQuestions.length)
+    }
+ 
   }
 
   useEffect(() => {

@@ -30,7 +30,7 @@ const ChestionareOnlineMain = () => {
     </div>
     </Fade>
     </div>
-    <button onClick={()=>{navigate("/legislatie/chstionare-online");window.scrollTo({top:0,left:0})}} className=" flex justify-center items-center mt-[2rem] text-[14px] lg:text-[16px] font-bold border-[2px]  rounded-[25px] border-black w-[15rem] h-[2.7rem] transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:text-white hover:shadow-[0px_0px_26px_-5px_#DC2626]">CHESTIONARE ONLINE<span className='ml-2 text-[20px]'><AiOutlineArrowRight /></span></button>
+    <button onClick={()=>{navigate("/legislatie/chestionare-online");window.scrollTo({top:0,left:0})}} className=" flex justify-center items-center mt-[2rem] text-[14px] lg:text-[16px] font-bold border-[2px]  rounded-[25px] border-black w-[15rem] h-[2.7rem] transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:text-white hover:shadow-[0px_0px_26px_-5px_#DC2626]">CHESTIONARE ONLINE<span className='ml-2 text-[20px]'><AiOutlineArrowRight /></span></button>
    
 </div>
   )
