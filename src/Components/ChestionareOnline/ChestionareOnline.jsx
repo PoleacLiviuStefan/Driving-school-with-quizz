@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AiOutlineRight,
@@ -7,7 +7,7 @@ import {
   AiOutlineEye,
   AiOutlineWarning,
   AiFillCloseCircle,
-  AiFillCheckCircle
+  AiFillCheckCircle,
 } from "react-icons/ai";
 import IntrebariAcomodare from "./IntrebariAcomodare";
 import ReverseTimer from "./ReverseTimer";
@@ -24,11 +24,13 @@ const ChestionariiOnline = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [currentQuestionsAsnwers, setCurrentQuestionsAnswers] = useState([]);
-  const [usedQuestionsIndex,setUsedQuestionsIndex]=useState([])
-  const [laterQuestions,setLaterQuestions]=useState([]);
-  const [randomNumber,setRandomNumber]=useState(Math.floor(Math.random() * 38) )
-  const [timeExpired,setTimerExpired]=useState(false);
-  const [currentLaterQuestion,setCurrentLaterQuestion]=useState(0);
+  const [usedQuestionsIndex, setUsedQuestionsIndex] = useState([]);
+  const [laterQuestions, setLaterQuestions] = useState([]);
+  const [randomNumber, setRandomNumber] = useState(
+    Math.floor(Math.random() * 38)
+  );
+  const [timeExpired, setTimerExpired] = useState(false);
+  const [currentLaterQuestion, setCurrentLaterQuestion] = useState(0);
   const passwordInput = useRef(null);
   const comfirmedPasswordInput = useRef(null);
   const checkExistence = (element) => {
@@ -47,121 +49,113 @@ const ChestionariiOnline = () => {
 
   const handleChildValue = (value) => {
     setCurrentQuestionsAnswers(value);
-
   };
-  const handleChildTimer=(value)=>{
-      setTimerExpired(true);
-      if(timeExpired===true && correctAnswers<22)
-        setStart(7);
-      else if(timeExpired===true && correctAnswers>=22)
-        setStart(8);
-
-  }
+  const handleChildTimer = (value) => {
+    setTimerExpired(true);
+    if (timeExpired === true && correctAnswers < 22) setStart(7);
+    else if (timeExpired === true && correctAnswers >= 22) setStart(8);
+  };
 
   const checkValueCorrectitude = () => {
     //verificare daca raspunsul este corect
 
- 
-
     if (currentQuestionsAsnwers.length !== 0) {
-      if(start===4)
-      {
-        if(JSON.stringify(currentQuestionsAsnwers) ===
-        JSON.stringify(data.questions.correctOptions[questionNumber])) //verificare pentru intrebarile de acomodare
-        setCorrectAnswers((prev) => prev + 1);
-        else
-        setWrongAnswers((prev) => prev + 1);
-      }
-      else if(start===6)
-      {if (
-        JSON.stringify(currentQuestionsAsnwers) ===
-          JSON.stringify(data.questions.correctOptionsExamen[randomNumber]) &&
-        start === 6
-      ) {
-        setCorrectAnswers((prev) => prev + 1);
+      if (start === 4) {
+        if (
+          JSON.stringify(currentQuestionsAsnwers) ===
+          JSON.stringify(data.questions.correctOptions[questionNumber])
+        )
+          //verificare pentru intrebarile de acomodare
+          setCorrectAnswers((prev) => prev + 1);
+        else setWrongAnswers((prev) => prev + 1);
+      } else if (start === 6) {
+        if (
+          JSON.stringify(currentQuestionsAsnwers) ===
+            JSON.stringify(data.questions.correctOptionsExamen[randomNumber]) &&
+          start === 6
+        ) {
+          setCorrectAnswers((prev) => prev + 1);
+        } else {
+          setWrongAnswers((prev) => prev + 1);
 
-      } else {
-        setWrongAnswers((prev) => prev + 1);
-   
-        if (wrongAnswers === 4) {
-          setStart(7);
+          if (wrongAnswers === 4) {
+            setStart(7);
+          }
         }
       }
-    }
       if (questionNumber === 2 && start === 4) {
         setQuestionNumber(0);
         setStart(5);
       } else setQuestionNumber((prev) => prev + 1);
-      if(questionNumber===25)
-        {
-          if(correctAnswers>=22)
-            setStart(8);
-          else
-            setStart(7);
-        }
+      if (questionNumber === 25) {
+        if (correctAnswers >= 22) setStart(8);
+        else setStart(7);
+      }
     }
-    if((questionNumber+laterQuestions.length>=25 && currentLaterQuestion===0) || (questionNumber+laterQuestions.length>=26 && currentLaterQuestion>0))
-    {  
-      console.log(questionNumber,"intrebarea la care suntem,","si numarul de intrebari ramase",laterQuestions);
+    if (
+      (questionNumber + laterQuestions.length == 25 &&
+        currentLaterQuestion === 0) ||
+      (questionNumber + laterQuestions.length == 26 && currentLaterQuestion > 0)
+    ) {
+      console.log(
+        questionNumber,
+        "intrebarea la care suntem,",
+        "si numarul de intrebari ramase",
+        laterQuestions
+      );
       setRandomNumber(laterQuestions[currentLaterQuestion]);
-      setCurrentLaterQuestion(prev=>prev+1)
-
+      setCurrentLaterQuestion((prev) => prev + 1);
+    } else {
+      let currentRandom = Math.floor(Math.random() * 38);
+      while (checkExistence(currentRandom)) {
+        currentRandom = Math.floor(Math.random() * 38);
+      }
+      setRandomNumber(currentRandom);
+      setUsedQuestionsIndex([...usedQuestionsIndex, currentRandom]);
     }
-    else
-    {
-    let currentRandom=Math.floor(Math.random() * 38)
-    while(checkExistence(currentRandom))
-    {
-      currentRandom=Math.floor(Math.random() * 38);
-    }
-    setRandomNumber(currentRandom);
-    setUsedQuestionsIndex([...usedQuestionsIndex, currentRandom])
-  }
 
     window.scrollTo({ top: 0, left: 0 });
   };
 
-  const handleLaterQuestion= () =>{
+  const handleLaterQuestion = () => {
+    if (questionNumber + laterQuestions.length === 26 && currentLaterQuestion===0) 
+    console.log("no later",questionNumber + laterQuestions.length );
+    else {
+    setLaterQuestions([...laterQuestions, randomNumber]);
 
-      setLaterQuestions([...laterQuestions, randomNumber]);
-      if(questionNumber+laterQuestions.length>=25)
-      { 
-        const firstIndex=laterQuestions[0];
+      if (questionNumber + laterQuestions.length === 26) {
+        const firstIndex = laterQuestions[0];
 
         console.log(firstIndex);
-        
+
         const shiftedArray = [...laterQuestions.slice(1), laterQuestions[0]];
         console.log(laterQuestions);
+        console.log(laterQuestions.length)
         console.log(shiftedArray);
         const newArray = [...shiftedArray];
-        newArray[shiftedArray.length-1] = firstIndex;
+        newArray[shiftedArray.length - 1] = firstIndex;
         setLaterQuestions(newArray);
-        setRandomNumber(laterQuestions[currentLaterQuestion]);
-     
-     
-  
+        setRandomNumber(laterQuestions[0]);
+    
+      } else {
+        let currentRandom = Math.floor(Math.random() * 38);
+        while (checkExistence(currentRandom)) {
+          currentRandom = Math.floor(Math.random() * 38);
+        }
+        setRandomNumber(currentRandom);
+        setUsedQuestionsIndex([...usedQuestionsIndex, currentRandom]);
       }
-      else
-      {
-      let currentRandom=Math.floor(Math.random() * 38)
-      while(checkExistence(currentRandom))
-      {
-        currentRandom=Math.floor(Math.random() * 38);
-      }
-      setRandomNumber(currentRandom);
-      setUsedQuestionsIndex([...usedQuestionsIndex, currentRandom])
     }
- 
-  }
+  };
 
   useEffect(() => {
-    if(start===7 || start===8)
-    {const timer = setTimeout(() => {
-      localStorage.setItem("completedQuizz",true);
-      window.location.reload(true);
-
-    }, 5000);
-    return () => clearTimeout(timer);}
+    if (start === 7 || start === 8) {
+      const timer = setTimeout(() => {
+        localStorage.setItem("completedQuizz", true);
+        window.location.reload(true);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
   }, [start]);
   return (
     <div
@@ -375,24 +369,36 @@ const ChestionariiOnline = () => {
           }`}
         >
           <div className=" mx-[2rem] hidden lg:flex flex-col items-center ">
-            Intrebari Initiale:<span className=" text-[18px] lg:text-[24px]">26</span>
+            Intrebari Initiale:
+            <span className=" text-[18px] lg:text-[24px]">26</span>
           </div>
           <div className="flex">
-          <div className="mx-[.5rem] lg:mx-[2rem] flex flex-col items-center">
-            Intrebari Ramase:
-            <span className="text-[20px] lg:text-[24px]">{26 - questionNumber}</span>
-          </div>
-          <span className="mx-[.5rem] lg:mx-[2rem] flex flex-col items-center">
-            Timp Ramas: {start === 6 && <ReverseTimer timerExpiredParent={handleChildTimer} />}{" "}
-          </span>
+            <div className="mx-[.5rem] lg:mx-[2rem] flex flex-col items-center">
+              Intrebari Ramase:
+              <span className="text-[20px] lg:text-[24px]">
+                {26 - questionNumber}
+              </span>
+            </div>
+            <span className="mx-[.5rem] lg:mx-[2rem] flex flex-col items-center">
+              Timp Ramas:{" "}
+              {start === 6 && (
+                <ReverseTimer timerExpiredParent={handleChildTimer} />
+              )}{" "}
+            </span>
           </div>
           <div className="flex">
-          <span className="mx-[.5rem] lg:mx-[2rem] text-green-400">
-            Raspunsuri Corecte:<span className="text-[16px] lg:text-[20px] mx-[.3rem]" >{correctAnswers}</span>
-          </span>
-          <span className="mx-[.5rem] lg:mx-[2rem] text-red-400">
-            Raspunsuri Gresite:<span className="text-[16px] lg:text-[20px] mx-[.3rem]">{wrongAnswers}</span>
-          </span>
+            <span className="mx-[.5rem] lg:mx-[2rem] text-green-400">
+              Raspunsuri Corecte:
+              <span className="text-[16px] lg:text-[20px] mx-[.3rem]">
+                {correctAnswers}
+              </span>
+            </span>
+            <span className="mx-[.5rem] lg:mx-[2rem] text-red-400">
+              Raspunsuri Gresite:
+              <span className="text-[16px] lg:text-[20px] mx-[.3rem]">
+                {wrongAnswers}
+              </span>
+            </span>
           </div>
         </div>
         <div
@@ -404,7 +410,7 @@ const ChestionariiOnline = () => {
             onClick={handleLaterQuestion}
             className={`mx-[2rem] w-[12rem] h-[4rem] shadow-md ${
               start !== 6 && "hidden"
-            }`}
+            } ${(questionNumber+laterQuestions.length==26 && currentLaterQuestion===0)  && "text-gray-400" }`}
           >
             Raspunde Mai Tarziu
           </button>
@@ -415,7 +421,9 @@ const ChestionariiOnline = () => {
               currentQuestionsAsnwers.length !== 0
                 ? "text-white bg-green-400"
                 : "text-gray-400"
-            }`}
+            }
+            
+            `}
           >
             Trimite Raspunsul
           </button>
@@ -438,12 +446,14 @@ const ChestionariiOnline = () => {
             start !== 8 && "hidden"
           } text-center h-screen`}
         >
-            <span className="text-[86px] lg:text-[148px] text-green-500"><AiFillCheckCircle />
-            </span>
-            <p className="mt-[2rem] text-[18px] lg:text-[28px] lg:w-[50rem] font-bold">
-              Felicitari! Ati promovat examenul teoretic cu un punctaj final de {correctAnswers} raspunsuri corecte
-            </p>
-          </div>
+          <span className="text-[86px] lg:text-[148px] text-green-500">
+            <AiFillCheckCircle />
+          </span>
+          <p className="mt-[2rem] text-[18px] lg:text-[28px] lg:w-[50rem] font-bold">
+            Felicitari! Ati promovat examenul teoretic cu un punctaj final de{" "}
+            {correctAnswers} raspunsuri corecte
+          </p>
+        </div>
       </div>
     </div>
   );
