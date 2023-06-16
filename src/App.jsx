@@ -30,6 +30,7 @@ function App() {
   const [loadingScreen,setLoadingScreen]=useState(true);
   const located=useLocation();
   const [hideLoading,setHideLoading]=useState(false);
+  localStorage.setItem("completedQuizz",false);
   useEffect(()=>{ 
    setLoadingScreen(true);
     const timer=setTimeout(()=>{
@@ -49,8 +50,11 @@ function App() {
 }, []);
 
   useEffect(()=>{
-      if(located.pathname!="/legislatie/chstionare-online")
-        localStorage.setItem("modChestionar",false);
+      if(located.pathname!="/legislatie/chestionare-online")
+       { localStorage.setItem("modChestionar",false);
+        localStorage.setItem("completedQuizz",false)
+  }
+
   },[located.pathname])
   return (
     <div className='font-montSerrat'>
@@ -79,7 +83,7 @@ function App() {
         <Route path="/servicii/conducere-defensiva" element={<DefensiveDriving />} />
         <Route path="/servicii/perfectionare-moto" element={<PerfectionareMoto />} />
         <Route path="/servicii/curs-cu-masina-personala" element={<PersonalVechicleCourse />} />
-        <Route path="/legislatie/chstionare-online" element={<ChestionareOnline />} />
+        <Route path="/legislatie/chestionare-online" element={<ChestionareOnline />} />
         <Route path="/noutati" element={<News />} />
         <Route path="/galerie" element={<Galery />} />
 

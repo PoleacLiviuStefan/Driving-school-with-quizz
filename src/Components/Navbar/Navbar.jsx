@@ -41,7 +41,7 @@ const Navbar = () => {
         scrollValue > 400 || located.pathname !== "/"
           ? "fixed text-black  lg:top-0 "
           : "fixed lg:absolute text-white  "
-      } ${localStorage.getItem("modChestionar") && located.pathname ==="/legislatie/chstionare-online" && "hidden"} bg-white lg:bg-transparent  z-40 flex justify-center items-end   w-full h-[5rem] lg:h-[7.5rem] px-[3rem] font-lexend`}
+      } ${localStorage.getItem("modChestionar") && located.pathname ==="/legislatie/chestionare-online" && "hidden"} bg-white lg:bg-transparent  z-40 flex justify-center items-end   w-full h-[5rem] lg:h-[7.5rem] px-[3rem] font-lexend`}
     >
       <div className={`fixed   flex items-center absolute top-0 left-0 h-[1.8rem] w-[150%] bg-white px-[2rem] text-black ${
   (scrollValue > 400 || located.pathname !=="/")
@@ -190,7 +190,7 @@ const Navbar = () => {
         <li
           className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 `}
           onClick={() => {
-            navigate("/legislatie/chstionare-online");
+            navigate("/legislatie/chestionare-online");
             window.scrollTo({ top: 0, left: 0 });
           }}
         >
@@ -403,7 +403,7 @@ const Navbar = () => {
             </li>
             <li
               onClick={() => {
-                navigate("/legislatie/chstionare-online");
+                navigate("/legislatie/chestionare-online");
                 window.scrollTo({top:0,left:0});
                 setShowMobileMenu(false);
               }}

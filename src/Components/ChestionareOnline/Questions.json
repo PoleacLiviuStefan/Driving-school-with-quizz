@@ -1,23 +1,312 @@
 {
   "questions": {
-    "title": [
+    "Acomodare": [
       "1+1 = ?",
       "Cate minute sunt intr-o ora ?",
       "Care din urmatoarele alimente sunt fructe?"
+    ],
+    "examenCategoriaB": [
+      "La ce distanţă de trecerea la nivel cu calea ferată sunt instalate panourile suplimentare de avertizare?", 
+      "Braţul stâng, întins orizontal, al poliţistului semnifică oprire pentru:", 
+      "La semnalul poliţistului situat într-o intersecţie, cu braţul ridicat vertical, aveţi obligaţia:?", 
+      "Ce semnificaţie are, după coborârea braţelor, poziţia corpului unui poliţist care dirijează circulaţia, pentru participanţii la trafic care circulă din faţa şi spatele său?", 
+      "Rotirea vioaie a braţului poliţistului semnifică:", 
+      "Semnalul poliţistului rutier aflat într-un autovehicul al poliţiei, efectuat cu braţul, cu sau fără baston reflectorizant, scos pe partea laterală dreaptă a vehiculului, semnifică:", 
+      "Braţul drept, întins orizontal, al poliţistului indică „Oprire“ pentru:", 
+      "Ce obligaţii aveţi la semnalul membrilor patrulelor şcolare de circulaţie, la trecerile pentru pietoni din apropierea unităţilor de învăţământ?", 
+      "Semnalele date dintr-un autovehicul al poliţiei, care însoţeşte o coloană oficială de vehicule, prin folosirea mijloacelor speciale de avertizare sonoră şi luminoasă, obligă la:", 
+      "Cum procedaţi la semnalul poliţistului cu braţul ridicat vertical?", 
+      "Scoaterea, pe partea laterală din dreapta, a bastonului reflectorizant de către poliţistul care însoţeşte o coloană oficială de autovehicule obligă conducătorii care circulă în spatele acesteia:", 
+      "Ce vehicule au voie să pătrundă în intersecţie la culoarea roşie a semaforului?", 
+      "Câte corpuri de iluminat are semaforul care se adresează pietonilor şi bicicliştilor?", 
+      "Semnalul luminos intermitent de culoare albă, având cadenţa lentă, funcţionează:", 
+      "Cum procedaţi când vă apropiaţi de o intersecţie unde, în afara semaforului care are în funcţiune semnalul de culoare verde, întâlniţi şi indicatorul „Cedează trecerea“?", 
+      "Semnalul verde al semaforului permite deplasarea:", 
+      "Semnalul galben intermitent al semaforului vă avertizează că:", 
+      "Ce măsuri trebuie să luaţi atunci când circulaţi în condiţii atmosferice ce împiedică mult vizibilitatea?", 
+      "Ce se înţelege prin distanţa de 100 m pentru semnalizarea schimbării direcţiei de mers în afara localităţii?", 
+      "Cât timp trebuie menţinută semnalizarea schimbării direcţiei de mers?", 
+      "În care dintre situaţii se poate folosi semnalizarea cu mijloace de avertizare sonoră într-o localitate în care claxonatul este interzis?", 
+      "Schimbarea direcţiei de mers spre stânga, într-o intersecţie neprevăzută cu marcaje de ghidare, se face:", 
+      "Un tramvai aflat în mers poate fi depăşit de regulă:", 
+      "Unde trebuie să aşteptaţi dacă vă aflaţi la o trecere de cale ferată cu bariera coborâtă?", 
+      "La calea ferată curentă prevăzută cu bariere, atunci când semnalele sonore şi luminoase de culoare roşie sunt în funcţiune, sunteţi avertizat că:", 
+      "Vă apropiaţi de o trecere peste calea ferată şi observaţi că se coboară semibariera Cum procedaţi?", 
+      "Ce obligaţii aveţi la semnalele agenţilor căilor ferate, plasaţi la trecerea la nivel cu o cale ferată?", 
+      "Când este permisă trecerea la nivel cu o cale ferată fără bariere, prevăzută cu semnalizare luminoasă, dacă tocmai a trecut un tren?", 
+      "Dacă la trecerea la nivel cu calea ferată constataţi că un vehicul este imobilizat pe calea ferată, cum veţi proceda?", 
+      "În care dintre situaţii oprirea este interzisă?", 
+      "În care dintre situaţii oprirea este interzisă:", 
+      "În care dintre situaţii este interzisă oprirea?", 
+      "Oprirea este interzisă:", 
+      "În care dintre situaţii este interzisă oprirea?", 
+      "Unde vă este permisă staţionarea pe partea stângă în direcţia de mers?", 
+      "Pe ce drumuri sunt permise oprirea şi staţionarea vehiculelor şi pe partea stângă, în sensul de mers?", 
+      "Cum veţi parca regulamentar într-o piaţă cu sens giratoriu?",
+      "Căror categorii de autovehicule le este interzis să circule pe autostradă?", 
+      "Pe o autostradă cu trei benzi, s-a blocat circulaţia Pe unde vor circula vehiculele de intervenţie?",
+      "Este permisă pătrunderea pe racordurile dintre cele două părţi carosabile ale unei autostrăzi?" 
+    ],
+    "correctOptionsExamen": [
+      [2],
+      [0],
+      [2],
+      [2],
+      [0],
+      [0],
+      [1],
+      [2],
+      [1],
+      [0],
+      [1],
+      [0],
+      [0],
+      [0],
+      [0],
+      [0],
+      [0],
+      [2],
+      [1],
+      [1],
+      [2],
+      [2],
+      [2],
+      [1],
+      [1],
+      [1],
+      [1],
+      [0],
+      [2],
+      [0,2],
+      [1],
+      [0],
+      [0],
+      [0],
+      [1],
+      [1],
+      [2],
+      [0,2],
+      [0],
+      [0]
+    ],
+    "answersExamen":[
+      [
+        ["A", "primul la 90 m, al doilea la 60 m şi al treilea la 30 m;"],
+        ["B", "primul la 200 m, al doilea la 150 m şi al treilea la 100 m;"],
+        ["C", "primul la 150 m, al doilea la 100 m şi al treilea la 50 m."]
+      ],  
+      [
+        ["A", "vehiculele care vin din faţă;"],
+        ["B", "vehiculele care vin din spate;"],
+        ["C", "vehiculele care vin din faţă şi din spate."]
+      ], 
+      [
+        ["A", "să circulaţi cu prudenţă maximă;"],
+        ["B", "să reduceţi viteza;"],
+        ["C", "să opriţi, indiferent din ce direcţie circulaţi."]
+      ], 
+      [
+        ["A", "nicio semnificaţie;"],
+        ["B", "permisiunea de a circula;"],
+        ["C", "oprire."]
+      ],
+      [
+        ["A", "mărirea vitezei de deplasare sau grăbirea traversării drumului de către pietoni;"],
+        ["B", "oprirea temporară a circulaţiei;"],
+        ["C", "reducerea vitezei de deplasare."]
+      ],
+      [
+        ["A", "oprire pentru conducătorii vehiculelor care circulă în spatele autovehiculului poliţiei;"],
+        ["B", "reducerea vitezei de către cei care circulă în spatele autovehiculului poliţiei;"],
+        ["C", "semnalul se adresează celor care circulă din sens opus."]
+      ], 
+      [
+        ["A", "vehiculele şi pietonii care vin din faţă;"],
+        ["B", "vehiculele şi pietonii care vin din spate;"],
+        ["C", "vehiculele şi pietonii care vin din faţă şi din spate."]
+      ],
+      [
+        ["A", "să reduceţi viteza şi să circulaţi cu atenţie;"],
+        ["B", "să treceţi pe banda de lângă axul drumului;"],
+        ["C", "să opriţi."]
+      ],
+      [
+        ["A", "părăsirea drumului pe prima stradă la dreapta;"],
+        ["B", "oprirea, de îndată, în afara părţii carosabile sau cât mai aproape de bordură ori acostament, până la trecerea coloanei;"],
+        ["C", "reducerea vitezei şi deplasarea cât mai aproape de bordură sau acostament."]
+      ],
+      [
+        ["A", "opriţi, indiferent din ce direcţie vă apropiaţi, şi aşteptaţi următorul său semnal;"],
+        ["B", "reduceţi viteza şi circulaţi în direcţia permisă de poziţia braţului;"],
+        ["C", "reduceţi viteza şi îl ocoliţi."]
+      ], 
+
+      [
+        ["A", "să reducă imediat viteza şi să circule cât mai aproape de marginea drumului;"],
+        ["B", "să oprească cât mai aproape de marginea drumului, iar acolo unde este posibil, să scoată vehiculul în afara părţii carosabile;"],
+        ["C", "să reducă viteza şi să iasă în afara drumului imediat ce este posibil, prin viraj la dreapta."]
+      ], 
+      [
+        ["A", "niciun vehicul, cu excepţia celor destinate stingerii incendiilor, ale ambulanţei şi ale poliţiei, când se deplasează în acţiuni de intervenţie sau în misiuni care impun urgenţă;"],
+        ["B", "autovehiculele care virează la stânga;"],
+        ["C", "autovehiculele poliţiei şi cele care execută virajul la stânga."]
+      ], 
+      [
+        ["A", "două corpuri;"],
+        ["B", "trei corpuri;"],
+        ["C", "patru corpuri."]
+      ], 
+
+      [
+        ["A", "pe timpul cât semnalele luminoase de culoare roşie de la trecerea la nivel cu calea ferată sunt stinse;"],
+        ["B", "pe timpul cât semnalele luminoase ale semaforului defect sunt stinse;"],
+        ["C", "pe timpul cât barierele ori semibarierele sunt în curs de coborâre sau de ridicare."]
+      ], 
+      
+      [
+        ["A", "respectaţi semnificaţia culorii semaforului;"],
+        ["B", "respectaţi semnificaţia indicatorului rutier;"],
+        ["C", "respectaţi semnificaţia semaforului şi acordaţi prioritate de trecere vehiculelor care circulă pe drumul prioritar."]
+      ], 
+      [
+        ["A", "pe oricare direcţie, dacă printr-un mijloc de semnalizare nu se dispune altfel;"],
+        ["B", "numai pe direcţia înainte;"],
+        ["C", "pe oricare direcţie, dacă vehiculul se află pe banda din mijloc."]
+      ],
+      [
+        ["A", "sunteţi obligat să respectaţi regulile de circulaţie aplicabile în acea intersecţie;"],
+        ["B", "vă este interzisă intrarea în intersecţie;"],
+        ["C", "semaforul este defect"]
+      ], 
+      [
+        ["A", "să circulaţi pe distanţe scurte şi cu luminile de poziţie în funcţiune;"],
+        ["B", "să folosiţi luminile de poziţie şi să circulaţi cât mai aproape de marginea din dreapta a drumului;"],
+        ["C", "să folosiţi luminile de întâlnire."]
+      ], 
+      [
+        ["A", "distanţa faţă de vehiculul care circulă din spate;"],
+        ["B", "distanţa parcursă din momentul semnalizării intenţiei de a efectua manevra şi locul unde se produce schimbarea direcţiei de mers;"],
+        ["C", "distanţa faţă de locul terminării manevrei de depăşire."]
+      ], 
+      [
+        ["A", "10 secunde de la începerea manevrei;"],
+        ["B", "pe întreaga durată a executării manevrei;"],
+        ["C", "legea nu prevede nimic cu privire la acest aspect."]
+      ], 
+      [
+        ["A", "la trecerile pentru pietoni;"],
+        ["B", "în intersecţiile nedirijate;"],
+        ["C", "ori de câte ori este necesar, pentru evitarea unui pericol imediat."]
+      ], 
+      [
+        ["A", "prin ocolirea centrului imaginar al intersecţiei;"],
+        ["B", "prin stânga centrului imaginar al intersecţiei, fără a intersecta traiectoria celor care se deplasează din sens opus şi care virează la stânga;"],
+        ["C", "la libera înţelegere cu cei care se deplasează din sens opus."]
+      ], 
+      [
+        ["A", "pe oricare parte;"],
+        ["B", "pe partea stângă;"],
+        ["C", "pe partea dreaptă."]
+      ], 
+      [
+        ["A", "la panoul cu două dungi;"],
+        ["B", "în faţa indicatorului în cruce;"],
+        ["C", "în faţa barierei."]
+      ],
+      [
+        ["A", "instalaţia de închidere şi deschidere a barierelor nu funcţionează normal;"],
+        ["B", "trenul se apropie, urmând ca barierele să se închidă automat;"],
+        ["C", "trebuie să traversaţi de urgenţă calea ferată."]
+      ], 
+      [
+        ["A", "acceleraţi şi treceţi cât mai repede peste calea ferată;"],
+        ["B", "opriţi în faţa semibarierei;"],
+        ["C", "dacă nu se apropie trenul, ocoliţi semibariera."]
+      ], 
+      [
+        ["A", "nicio obligaţie, deoarece agenţii căilor ferate dirijează garniturile de tren;"],
+        ["B", "să vă conformaţi semnificaţiei semnalelor acestora;"],
+        ["C", "să reduceţi viteza, să vă asiguraţi, iar, dacă trenul nu este în mişcare, puteţi să continuaţi traversarea căii ferate cu atenţie."]
+      ], 
+      [
+        ["A", "după ce s-a stins lumina roşie intermitentă;"],
+        ["B", "după ce a trecut ultimul vagon;"],
+        ["C", "atunci când pleacă vehiculele aflate de cealaltă parte a căii ferate."]
+      ], 
+      [
+        ["A", "vă continuaţi drumul, deoarece degajarea căii ferate se va face de către personalul calificat;"],
+        ["B", "opriţi şi anunţaţi telefonic poliţia despre acest incident;"],
+        ["C", "acordaţi sprijin pentru scoaterea vehiculului de pe calea ferată sau, dacă nu este posibil, semnalaţi prezenţa acestuia."]
+      ], 
+      [
+        ["A", "în zona de acţiune a indicatorului care interzice depăşirea;"],
+        ["B", "pe străzile unde circulaţia se desfăşoară în sens unic;"],
+        ["C", "în dreptul altui vehicul care se află oprit, dacă prin aceasta se stânjeneşte circulaţia a două vehicule venind din sensuri opuse."]
+      ],
+      [
+        ["A", "pe străzile cu sens unic;"],
+        ["B", "în intersecţiile cu sens giratoriu;"],
+        ["C", "în dreptul indicatorului 'Parcarea interzisă'."]
+      ], 
+      [
+        ["A", "la o distanţă mai mică de 25 m înainte şi după indicatorul de staţie pentru mijloacele de transport public de persoane;"],
+        ["B", "la o distanţă mai mică de 25 m de colţul intersecţiei;"],
+        ["C", "la o distanţă de 5 m în spatele ultimului vagon de tramvai oprit într-o staţie fără refugiu pentru pietoni."]
+      ], 
+      [
+        ["A", "la o distanţă mai mică de 25 m de colţul intersecţiei;"],
+        ["B", "pe drumul cu sens unic;"],
+        ["C", "la o distanţă de 5 m în spatele ultimului vagon de tramvai oprit în staţia fără refugiu pentru pietoni."]
+      ], 
+      [
+        ["A", "în curbe şi pe sectoarele de drum cu vizibilitate redusă sub 50 m;"],
+        ["B", "la mai puţin de 50 m de cel mai apropiat colţ al intersecţiei;"],
+        ["C", "în zona de acţiune a indicatorului „Staţionarea interzisă“."]
+      ], 
+      [
+        ["A", "pe străzile cu sens unic;"],
+        ["B", "în nicio situaţie;"],
+        ["C", "pe şoselele cu bandă laterală consolidată."]
+      ], 
+      [
+        ["A", "pe drumurile cu trafic redus;"],
+        ["B", "pe drumurile cu sens unic, dacă rămâne liberă cel puţin o bandă de circulaţie;"],
+        ["C", "pe orice drum."]
+      ], 
+      [
+        ["A", "paralel cu bordura trotuarului şi cât mai aproape de aceasta;"],
+        ["B", "parţial pe trotuar;"],
+        ["C", "în acest loc nu este permisă parcarea."]
+      ], 
+      [
+        ["A", "celor care, prin construcţie, nu pot depăşi viteza de 50 km/oră;"],
+        ["B", "motocicletelor cu şi fără ataş;"],
+        ["C", "tractoarelor şi maşinilor agricole autopropulsate."]
+      ], 
+      [
+        ["A", "pe banda de urgenţă;"],
+        ["B", "între banda din stânga şi banda din mijloc;"],
+        ["C", "între banda din dreapta şi banda din mijloc."]
+      ], 
+      [
+        ["A", "nu;"],
+        ["B", "da, pentru oprire în caz de urgenţă;"],
+        ["C", "da, pentru întoarcere, în zona intersecţiilor."]
+      ] 
     ],
     "correctOptions": [
       [2],
       [3],
       [0, 1, 4]
     ],
-    "answers": [
+
+    "answersAcomodare": [
       [
         ["A", "6"],
         ["B", "10"],
         ["C", "2"],
         ["D", "15"],
-        ["E", "13"],
-        ["F", "15"]
+        ["E", "13"]
       ],
       [
         ["A", "10"],
@@ -34,5 +323,6 @@
         ["E", "Pruna"]
       ]
     ]
+
   }
 }
