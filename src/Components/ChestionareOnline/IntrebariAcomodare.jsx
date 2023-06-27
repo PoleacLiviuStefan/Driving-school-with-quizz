@@ -55,7 +55,7 @@ import data from "./Questions";
 
 const IntrebariAcomodare = ({ start, checkedAnswers, currentQuestion,randomNumber }) => {
   const [selectedAnswer, setSelectedAnswer] = useState([]);
-
+  const motoimages=[motoimg1,motoimg2,motoimg3,motoimg4,motoimg5,motoimg6,motoimg7,motoimg8,motoimg9,motoimg10,motoimg11,motoimg12,motoimg13,motoimg14,motoimg15,motoimg16,motoimg17,motoimg18,motoimg19,motoimg20,motoimg21,motoimg22,motoimg23,motoimg24,motoimg25,motoimg26,motoimg27,motoimg28,motoimg29,motoimg30,motoimg31,motoimg32,motoimg33,motoimg34,motoimg35,motoimg36,motoimg37,motoimg38,motoimg39,motoimg40,motoimg41,motoimg42,motoimg43,motoimg44,motoimg45,motoimg46,motoimg47]
   const checkExistence = (element) => {
     return selectedAnswer.includes(element);
   };
@@ -159,7 +159,7 @@ const IntrebariAcomodare = ({ start, checkedAnswers, currentQuestion,randomNumbe
       }`}
     >
       <h4>{data.questions.examenCategoriaA[randomNumber]}</h4>
-      <img className= {`w-[400px] ${start===4 && "hidden"}`} src={randomNumber>0 && eval("motoimg" + randomNumber)}></img>
+      <img className= {`w-[400px] ${start===4 && "hidden"}`} src={randomNumber>0 && motoimages[randomNumber]}></img>
       {data.questions.answersExamenCategoriaA[randomNumber].map((answerOption, answerIndex) => (
         <div
           key={answerIndex}

@@ -183,6 +183,7 @@ const ChestionariiOnline = () => {
 
   const checkValueCorrectitude = () => {
     //verificare daca raspunsul este corect
+    console.log(randomNumber)
     const maxQuestions = start === 6 ? 25 : start === 11 && 19;
     if (currentQuestionsAsnwers.length !== 0) {
       if (start === 4) {
