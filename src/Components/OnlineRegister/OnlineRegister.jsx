@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { AiOutlineRight, AiOutlineCloseCircle,AiOutlineCheck } from "react-icons/ai";
+import emailjs from '@emailjs/browser'
 
 const OnlineRegister = () => {
   const navigate = useNavigate();
@@ -33,7 +34,19 @@ const OnlineRegister = () => {
       setCheckedCategory(allElements=> [...allElements, element]);
   }
   
-
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log("da");
+    emailjs.sendForm('service_d9r6rus', 'template_ytabuau', form.current,'RUXGR3wPf5KOMGSuu')
+      .then((result) => {
+        console.log("mesaj trimis")
+         
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+  
   return (
     <div className="flex justify-center items-center w-full h-full pb-[10rem] ">
       <div className="relative flex flex-col items-center w-[65rem] h-full ">
@@ -65,15 +78,16 @@ const OnlineRegister = () => {
             COMPLETEAZA FORMULARUL URMATOR SI NE VEDEM DIRECT LA ORE
           </h3>
           <h4 className="text-[18px] font-bold">1.Completeaza cu datele personale toate campurile de mai jos</h4>
-          <form
-            className="mt-[1rem] flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
+
+          <form ref={form} onSubmit={sendEmail}
+            className="mt-[1rem] flex flex-col items-center  bg-white p-[1rem] w-full h-full"
+          
           >
+            <div className=" flex flex-col items-center  lg:grid lg:grid-cols-3">
             <div className="mt-[2rem] lg:mt-0 flex flex-col text-left group">
               <label className="">Nume</label>
               <input
+                name="user_firstName"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -81,6 +95,7 @@ const OnlineRegister = () => {
             <div className="mt-[2rem] lg:mt-0 flex flex-col text-left group">
               <label className="">Prenume</label>
               <input
+              name="user_lastName"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -88,6 +103,7 @@ const OnlineRegister = () => {
             <div className="mt-[2rem] lg:mt-0 flex flex-col text-left group">
               <label className="">Prenumele Tatalui</label>
               <input
+                name="user_fatherName"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -95,6 +111,7 @@ const OnlineRegister = () => {
             <div className=" mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Prenumele Mamei</label>
               <input
+                name="user_motherName"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -102,50 +119,15 @@ const OnlineRegister = () => {
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">CNP*</label>
               <input
+                name="user_CNP"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="number"
-              ></input>
-            </div>
-            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
-              <label className="">Sex</label>
-              <select className="mt-[1rem] w-[18rem]">
-                <option>Alege din lista</option>
-                <option>Masculin</option>
-                <option>Feminin</option>
-                <option>Altul</option>
-              </select>
-            </div>
-            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
-              <label className="">Data de Nastere</label>
-              <input
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
-                type="number"
-              ></input>
-            </div>
-            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
-              <label className="">Tara Nasterii</label>
-              <input
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
-                type="text"
-              ></input>
-            </div>
-            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
-              <label className="">Judetul</label>
-              <input
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
-                type="text"
-              ></input>
-            </div>
-            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
-              <label className="">Localitate/Sector</label>
-              <input
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
-                type="text"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Serie</label>
               <input
+                name="user_IdSeries"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -153,6 +135,7 @@ const OnlineRegister = () => {
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Numar</label>
               <input
+                name="user_IdNumber"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -160,6 +143,7 @@ const OnlineRegister = () => {
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Emis de</label>
               <input
+                name="user_IdTransmitter"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -167,6 +151,7 @@ const OnlineRegister = () => {
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Emis la</label>
               <input
+                name="user_IdIssuedAt"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -174,10 +159,54 @@ const OnlineRegister = () => {
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label className="">Expira la</label>
               <input
+              name="user_expireDate"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
+            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+              <label className="">Sex</label>
+              <select name="user_gender" className="mt-[1rem] w-[18rem]">
+                <option>Alege din lista</option>
+                <option value="Masculin">Masculin</option>
+                <option value="Feminin">Feminin</option>
+                <option value="Altul">Altul</option>
+              </select>
+            </div>
+            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+              <label className="">Data de Nastere</label>
+              <input
+                name="user_birthDate"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="number"
+              ></input>
+            </div>
+            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+              <label className="">Tara Nasterii</label>
+              <input
+                name="user_nationality"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text"
+              ></input>
+            </div>
+            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+              <label className="">Judetul</label>
+              <input
+                name="user_county"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text"
+              ></input>
+            </div>
+            <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
+              <label className="">Localitate/Sector</label>
+              <input
+                name="user_city"
+                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                type="text"
+              ></input>
+            </div>
+         
+          
             
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col w-[90%] text-left group">
               <label className="lg:w-[25rem]">
@@ -231,7 +260,7 @@ const OnlineRegister = () => {
                   );
                 })}
               </div>
-
+             
               <ul
                 className={` flex flex-row mt-[.5rem]  bg-white shadow-xl  ${
                   !showCategories && "hidden"
@@ -347,16 +376,17 @@ const OnlineRegister = () => {
                 </li>
               </ul>
             </div>
-          </form>
+            <input name="user_categories" className="hidden" value={selectCategory.toString()}/>
+            </div>
+         
           <h4 className="mt-[2rem] text-[18px] w-[90%] lg:w-full font-bold">2.Completeaza cu datele cu datele de contact pentru ca noi sa putem lua legatura</h4>
-          <form    className="mt-[1rem] flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}>
+          <div   className="mt-[1rem] flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full"
+          >
               
               <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
             <label>Email</label>
             <input
+                name="user_email"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
@@ -364,6 +394,7 @@ const OnlineRegister = () => {
               <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
               <label>Telefon</label>
               <input
+                name="user_phone"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" required
               ></input>
@@ -371,35 +402,42 @@ const OnlineRegister = () => {
               <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
                  <label>Adresa</label>
                  <input
+                 name="user_street"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" placeholder="STRADA" required
               ></input>
               </div>
               <input
+                 name="user_adressNumber"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" placeholder="NUMAR" required
               ></input>
                  <input
+                 name="user_bloc"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" required
                 placeholder="BLOC"
               ></input>
                  <input
+                 name="user_scara"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" placeholder="SCARA" required
                 
               ></input>
                  <input
+                 name="user_etaj"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" placeholder="ETAJ" required
               ></input>
                <input
+               name="user_apartament"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" placeholder="APARTAMENT" required
               ></input>
              
                   
                  <input
+                 name="user_localitate"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" 
                 placeholder="LOCALITATE"
@@ -408,6 +446,7 @@ const OnlineRegister = () => {
               <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
                 <label>Judet/Sector</label>
                  <input
+                 name="user_judet"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" 
               ></input>
@@ -415,17 +454,17 @@ const OnlineRegister = () => {
               <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
                 <label>Tara</label>
                  <input
+                 name="user_tara"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" defaultValue="Romania"
               ></input>
               </div>
-          </form>
+          </div>
           <h4 className="mt-[3rem] text-[18px] font-bold">3. Alege categoriile pe care le doresti</h4>
-          <form    className="relative mt-[1rem] flex flex-col  items-center  bg-white p-[1rem] w-[90%] lg:w-full h-[20rem]"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}>
+          <div    className="relative mt-[1rem] flex flex-col  items-center  bg-white p-[1rem] w-[90%] lg:w-full h-[20rem]"
+            >
               <div className="flex flex-col lg:flex-row w-full justify-between">
+                <input name="user_categoriiDorite" value={generalCategory.toString()} className="hidden"  />
               <select ref={generalCategory} onChange={()=>setCategory(generalCategory.current.value)}  className="w-[20rem] h-[2rem] border-[1px] border-red-600 focus:outline-none text-center font-bold">
                 <option value="Categoria A1">Categoria A1</option>
                 <option value="Categoria A2">Categoria A2</option>
@@ -570,6 +609,7 @@ const OnlineRegister = () => {
           </span>
           {registerCompleted ? "Multumim, formular a fost trimis! Cat de curand veti fi contactat de cineva din echipa noastra": "INSCRIE-TE ACUM"}</button>
               
+            </div>
             </form>
         </div>
       </div>

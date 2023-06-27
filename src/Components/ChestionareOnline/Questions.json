@@ -5,6 +5,421 @@
       "Cate minute sunt intr-o ora ?",
       "Care din urmatoarele alimente sunt fructe?"
     ],
+    "pozeExamenCategoriaB":[
+      "indicator1",
+      "indicator2",
+      "indicator3"
+      
+    ],
+    "pozeExamenCategoriaA":[
+      "motoimg1",
+      "motoimg2",
+      "motoimg3",
+      "motoimg4",
+      "motoimg5",
+      "motoimg6",
+      "motoimg7",
+      "motoimg8",
+      "motoimg9",
+      "motoimg10",
+      "motoimg11",
+      "motoimg12",
+      "motoimg13",
+      "motoimg14",
+      "motoimg15",
+      "motoimg16",
+      "motoimg17",
+      "motoimg18",
+      "motoimg19",
+      "motoimg20",
+      "motoimg21",
+      "motoimg22",
+      "motoimg23",
+      "motoimg24",
+      "motoimg25",
+      "motoimg26",
+      "motoimg27",
+      "motoimg28",
+      "motoimg29",
+      "motoimg30",
+      "motoimg31",
+      "motoimg32",
+      "motoimg33",
+      "motoimg34",
+      "motoimg35",
+      "motoimg36",
+      "motoimg37",
+      "motoimg38",
+      "motoimg39",
+      "motoimg40",
+      "motoimg41",
+      "motoimg42",
+      "motoimg43",
+      "motoimg44",
+      "motoimg45",
+      "motoimg46",
+      "motoimg47"
+    ],
+    "examenCategoriaA":[
+          "Aveţi posibilitatea de a trece pe sensul opus de mers, la întâlnirea unui astfel de marcaj rutier?",
+          "Ce semnificaţie are marcajul din imagine?",
+          "Ce semnificaţie au panourile alăturate?",
+          "Care dintre indicatoarele din imagine semnalizează o staţie de tramvai?",
+          "Ce obligaţii aveţi la întâlnirea indicatorului?",
+          "Indicatorul semnifică:",
+          "Ce trebuie să faceţi când întâlniţi indicatorul din imagine?",
+          "Indicatorul din imagine avertizează că:",
+          "Panoul alăturat indică:",
+          "Ce vă avertizează indicatorul din imagine însoţit de panoul adiţional?",
+          "Care dintre indicatoare se adresează motocicliştilor?",
+          "Indicatorul din imagine interzice:",
+          "Ce obligaţii are un motociclist atunci când vrea să execute o depăşire?",
+          "Semnificaţia acestui indicator este:",
+          "Cum trebuie să procedaţi la întâlnirea acestui indicator:",
+          "În cazul în care autocamionul se deplasează cu o viteză mai mică de 40 km/h, poate fi depăşit de motocicletă pe partea dreaptă?",
+          "Care este semnificaţia indicatorului însoţit de panoul adiţional?",
+          "Ce semnificaţie are indicatorul alăturat?",
+          "Ce semnificaţie are indicatorul alăturat?",
+          "Indicatorul din imagine vă anunţă că:",
+          "Indicatorul din imagine semnifică:",
+          "Cine are prioritate de trecere în intersecţia din imagine?",
+          "Care dintre cele două indicatoare obligă la schimbarea direcţiei de mers spre dreapta, după depăşirea locului unde este instalat?",
+          "Ce semnificaţie are indicatorul din imagine?",
+          "Indicatorul din imaginea următoare vă avertizează că:",
+          "Ce semnificaţie are indicatorul din imagine?",
+          "Ce semnifică indicatorul?",
+          "Indicatorul vă avertizează că:",
+          "Ce semnifică indicatorul?",
+          "Care este semnificaţia indicatorului din imagine?",
+          "În ce locuri întâlniţi acest indicator?",
+          "La întâlnirea indicatorului aveţi obligaţia:",
+          "Ce indicator urmează să fie întâlnit în intersecţia aflată la 100 m de indicatorul 1?",
+          "Care este semnificaţia indicatorului din imagine?",
+          "Ce semnifică indicatorul din imagine?",
+          "Ce semnificaţie are un astfel de marcaj rutier?",
+          "Ce interzice indicatorul din imagine?",
+          "Indicatorul din imagine semnifică:",
+          "Conduita ecologică în conducerea unei motociclete înseamnă:",
+          "Care este semnificaţia indicatorului din imagine?",
+          "Ce semnificaţie are un astfel de marcaj rutier?",
+          "Ce semnificaţie are indicatorul din imagine?",
+          "Ce obligaţie aveţi când întâlniţi indicatorul din imagine însoţit de panoul adiţional?",
+          "Care dintre autovehicule au prioritate de trecere?",
+          "Care dintre indicatoarele din imagine vă permite să viraţi spre stânga sau spre dreapta?",
+          "Indicatorul vă informează despre:",
+          "Pe ce bandă de circulaţie vă încadraţi pentru a vira la stânga, într-o intersecţie semnalizată cu astfel de marcaje?",
+          "Au voie motocicletele să pătrundă pe sectorul de drum unde este instalat acest indicator?",
+          "Interdicţia impusă de indicatorul din imagine se adresează:"
+          
+    ],
+    "answersExamenCategoriaA":[
+      [
+        ["A", "legal, nu este stabilit acest aspect;"],
+        ["B", "da;"],
+        ["C", "nu;"]
+      ],  
+      [
+        ["A", "marcaj de traversare pentru pietoni;"],
+        ["B", "bandă rezervată circulaţiei vehiculelor lente;"],
+        ["C", "spaţiu destinat cântăririi autovehiculelor."]
+      ], 
+      [
+        ["A", "panouri suplimentare la nodurile rutiere de pe autostrăzi;"],
+        ["B", "panouri suplimentare pentru intersecţia cu calea ferată;"],
+        ["C", "panouri succesive la apropierea de drumurile europene."]
+      ], 
+      [
+        ["A", "indicatorul 1;"],
+        ["B", "indicatorul 2;"],
+        ["C", "niciunul."]
+      ], 
+      [
+        ["A", "nicio obligaţie;"],
+        ["B", "să întoarceţi, deoarece urmează un sector de drum interzis circulaţiei autovehiculelor;"],
+        ["C", "să opriţi în dreptul indicatorului."]
+      ],
+      [
+        ["A", "viteza maximă obligatorie;"],
+        ["B", "limitare de viteză pentru vehiculele care transportă mărfuri;"],
+        ["C", "viteza minimă obligatorie."]
+      ],
+      [
+        ["A", "semnalizaţi înscrierea în curbă prin mijloace specifice;"],
+        ["B", "reduceţi viteza şi circulaţi cu atenţie, deoarece intraţi într-o curbă deosebit de periculoasă;"],
+        ["C", "semnalizaţi sonor intrarea în curbă."]
+      ],
+      [
+        ["A", "în apropierea străzii există un depou de tramvaie;"],
+        ["B", "urmează o intersecţie cu trecere la nivel cu linia de tramvai;"],
+        ["C", "se apropie o staţie de tramvai."]
+      ],  
+      [
+        ["A", "o zonă cu viteză recomandată de 30 km/h;"],
+        ["B", "o zonă pietonală;"],
+        ["C", "o zonă rezidenţială."]
+      ],
+      [
+        ["A", "urmează o porţiune de drum cu alunecări de teren la 300 m de indicator;"],
+        ["B", "urmează o coborâre periculoasă pe o distanţă de 300 m;"],
+        ["C", "urmează o coborâre periculoasă care începe la 300 m de locul unde este instalat."]
+      ],
+      [
+        ["A", "indicatorul 1;"],
+        ["B", "indicatorul 2;"],
+        ["C", "indicatorul 3;"]
+      ],
+      [
+        ["A", "accesul vehiculelor cu două roţi;"],
+        ["B", "accesul autovehiculelor, cu excepţia motocicletelor fără ataş;"],
+        ["C", "accesul motocicletelor."]
+      ],
+      [
+        ["A", "să se apropie de axul drumului, să semnalizeze şi să revină pe partea dreaptă după depăşire;"],
+        ["B", "să se asigure, să semnalizeze intenţia, să păstreze o distanţă laterală suficient de mare faţă de vehiculul depăşit şi să reintre pe partea dreaptă, după ce s-a convins că aceasta se poate face fără pericol;"],
+        ["C", "să se asigure că din faţă nu se apropie niciun vehicul."]
+      ],
+      [
+        ["A", "„Drum în rampă şi în pantă“;"],
+        ["B", "„Drum cu denivelări“;"],
+        ["C", "„Lucrări“."]
+      ],
+      [
+        ["A", "opriţi în locul în care aveţi vizibilitate maximă, fără să depăşiţi colţul intersecţiei, vă asiguraţi şi acordaţi prioritate de trecere vehiculelor care circulă pe drumul prioritar;"],
+        ["B", "reduceţi viteza, vă asiguraţi şi continuaţi deplasarea dacă nu trece alt vehicul în acel moment;"],
+        ["C", "opriţi în locul cu vizibilitate maximă şi acordaţi prioritate vehiculelor care vin din dreapta."]
+      ],
+      [
+        ["A", "da, deoarece motocicleta are gabarit mic;"],
+        ["B", "nu, deoarece axul drumului este marcat cu linie continuă;"],
+        ["C", "nu, în acest caz este interzisă depăşirea prin partea dreaptă."]
+      ],
+      [
+        ["A", "da, deoarece motocicleta are gabarit mic;"],
+        ["B", "nu, deoarece axul drumului este marcat cu linie continuă;"],
+        ["C", "nu, în acest caz este interzisă depăşirea prin partea dreaptă."]
+      ],
+      [
+        ["A", "marchează sfârşitul zonei unde este interzisă oprirea;"],
+        ["B", "marchează începutul zonei unde este interzisă oprirea;"],
+        ["C", "marchează începutul zonei unde este interzisă staţionarea."]
+      ],
+      [
+        ["A", "circulaţia interzisă în ambele sensuri;"],
+        ["B", "drum înfundat;"],
+        ["C", "accesul interzis."]
+      ],
+      [
+        ["A", "accesul interzis;"],
+        ["B", "circulaţia interzisă în ambele sensuri;"],
+        ["C", "drum circular."]
+      ],
+      [
+        ["A", "atrebuie să vă retrageţi din timp pe banda din dreapta, deoarece cea din stânga se întrerupe;"],
+        ["B", "banda de lângă acostament este în lucru;"],
+        ["C", "drumul are o bandă destinată circulaţiei vehiculelor lente."]
+      ],
+      [
+        ["A", "„Circulaţie în ambele sensuri“;"],
+        ["B", "„Circulaţia interzisă în ambele sensuri“;"],
+        ["C", "„Prioritate pentru circulaţia din sens invers“."]
+      ],
+      [
+        ["A", "motocicleta;"],
+        ["B", "motocicleta şi autobuzul;"],
+        ["C", "autobuzul şi autoturismul."]
+      ], 
+      [
+        ["A", "indicatorul 2;"],
+        ["B", "indicatorul 1;"],
+        ["C", "ambele indicatoare."]
+      ],
+      [
+        ["A", "depăşirea interzisă;"],
+        ["B", "circulaţia interzisă automobilelor;"],
+        ["C", "sfârşitul sectorului de drum unde depăşirea este interzisă."]
+      ],
+      [
+        ["A", "depăşirea interzisă;"],
+        ["B", "circulaţia interzisă automobilelor;"],
+        ["C", "sfârşitul sectorului de drum unde depăşirea este interzisă."]
+      ],    
+      [
+        ["A", "urmează un drum pe care sunt montaţi parapeţi de protecţie;"],
+        ["B", "urmează o trecere la nivel cu calea ferată prevăzută cu bariere sau semibariere; "],
+        ["C", "urmează o trecere pentru pietoni."]
+      ],  
+      [
+        ["A", "„Trecere pentru pietoni“;"],
+        ["B", "„Alte pericole“;"],
+        ["C", "„Semafoare“."]
+      ],  
+      [
+        ["A", "numărul drumului judeţean;"],
+        ["B", "viteza recomandată;"],
+        ["C", "viteza minimă obligatorie."]
+      ], 
+      [
+        ["A", "în vecinătatea drumului se află o cale ferată;"],
+        ["B", "urmează o trecere la nivel cu calea ferată fără bariere;"],
+        ["C", "urmează un pasaj peste calea ferată."]
+      ], 
+      [
+        ["A", "drum interzis autovehiculelor cu greutatea pe osie mai mare de 7 t;"],
+        ["B", "presemnalizează traseul de urmat în cazul în care masa autovehiculului este mai mare de 3,5 t;"],
+        ["C", "presemnalizează traseul de urmat în cazul unei restricţii de circulaţie."]
+      ],
+      [
+        ["A", "„Sfârşitul tuturor restricţiilor“;"],
+        ["B", "„Staţionarea interzisă“;"],
+        ["C", " „Parcarea interzisă“."]
+      ],
+      [
+        ["A", "la trecerile la nivel cu calea ferată cu bariere sau semibariere;"],
+        ["B", "în intersecţiile nesemnalizate;"],
+        ["C", "la trecerile la nivel cu calea ferată simplă fără bariere."]
+      ],
+      [
+        ["A", "de a circula cu atenţie, deoarece urmează o curbă la stânga;"],
+        ["B", "de a schimba obligatoriu direcţia de mers spre stânga;"],
+        ["C", "de a reduce viteza, deoarece urmează o intersecţie periculoasă."]
+      ],
+      [
+        ["A", "indicatorul 3;"],
+        ["B", "indicatorul 2;"],
+        ["C", "oricare dintre cele două indicatoare."]
+      ],
+      [
+        ["A", "prioritate pentru vehiculele care vin din faţă;"],
+        ["B", "drum cu prioritate;"],
+        ["C", "interzis accesul tuturor vehiculelor."]
+      ],
+      [
+        ["A", "„Accesul interzis copiilor neînsoţiţi“;"],
+        ["B", "„Copii“;"],
+        ["C", "„Trecere obligatorie pentru copii“."]
+      ],
+      [
+        ["A", "marcaj pe o bandă de decelerare;"],
+        ["B", "deviere temporară a circulaţiei;"],
+        ["C", "marcaj pentru spaţii interzise."]
+      ],
+      [
+        ["A", "accesul tuturor vehiculelor;"],
+        ["B", "accesul motocicletelor;"],
+        ["C", "accesul autovehiculelor."]
+      ],
+      [
+        ["A", "drum cu prioritate;"],
+        ["B", "terminarea tuturor restricţiilor;"],
+        ["C", "sfârşitul drumului cu prioritate."]
+      ],
+      [
+        ["A", "să nu poluaţi fonic mediul înconjurător, folosind sistemul de sonorizare la putere maximă;"],
+        ["B", "să întreţineţi în permanenţă autovehiculul curat, prin spălare şi degresare zilnică;"],
+        ["C", "să fiţi calm şi să anticipaţi situaţiile astfel încât să evitaţi accelerarea şi frânarea bruscă."]
+      ],
+      [
+        ["A", "vă obligă să folosiţi banda de lângă trotuar;"],
+        ["B", "vă obligă să ocoliţi prin dreapta locul unde este instalat;"],
+        ["C", "vă obligă să schimbaţi direcţia de mers."]
+      ],
+      [
+        ["A", "deviere temporară a circulaţiei;"],
+        ["B", "marcaj pe o bandă de accelerare;"],
+        ["C", "marcaj pentru spaţii interzise."]
+      ],
+      [
+        ["A", "interzice traversarea;"],
+        ["B", "semnalizează o trecere pentru pietoni;"],
+        ["C", "presemnalizează o trecere pentru pietoni."]
+      ],
+      [
+        ["A", "să acordaţi prioritate de trecere numai autocamioanelor şi autobuzelor;"],
+        ["B", "să continuaţi deplasarea cu atenţie, fiind un sector de drum îngustat;"],
+        ["C", "să acordaţi prioritate tuturor vehiculelor care circulă din sens opus."]
+      ],
+      [
+        ["A", "autocamionul şi motocicleta;"],
+        ["B", "autocamionul şi autoturismul;"],
+        ["C", "tramvaiul şi motocicleta."]
+      ],
+      [
+        ["A", "niciunul;"],
+        ["B", "indicatorul 1;"],
+        ["C", "indicatorul 2."]
+      ],
+      [
+        ["A", "intrarea pe autostradă;"],
+        ["B", "drumul este deschis traficului internaţional;"],
+        ["C", "apropierea de un pasaj rutier."]
+      ],
+      [
+        ["A", "pe banda de circulaţie nr.1;"],
+        ["B", "pe benzile de circulaţie nr. 2 şi 3;"],
+        ["C", "pe banda de circulaţie nr. 4."]
+      ],
+      [
+        ["A", "nu;"],
+        ["B", "da, numai în caz de urgenţă;"],
+        ["C", "da, până la prima intersecţie."]
+      ],
+      [
+        ["A", "autovehiculelor, cu excepţia motocicletelor fără ataş;"],
+        ["B", "autoturismelor şi motocicletelor;"],
+        ["C", "tuturor vehiculelor."]
+      ]
+    ],
+    "correctOptionsExamenCategoriaA":[
+      [1],
+      [0],
+      [0],
+      [0],
+      [0],
+      [2],
+      [1],
+      [1],
+      [0],
+      [2],
+      [2],
+      [2],
+      [1],
+      [1],
+      [0],
+      [2],
+      [1],
+      [2],
+      [1],
+      [2],
+      [0],
+      [2],
+      [0],
+      [2],
+      [1],
+      [2],
+      [1],
+      [1],
+      [2],
+      [0],
+      [2],
+      [0],
+      [0],
+      [1],
+      [1],
+      [0],
+      [0],
+      [2],
+      [1],
+      [1],
+      [2],
+      [1],
+      [0],
+      [2],
+      [0],
+      [2],
+      [0],
+      [0]
+      
+    ],
     "examenCategoriaB": [
       "La ce distanţă de trecerea la nivel cu calea ferată sunt instalate panourile suplimentare de avertizare?", 
       "Braţul stâng, întins orizontal, al poliţistului semnifică oprire pentru:", 
@@ -45,7 +460,57 @@
       "Cum veţi parca regulamentar într-o piaţă cu sens giratoriu?",
       "Căror categorii de autovehicule le este interzis să circule pe autostradă?", 
       "Pe o autostradă cu trei benzi, s-a blocat circulaţia Pe unde vor circula vehiculele de intervenţie?",
-      "Este permisă pătrunderea pe racordurile dintre cele două părţi carosabile ale unei autostrăzi?" 
+      "Este permisă pătrunderea pe racordurile dintre cele două părţi carosabile ale unei autostrăzi?",
+      "Pe autostradă se interzice:",
+      "Ce manevre sunt interzise pe autostradă?",
+      "Căror vehicule le este interzisă circulaţia pe autostrăzi?",
+      "Ce obligaţii aveţi atunci când intraţi pe autostradă folosind banda de accelerare?",
+      "Aţi accidentat un pieton care traversa strada neregulamentar Ce obligaţii legale vă revin?",
+      "Punctele de penalizare se aplică pentru:",
+      "În care dintre situaţii se reţine certificatul de înmatriculare sau înregistrare?",
+      "Pentru care dintre faptele de mai jos se aplică măsura reţinerii permisului de conducere?",
+      "Se aplică puncte de penalizare pentru:",
+      "Cum se sancţionează depăşirea pe partea dreaptă a sensului de mers, fără semnalizare şi încadrare corespunzătoare direcţiei de deplasare?",
+      "Pentru care dintre faptele de mai jos se aplică măsura reţinerii permisului de conducere?",
+      "Este obligatorie dotarea autovehiculelor cu trusă medicală de prim ajutor?",
+      "Câţiva copii traversează strada jucându-se cu o minge Cum este recomandat să vă comportaţi?",
+      "În cazul unui accidentat care nu respiră, pulsul este verificat:",
+      "O hemoragie produsă la unul dintre membrele unei persoane rănite se va opri prin:",
+      "Cum se imobilizează fractura labei piciorului?",
+      "Ce trebuie să conţină biletul care se prinde lângă garoul aplicat unei persoane rănite?",
+      "Atunci când victimei unui accident de circulaţie i s-au oprit bătăile inimii (stop cardiac), masajul cardiac se execută:",
+      "Cum trebuie scoase dintr-un autovehicul persoanele rănite?",
+      "Imobilizarea membrului inferior fracturat al unei victime într-un accident de circulaţie se face:",
+      "Resuscitarea cardio-respiratorie trebuie efectuată:",
+      "În cazul unei fracturi de claviculă (umărul se află într-o poziţie atârnândă, uşor înainte şi în jos), se procedează astfel:",
+      "Cum se recunoaște o fractură deschisă la membre?",
+      "În cazul unui accidentat cu hemoragie masivă, acționati astfel:",
+      "Dezinfecţia plăgilor ce necesită a fi pansate se face cu:",
+      "Până la transportarea victimei la spital, poziția de așteptare poate fi:",
+      "Într-un pansament, pe plagă, se aplică:",
+      "În cazul în care există mai multe persoane accidentate este important să se stabilească prioritățile?",
+      "Ce simptome ale stopului cardiac prezintă o persoană, victimă a unui accident de circulaţie?",
+      "Ce funcții poate avea un bandaj de tifon aplicat pe o rană deschisă?",
+      "Imobilizarea unui braţ fracturat se face:",
+      "Căile respiratorii pot fi astupate prin:",
+      "Victima care a pierdut mult sânge trebuie să fie aşezată:",
+      "Cum se procedeaza cu accidentatul readus la viata prin resuscitare cardio-respiratorie?",
+      "In funcție de starea accidentatului, măsurile de prim ajutor se vor lua în urmatoarea ordine:",
+      "În cazul persoanelor accidentate, care prezintă fracturi de coloană, este recomandabil să se folosească:",
+      "Transportarea victimelor la spital se poate realiza cu:",
+      "Persoanele accidentate, cu arsuri multiple pe corp şi membre, trebuie să fie:",
+      "În rănile cu hemoragie se va avea în vedere, în faza iniţială:",
+      "Ce tip de hemoragie este mai periculoasă?",
+      "Cum trebuie aşezată într-un mijloc de transport o persoană rănită, care prezintă leziuni ale coloanei vertebrale?",
+      "Oprirea hemoragiei se face prin legarea strânsă a braţului:",
+      "Când gura unui rănit rămâne încleştată, respiraţia artificială se poate face:",
+      "În care dintre situaţii consumul de carburant al unui motor creşte?",
+      "Comportamentul ecologic în conducerea unui autovehiculul presupune:",
+      "Pentru a conduce ecologic un autovehicul, se recomandă:",
+      "Când se recomandă să opriţi motorul pentru a reduce consumul de combustibil?",
+      "Vă este permisă trecerea peste marcajul longitudinal din imagine?",
+      "Indicatorul vă obligă:",
+      "Acest indicator vă avertizează că urmează:"
     ],
     "correctOptionsExamen": [
       [2],
@@ -87,7 +552,67 @@
       [2],
       [0,2],
       [0],
+      [0],
+      [1],
+      [1],
+      [1],
+      [0],
+      [0],
+      [2],
+      [0,1,2],
+      [0,1],
+      [0,1,2],
+      [2],
+      [0],
+      [2],
+      [0],
+      [2],
+      [2],
+      [1],
+      [2],
+      [0],
+      [0],
+      [1],
+      [1],
+      [0],
+      [1],
+      [2],
+      [0],
+      [1],
+      [1],
+      [0],
+      [1],
+      [0,1],
+      [2],
+      [2],
+      [2],
+      [1],
+      [1],
+      [1],
+      [0,1,2],
+      [1],
+      [2],
+      [1],
+      [2],
+      [1],
+      [1],
+      [0,1,2],
+      [0,1],
+      [1],
+      [0,1],
+      [0],
+      [0],
       [0]
+
+
+
+
+
+
+
+
+
+
     ],
     "answersExamen":[
       [
@@ -292,7 +817,257 @@
         ["A", "nu;"],
         ["B", "da, pentru oprire în caz de urgenţă;"],
         ["C", "da, pentru întoarcere, în zona intersecţiilor."]
-      ] 
+      ], 
+      [
+        ["A", "circulaţia autovehiculelor în coloană;"],
+        ["B", " învăţarea conducerii unui vehicul, încercarea prototipurilor de şasiuri şi de vehicule cu motor;"],
+        ["C", "executarea de lucrări pe partea carosabilă pe timp de noapte."]
+      ],
+      [
+        ["A", "folosirea benzii de accelerare pentru a schimba direcţia de mers;"],
+        ["B", "circulaţia sau staţionarea pe banda de urgenţă, cu excepţia cazurilor justificate;"],
+        ["C", "deplasarea cu o viteză inferioară limitei maxime permise."]
+      ], 
+      [
+        ["A", "motocicletelor şi automobilelor care nu pot circula cu mai mult de 60 km/h;"],
+        ["B", "celor care, prin construcţie sau din alte cauze, nu pot depăşi viteza de 50 km/h;"],
+        ["C", "autovehiculelor care transportă încărcături periculoase."]
+      ], 
+      [
+        ["A", "să cedaţi trecerea autovehiculelor care circulă pe prima bandă a autostrăzii şi să nu stânjeniţi în niciun fel circulaţia acestora;"],
+        ["B", "să semnalizaţi stânga, pentru a-i preveni pe ceilalţi conducători să vă acorde prioritate;"],
+        ["C", "să opriţi şi să vă asiguraţi din faţă şi din spate."]
+      ], 
+      [
+        ["A", "anunţaţi imediat poliţia, nu modificaţi sau ştergeţi urmele accidentului şi rămâneţi pe loc;"],
+        ["B", " prezentaţi de urgenţă la cea mai apropiată unitate de poliţie;"],
+        ["C", "deoarece vinovăţia nu vă aparține, puteţi continua drumul dacă accidentul nu este grav."]
+      ], 
+      [
+        ["A", "nerespectarea semnificaţiei indicatorului „Copii“;"],
+        ["B", "nerespectarea semnificaţiei indicatorului „Drum cu denivelări“;"],
+        ["C", "nerespectarea semnificaţiei indicatorului „Oprire“, instalat la trecerea la nivel cu o cale ferată."]
+      ], 
+      [
+        ["A", "când inspecţia tehnică periodică a expirat;"],
+        ["B", " dacă zgomotul în mers sau staţionare depăşeşte limita legală admisă;"],
+        ["C", "când motorul emite noxe poluante peste limitele legale admise."]
+      ], 
+      [
+        ["A", "pentru neoprirea la semnalul regulamentar al poliţistului;"],
+        ["B", "pentru nerespectarea dispoziţiilor legale referitoare la depăşire;"],
+        ["C", "pentru nerespectarea normelor privind folosirea luminilor pe timp de noapte."]
+      ],
+      [
+        ["A", "nerespectarea semnificaţiei indicatorului „Oprire”, instalat la trecerea la nivel cu o cale ferată;"],
+        ["B", "depăşirea cu 31-40 km/h a vitezei maxime admise pe sectorul de drum respectiv pentru categoria din care face parte autovehiculul condus;"],
+        ["C", "depăşirea cu 10-20 km/h a vitezei maxime admise pe sectorul de drum respectiv pentru categoria din care face parte autovehiculul condus."]
+      ],  
+      [
+        ["A", "cu amendă contravenţională şi puncte de penalizare;"],
+        ["B", "cu amendă contravenţională;"],
+        ["C", "cu amendă contravenţională şi suspendarea exercitării dreptului de a conduce autovehiculul."]
+      ],
+      [
+        ["A", "pentru nerespectarea semnalelor, indicaţiilor şi dispoziţiilor poliţistului rutier aflat în exercitarea atribuţiilor de serviciu;"],
+        ["B", "pentru nerespectarea dispoziţiilor legale referitoare la oprire şi staţionare;"],
+        ["C", "pentru încălcarea normelor legale referitoare la semnalizarea vehiculelor."]
+      ],
+      [
+        ["A", "da, numai la autovehiculele cu o greutate mai mare de 3,5 t;"],
+        ["B", "nu, fiind doar o recomandare legală;"],
+        ["C", "da, pentru toate autovehiculele care circulă pe drumurile publice."]
+      ],
+      [
+        ["A", "reduceţi viteza, deoarece comportamentul copiilor poate fi imprevizibil;"],
+        ["B", "circulaţi fără restricţii, deoarece copiii vor urca pe trotuar;"],
+        ["C", "acceleraţi, pentru a părăsi cât mai repede zona."]
+      ],
+      [
+        ["A", "sub mandibulă;"],
+        ["B", "lângă ureche;"],
+        ["C", "pe partea laterală a epiglotei (Mărul lui Adam), în scobitura dintre trahee şi muşchii gâtului."]
+      ],
+      [
+        ["A", "dezinfectarea rănii, pansarea şi aplicarea atelelor;"],
+        ["B", "ridicarea membrului accidentat în poziţie verticală;"],
+        ["C", "acţiunea compresivă asupra vasului lezat sau aplicarea garoului."]
+      ],
+      [
+        ["A", "se suspendă piciorul într-o chingă rigidă;"],
+        ["B", "cu atele sau cu un bandaj gros, de la degete până la genunchi;"],
+        ["C", "cu o faşă de la gleznă până la şold."]
+      ],
+      [
+        ["A", "datele de stare civilă ale persoanei;"],
+        ["B", "poziţia în care a fost găsită victima;"],
+        ["C", "ora şi minutul aplicării garoului."]
+      ],
+      [
+        ["A", "prin apăsarea ritmică cu podul palmelor suprapuse a toracelui victimei, în dreptul inimii;"],
+        ["B", "prin lovirea cu palmele a obrajilor victimei;"],
+        ["C", "prin încrucişarea ritmică a braţelor victimei simultan cu respiraţia artificială."]
+      ],
+      [
+        ["A", "prin ridicare;"],
+        ["B", "prin tragere;"],
+        ["C", "prin împingere."]
+      ],
+      [
+        ["A", "prin bandajarea strânsă a locului fracturii;"],
+        ["B", "prin folosirea atelelor;"],
+        ["C", "prin folosirea pansamentului compresiv."]
+      ],
+      [
+        ["A", "oricărui accidentat;"],
+        ["B", "accidentaților aflați în stare de inconștiență, care nu respiră și nu au puls;"],
+        ["C", "numai accidentaților care au suferit fracturi ușoare."]
+      ],
+      [
+        ["A", "se aşază braţul într-o eşarfă;"],
+        ["B", "se aduce umărul în poziţie normală;"],
+        ["C", "se lasă braţul liber."]
+      ],
+      [
+        ["A", "zona fracturată este tumefiată;"],
+        ["B", "pielea este strapunsă în zona fracturii;"],
+        ["C", "accidentatul nu se poate mișca."]
+      ],
+      [
+        ["A", "așezati persoana pe abdomen și îi dați să bea cât mai multe lichide;"],
+        ["B", "așezati persoana pe un scaun în poziția șezând și vorbiți cu ea;"],
+        ["C", "așezați persoana pe spate, cu picioarele ridicate, imobilizați eventualele fracturi, nu îi dați să bea lichide și o protejați contra frigului."]
+      ],
+      [
+        ["A", "apă oxigenată sau iod;"],
+        ["B", "ser fiziologic;"],
+        ["C", "apă potabilă."]
+      ],
+      [
+        ["A", "o poziție cât mai comodă;"],
+        ["B", "o poziție care să permită o bună respirație;"],
+        ["C", "o poziție comodă pentru transport."]
+      ],
+      [
+        ["A", "o compresă de vată sterilă;"],
+        ["B", "o compresă din tifon steril;"],
+        ["C", "o compresă oarecare."]
+      ],
+      [
+        ["A", "da, primul ajutor se acordă cu prioritate persoanei celei mai grav accidentate;"],
+        ["B", "nu, nu are importanță ordinea în care se acordă primul ajutor;"],
+        ["C", "se începe acordarea primului ajutor de la victima cea mai apropiată de salvator."]
+      ],
+      [
+        ["A", "leziuni profunde în zona toracelui;"],
+        ["B", "lipsa pulsului;"],
+        ["C", "apariţia hemoragiei pe gură."]
+      ],
+      [
+        ["A", "protejează împotriva infectării rănii;"],
+        ["B", "oprește hemoragia;"],
+        ["C", "scade tensiunea arterială."]
+      ],
+      [
+        ["A", "în dreptul osului fracturat;"],
+        ["B", "cuprinzând osul fracturat şi articulaţia superioară;"],
+        ["C", "cuprinzând osul fracturat şi cele două articulaţii, respectiv cea superioară şi inferioară."]
+      ],
+      [
+        ["A", "așezarea pe spate a victimei;"],
+        ["B", "așezarea pe o parte a victimei;"],
+        ["C", "intrarea unor corpi străini pe căile respiratorii."]
+      ],
+      [
+        ["A", "cu faţa în sus;"],
+        ["B", "cu faţa în jos;"],
+        ["C", "cu picioarele situate mai sus decât nivelul corpului."]
+      ],
+      [
+        ["A", "se va transporta la domiciliu sau la locul de muncă;"],
+        ["B", "se va transporta întotdeauna la o unitate medicală specializată;"],
+        ["C", "se va aștepta sosirea poliției rutiere."]
+      ],
+      [
+        ["A", "oprirea hemoragiei, pansarea rănilor, imobilizarea fracturilor, respirația artificială, masajul cardiac;"],
+        ["B", "respirația artificială, masajul cardiac, oprirea hemoragiei, pansarea rănilor, imobilizarea fracturilor;"],
+        ["C", "imobilizarea fracturilor, pansarea rănilor, respirația artificială, masajul cardiac, oprirea hemoragiei."]
+      ],
+      [
+        ["A", "orice mijloc de transport, dacă se deplasează în direcţia unei unităţi sanitare;"],
+        ["B", "mijloacele de transport cu platformă, respectiv furgonete, camioane, dacă ambulanţa nu se poate deplasa la locul accidentului;"],
+        ["C", "autoturismele, întrucât asigură confort şi rapiditate în deplasare."]
+      ],
+      [
+        ["A", "o ambulanţă special dotată în acest sens;"],
+        ["B", "o ambulanţă însoţită de un medic;"],
+        ["C", "vehiculul care a provocat accidentul, dacă starea victimei permite acest lucru."]
+      ],
+      [
+        ["A", "dezbrăcate rapid de haine, după stingerea flăcărilor;"],
+        ["B", "transportate urgent la o unitate medicală;"],
+        ["C", "spălate, bandajate şi apoi transportate la cea mai apropiată unitate sanitară."]
+      ],
+      [
+        ["A", "curăţarea şi pansarea rănii;"],
+        ["B", "pansarea rănii;"],
+        ["C", "oprirea hemoragiei."]
+      ],
+      [
+        ["A", "cea care determină o sângerare lentă şi continuă;"],
+        ["B", "cea care determină o pierdere rapidă a sângelui;"],
+        ["C", "orice mică sângerare vizibilă."]
+      ],
+      [
+        ["A", "în poziţie şezândă;"],
+        ["B", "orizontal, cu faţa în sus;"],
+        ["C", "persoana nu trebuie mişcată până la sosirea ambulanţei."]
+      ],
+      [
+        ["A", "în dreptul rănii;"],
+        ["B", "deasupra rănii;"],
+        ["C", "sub rană."]
+      ],
+      [
+        ["A", "prin gura închisă a victimei;"],
+        ["B", "prin nările victimei;"],
+        ["C", "în acest caz nu se mai face respiraţie artificială."]
+      ],
+      [
+        ["A", "atunci când motorul nu atinge temperatura de funcţionare;"],
+        ["B", "atunci când fumul de eşapament este de culoare neagră;"],
+        ["C", "atunci când motorul funcţionează cu întreruperi."]
+      ],
+      [
+        ["A", "planificarea traseului pentru a economisi timp şi combustibil;"],
+        ["B", "evitarea zonelor cu circulaţie densă, cu lucrări pe carosabil sau cu teren accidentat;"],
+        ["C", "viteză şi acceleraţie mai mari, pentru a scurta timpul de deplasare."]
+      ],
+      [
+        ["A", "folosirea motorului la relanti, în cazul în care staţionaţi mai mult timp în acelaşi loc;"],
+        ["B", "menţinerea unei viteze constante, de preferinţă medie;"],
+        ["C", "oprirea motorului în timp ce coborâţi o pantă, pentru a economisi carburant."]
+      ],
+      [
+        ["A", "în cazul unei opriri lungi la o trecere la nivel cu calea ferată;"],
+        ["B", "la culoarea roşie a unui semafor care, de regulă, durează foarte mult;"],
+        ["C", "la semnalul poliţistului rutier făcut în acest sens."]
+      ],
+      [
+        ["A", "da, deoarece linia discontinuă este cea mai apropiată de vehiculul pe care îl conduceţi;"],
+        ["B", "nu, deoarece este un marcaj dublu;"],
+        ["C", "nu, deoarece în acest caz depăşirea este interzisă."]
+      ],
+      [
+        ["A", "să circulaţi înainte sau la dreapta în prima intersecţie;"],
+        ["B", "să viraţi la stânga, deoarece accesul în celelalte direcţii este interzis;"],
+        ["C", "să urmaţi traseul ocolitor, presemnalizat la dreapta."]
+      ],
+      [
+        ["A", "alte pericole;"],
+        ["B", "un drum fără marcaje;"],
+        ["C", "un drum cu marcaje."]
+      ]
     ],
     "correctOptions": [
       [2],
