@@ -260,7 +260,7 @@ const Navbar = () => {
           showMobileMenu
             ? "animate-[showMobileBlackMenu_.3s_ease-in-out_forwards]"
             : "animate-[showMobileBlackMenuReverse_.3s_ease-in-out_forwards]"
-        } ${closeMenu && "hidden"} left-0 top-[4.9rem] bg-black bg-opacity-[60%] w-[100%] h-screen`}
+        } ${closeMenu && "hidden"} left-0 top-[5rem] bg-black bg-opacity-[60%] w-[100%] h-screen`}
       >
         <div className={`flex justify-center bg-white w-0 ${showMobileMenu ? "animate-[showMobileMenu_.3s_ease-in-out_forwards_.5s]" : "animate-[showMobileMenuReverse_.3s_ease-in-out_forwards]"} h-full overflow-hidden`}>
           <ul
