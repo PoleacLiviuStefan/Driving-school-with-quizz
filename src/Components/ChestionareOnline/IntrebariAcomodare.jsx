@@ -159,7 +159,7 @@ const IntrebariAcomodare = ({ start, checkedAnswers, currentQuestion,randomNumbe
       }`}
     >
       <h4>{data.questions.examenCategoriaA[randomNumber]}</h4>
-      <img className="w-[400px]" src={randomNumber>0 && eval("motoimg" + randomNumber)}></img>
+   
       {data.questions.answersExamenCategoriaA[randomNumber].map((answerOption, answerIndex) => (
         <div
           key={answerIndex}
