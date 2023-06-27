@@ -145,12 +145,14 @@ const IntrebariAcomodare = ({ start, checkedAnswers, currentQuestion,randomNumbe
 }
       </div>
       {/* Pentru categoria A */}
+      
       <div
         className={`relative top-0 w-full ${
-          start !== 11  && "hidden"
+          start !== 11   && "hidden"
         } flex flex-col items-center`}
       >
               {
+                start===11 &&(
  data.questions.examenCategoriaA.map((question, index) => (
     <div
       key={index}
@@ -179,7 +181,7 @@ const IntrebariAcomodare = ({ start, checkedAnswers, currentQuestion,randomNumbe
         </div>
       ))}
     </div>
-  ))
+  )))
 }
       </div>
     </div>
