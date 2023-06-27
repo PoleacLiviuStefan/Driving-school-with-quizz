@@ -495,7 +495,7 @@ const ChestionariiOnline = () => {
             </button>
           </div>
           <ul className="flex flex-col items-center lg:grid lg:grid-cols-2 items-center  justify-center w-[90%] lg:w-[60rem]">
-          <li className="flex flex-col my-[1rem]">
+          <li className="flex flex-col items-center my-[.5rem]">
               <input
               placeholder="Adauga ID-ul cursantului"
                 value={IDCursant.ID}
@@ -509,8 +509,10 @@ const ChestionariiOnline = () => {
               >
                 ADAUGA CURSANTUL
               </button>
+              <p  className="lg:text-[20px] font-bold mt-[1rem]">Toti cursantii</p>
             </li>
-            <li className="lg:text-[20px] font-bold ">Toti cursantii </li>
+            <li></li>
+       
            
             {data && Object.keys(data).map((key) => <li >{data[key].ID}</li>)}
           </ul>
