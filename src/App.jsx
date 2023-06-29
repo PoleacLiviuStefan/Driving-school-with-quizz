@@ -28,6 +28,8 @@ import LoadingScreen from './Components/LoadingScreen/LoadingScreen'
 
 function App() {
   localStorage.setItem("userEmail","")
+  localStorage.setItem("cursantConectat",false);
+  localStorage.setItem("userEmailCursant","")
   const [loadingScreen,setLoadingScreen]=useState(true);
   const located=useLocation();
   const [hideLoading,setHideLoading]=useState(false);

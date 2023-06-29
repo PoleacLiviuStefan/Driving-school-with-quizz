@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, memo } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -15,6 +15,7 @@ import {
   AiFillCloseCircle,
   AiFillCheckCircle,
 } from "react-icons/ai";
+import {RxAvatar} from "react-icons/rx"
 import IntrebariAcomodare from "./IntrebariAcomodare";
 import ReverseTimer from "./ReverseTimer";
 import dataChestionare from "./Questions";
@@ -40,6 +41,9 @@ const ChestionariiOnline = () => {
   const [IDCursant, setIDCursant] = useState({
     ID: "",
     instructor: "",
+    chestionareCorecte: "",
+    chestionareGresite: "",
+    contCreat: "nu",
   });
   const passwordInput = useRef(null);
   const comfirmedPasswordInput = useRef(null);
@@ -48,14 +52,18 @@ const ChestionariiOnline = () => {
   const [passwordComfirmed, setPasswordComfirmed] = useState("");
   const [authUser, setAuthUser] = useState(null);
   const [data, setData] = useState(null);
-  const [allIDs, setAllIDs] = useState([]);
+  const [userID,setUserId]=useState("");
+
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
         console.log(user);
+   
         localStorage.setItem("userMail", user.email);
         setIDCursant({ ...IDCursant, instructor: user.email });
+      
+      
       } else {
         setAuthUser(null);
       }
@@ -68,8 +76,11 @@ const ChestionariiOnline = () => {
     setIDCursant({
       ...IDCursant,
       instructor: localStorage.getItem("userMail"),
+      chestionareCorecte: "",
+      chestionareGresite: "",
+      contcreat: "nu"
     });
-    const { ID, instructor } = IDCursant;
+    const { ID, instructor,chestionareCorecte,chestionareGresite,contCreat } = IDCursant;
     console.log({ IDCursant });
     const options = {
       method: "POST",
@@ -79,6 +90,9 @@ const ChestionariiOnline = () => {
       body: JSON.stringify({
         ID,
         instructor,
+        chestionareCorecte,
+        chestionareGresite,
+        contCreat
       }),
     };
 
@@ -119,15 +133,42 @@ const ChestionariiOnline = () => {
   };
   const registerPasswordHandler = (e) => {
     e.preventDefault();
-
-    if (password !== passwordComfirmed) {
+    var sameID=false;
+    var memorizedKey=""
+    Object.keys(data).map((key) =>{
+      if(data[key].ID===userID)
+          {sameID=true;
+          memorizedKey=key;
+          console.log("da, exista ID cu acelasi ID din baza de date")
+          }
+    })
+    if (!sameID){
+      setShowError(2);
+    } 
+    else if (password !== passwordComfirmed) {
       setShowError(0);
     } else if (password.length < 6) {
       setShowError(1);
-    } else {
+
+    }
+    else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           console.log(userCredential);
+          const updatedField={Email:email,contCreat:"da"}
+       
+          fetch(('https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/' + memorizedKey + '.json') , {
+            method: 'PATCH',
+            body: JSON.stringify(updatedField),
+          })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log('Field updated successfully:', updatedData);
+              setStart(3);
+            })
+            .catch((error) => {
+              console.error('Error updating field:', error);
+            });
         })
         .catch((error) => {
           console.log(error);
@@ -144,33 +185,57 @@ const ChestionariiOnline = () => {
       })
       .catch((error) => {
         console.log(error);
+        setShowError(3)
       });
   };
   const CursantLogin = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        console.log("da")
+        localStorage.setItem("cursantConectat",true);
+        localStorage.setItem("userEmailCursant",userCredential.user.email);
+   
         setStart(3);
       })
       .catch((error) => {
         console.log(error);
+        setShowError(3)
       });
   };
   const checkUserExistence = () => {
     console.log("verificare existenta");
     onAuthStateChanged(auth, (user) => {
-      if (user) {
+      if (user && localStorage.getItem("cursantConectat")===false) {
         setAuthUser(user);
-        console.log(user.email);
+        localStorage.setItem("userMail",user.email)
         setStart(15);
       } else {
         setAuthUser(null);
         setStart(13);
+        localStorage.setItem("userMail","")
       }
     });
   };
-  const userSignOut = () => {
+  const checkUserCursantExistence = () => {
+    console.log("verificare existenta");
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setStart(3);
+        localStorage.setItem("userEmailCursant",user.email)
+      } else {
+        setStart(1);
+        localStorage.setItem("userEmailCursant","")
+      }
+    });
+  };
+  const userSignOut = (nr) => {
     signOut(auth);
+    localStorage.setItem("userEmailCursant","");
+    localStorage.setItem("userMail","");
+    if(nr===1)
+      localStorage.setItem("cursantConectat",false);
+
   };
   const handleChildValue = (value) => {
     setCurrentQuestionsAnswers(value);
@@ -182,6 +247,7 @@ const ChestionariiOnline = () => {
   };
 
   const checkValueCorrectitude = () => {
+    console.log("ai apasat pe trimite")
     //verificare daca raspunsul este corect
     console.log(randomNumber)
     const maxQuestions = start === 6 ? 25 : start === 11 && 19;
@@ -212,7 +278,33 @@ const ChestionariiOnline = () => {
 
           if (wrongAnswers === (start === 6 ? 4 : start === 11 && 2)) {
             //terminare la 5 intrebari gresite
-            setStart(7);
+            
+            setStart(7);    
+            
+            var memorizedKey=""
+            Object.keys(data).map((key) =>{
+              if(data[key].Email===localStorage.getItem("userEmailCursant"))
+                  {
+                  memorizedKey=key;
+     
+                  }
+            })
+            console.log('cheia memorata este:',memorizedKey)
+            const updatedField={chestionareGresite:data[memorizedKey].chestionareGresite+" "+correctAnswers};
+            console.log(data[memorizedKey].chestionareGresite+correctAnswers)
+     
+            fetch(('https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/' + memorizedKey + '.json') , {
+              method: 'PATCH',
+              body: JSON.stringify(updatedField),
+            })
+              .then((response) => response.json())
+              .then((updatedData) => {
+                console.log('Field updated successfully:', updatedData);
+          
+              })
+              .catch((error) => {
+                console.error('Error updating field:', error);
+              });
           }
         }
       }
@@ -224,9 +316,34 @@ const ChestionariiOnline = () => {
       if (questionNumber === maxQuestions) {
         console.log("numarul de raspunsuri corecte: ", correctAnswers);
         if (correctAnswers >= (start === 6 ? 21 : start === 11 && 16))
-          setStart(8);
+          {setStart(8);
+            var memorizedKey=""
+            Object.keys(data).map((key) =>{
+              if(data[key].Email===localStorage.getItem("userEmailCursant"))
+                  {
+                  memorizedKey=key;
+     
+                  }
+            })
+            console.log('cheia memorata este:',memorizedKey)
+            const updatedField={chestionareCorecte:data[memorizedKey].chestionareCorecte+" "+correctAnswers};
+            console.log(data[memorizedKey].chestionareCorecte+correctAnswers)
+     
+            fetch(('https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/' + memorizedKey + '.json') , {
+              method: 'PATCH',
+              body: JSON.stringify(updatedField),
+            })
+              .then((response) => response.json())
+              .then((updatedData) => {
+                console.log('Field updated successfully:', updatedData);
+          
+              })
+              .catch((error) => {
+                console.error('Error updating field:', error);
+              });
+          }
       }
-    }
+    
     console.log(questionNumber + laterQuestions.length);
     const maxQuestionsCategory = start === 6 ? 26 : start === 11 && 20;
     if (
@@ -256,9 +373,11 @@ const ChestionariiOnline = () => {
     }
 
     window.scrollTo({ top: 0, left: 0 });
+  }
   };
 
   const handleLaterQuestion = () => {
+    console.log("ai apasat pe raspunde")
     const maxQuestionsLater = start === 6 ? 25 : start === 11 ? 19 : 19;
     if (
       questionNumber + laterQuestions.length === maxQuestionsLater &&
@@ -304,18 +423,34 @@ const ChestionariiOnline = () => {
       return () => clearTimeout(timer);
     }
   }, [start]);
+  useEffect(()=>{
 
-  useEffect(() => {
-    console.log("nu");
-  }, [data]);
+    if(showError!==-1 && (start=== 13 || start===1))
+    {
+      const timer=setTimeout(()=>{
+          setShowError(-1)
+      },5000)
+      return ()=>clearTimeout(timer);
+    }
+    else
+      {
+        setShowError(-1);
+      }
+  },[showError,start])
 
   return (
     <div
       className={`flex justify-center items-center w-full  ${
-        start <= 3 ? "bg-chestionareBg bg-cover h-screen" : "bg-gray-100 h-full"
+        start <= 3 ? "bg-chestionareBg bg-cover h-full" : "bg-gray-100 h-full"
       }  py-[5rem]`}
     >
-      <div className="relative  flex flex-col items-center justify-center w-full lg:w-[65rem] h-full ">
+      
+      <div className="relative  flex flex-col items-center justify-center w-full lg:w-[65rem] h-full  py-[4rem]">
+      <div className={`flex items-center absolute top-0 left-[1rem] ${(start !==3 && start!==5 && start!==7 && start!==8) && "hidden"}`}>
+              <span className="text-[36px] text-red-500"><RxAvatar /></span>
+              <p className="ml-2 font-bold">{localStorage.getItem("userEmailCursant")}</p>
+              <button onClick={()=>userSignOut(1)} className="ml-2 bg-red-500  py-[.5rem]  px-[.5rem] text-white font-bold text-[13px] lg:text-[16px]  rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626] ">DECONETARE</button>
+          </div>
         <div className="absolute top-[-2rem] left-[1rem] lg:left-0 flex items-centert text-[12px]  lg:text-[14px] text-gray-500 ">
           <a
             onClick={() => {
@@ -338,8 +473,9 @@ const ChestionariiOnline = () => {
           CHESTIONARE AUTO
           <br /> <span className="text-red-600">PROBA TEORETICA</span>
         </h2>
+        {/*Eroare parolele nu sunt identice*/}
         <div
-          className={`mt-[1rem] text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
+          className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
             showError !== 0 && "hidden"
           }`}
         >
@@ -351,8 +487,9 @@ const ChestionariiOnline = () => {
             ACEEASI PAROLA
           </h4>
         </div>
+        {/*Eroare numar minim de caractere pentru parola */}
         <div
-          className={`mt-[1rem] text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
+          className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
             showError !== 1 && "hidden"
           }`}
         >
@@ -363,8 +500,34 @@ const ChestionariiOnline = () => {
             PAROLA TREBUIE SA CONTINA CEL PUTIN 6 CARACTERE
           </h4>
         </div>
+                {/*Eroare numar minim de caractere pentru parola */}
+                <div
+          className={`flex items-center justify-center fixed top-[0rem] w-full text-[13px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
+            showError !== 2 && "hidden"
+          }`}
+        >
+          <h4 className="flex items-center text-center">
+            <span className="text-[56px] mr-2">
+              <AiOutlineWarning />
+            </span>
+            ID-UL NU EXISTA! DACA ESTI INSCRIS LA SCOALA NOASTRA, TE RUGAM SA ITI CONTACTEZI INSTRUCTORUL PENTRU A TE ADAUGA IN BAZA DE DATE DE PE SITE. MULTUMIM!
+          </h4>
+        </div>
+        {/*Verificare parola la login*/}
+        <div
+          className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
+            showError !== 3 && "hidden"
+          }`}
+        >
+          <h4 className="flex items-center text-center">
+            <span className="text-[56px] mr-2">
+              <AiOutlineWarning />
+            </span>
+            EMAIL-UL SAU PAROLA SUNT GRESITE.
+          </h4>
+        </div>
         <button
-          onClick={() => setStart(1)}
+          onClick={checkUserCursantExistence}
           className={`mt-[3rem] ${
             start && "hidden"
           } bg-red-500  py-[.5rem] lg:py-[1rem] text-white font-bold text-[18px] lg:text-[24px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626] w-[15rem] lg:w-[25rem]`}
@@ -384,7 +547,7 @@ const ChestionariiOnline = () => {
           onSubmit={(e) => InstructorLogin(e)}
           className={`flex flex-col items-center justify-center  ${
             start !== 13 && "hidden"
-          } lg:text-[24px] font-bold h-screen `}
+          } lg:text-[24px] font-bold h-full `}
         >
           <h4 className="text-[20px] lg:text-[32px] font-extrabold w-[15rem] lg:w-full text-center">
             Introduceti mai jos email-ul si parola
@@ -437,6 +600,7 @@ const ChestionariiOnline = () => {
             className="mt-[1rem] border-[2px] border-black w-full lg:w-[32rem] h-[2rem] px-[1rem]"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           ></input>
           <label className="mt-[1rem]">PAROLA</label>
           <div className="flex mt-[.2rem] w-full lg:w-[32rem]">
@@ -446,6 +610,7 @@ const ChestionariiOnline = () => {
               className=" border-[2px] border-black w-full lg:w-[30rem] h-[2rem] px-[1rem]"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             ></input>
             <span
               onClick={() => {
@@ -489,40 +654,49 @@ const ChestionariiOnline = () => {
               {localStorage.getItem("userMail")}
             </h4>
             <button
-              onClick={userSignOut}
+              onClick={()=>userSignOut(2)}
               className="mr-[1rem] bg-red-500 text-white font-bold px-[2rem] py-[.5rem] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_15px_-5px_#DC2626] text-[12px] lg:text-[15px]"
             >
               IESI DIN CONT
             </button>
           </div>
-          <ul className="flex flex-col items-center lg:grid lg:grid-cols-2 items-center  justify-center w-[90%] lg:w-[60rem]">
-          <li className="flex flex-col items-center my-[.5rem]">
+          <ul className="flex flex-col items-center lg:grid lg:grid-cols-2 items-center  justify-between w-[90%] lg:w-[65rem]">
+          <li className="flex flex-col lg:flex-row items-center my-[.5rem]">
               <input
               placeholder="Adauga ID-ul cursantului"
                 value={IDCursant.ID}
                 onChange={(e) =>
                   setIDCursant({ ...IDCursant, ID: e.target.value })
                 }
+                className="w-[15rem]"
               />
               <button
                 onClick={getData}
-                className="mr-[1rem] bg-red-500 text-white font-bold px-[2rem] py-[.5rem] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_15px_-5px_#DC2626] text-[12px] lg:text-[15px]"
+                className="mt-[.5rem] mr-[1rem] bg-red-500 text-white font-bold px-[2rem] py-[.5rem] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_15px_-5px_#DC2626] text-[12px] lg:text-[15px] w-[15rem]"
               >
                 ADAUGA CURSANTUL
               </button>
-              <p  className="lg:text-[20px] font-bold mt-[1rem]">Toti cursantii</p>
+         
             </li>
+            <li />
+            <li className="flex justify-center font-bold text-[16px] lg:text-[24px]">Toti cursantii</li>
             <li></li>
-       
            
-            {data && Object.keys(data).map((key) => <li >{data[key].ID}</li>)}
+            {data &&
+  Object.keys(data).map((key) => {
+    if (data[key].instructor === localStorage.getItem("userMail")) {
+      return <><li>ID: {data[key].ID}</li>;<li>Email: {data[key].Email==="" ? "Cursanul nu s-a inregistrat": data[key].Email} <br /> Chestionarele Corecte: {data[key].chestionareCorecte} <br />Chestionarele gresite: {data[key].chestionareGresite}</li></>
+    }
+    return null;
+  })}
           </ul>
         </div>
+        {/*Inregistrare Cursant*/}
         <form
           onSubmit={(e) => registerPasswordHandler(e)}
           className={`w-[80%] mt-[.5rem] ${
             start !== 2 && "hidden"
-          } flex flex-col items-center text-[16px] lg:text-[24px] font-bold`}
+          } flex flex-col items-center text-[16px] lg:text-[24px] font-bold h-full`}
         >
           <h3 className="text-center ">
             Fiind prima data cand doresti sa completezi aceste chestionare te
@@ -534,6 +708,9 @@ const ChestionariiOnline = () => {
           <input
             type="text"
             className=" border-[2px] border-black w-full w-full lg:w-[32rem] h-[2rem] px-[1rem] "
+            value={userID}
+            onChange={(e)=>setUserId(e.target.value)}
+            required
           />
           <label className="mt-[1rem]">EMAIL</label>
 
@@ -542,6 +719,7 @@ const ChestionariiOnline = () => {
             className=" border-[2px] border-black w-full w-full lg:w-[32rem] h-[2rem] px-[1rem] "
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
 
           <label className="mt-[1rem]">PAROLA</label>
@@ -552,6 +730,7 @@ const ChestionariiOnline = () => {
               className=" border-[2px] border-black w-full lg:w-[30rem] h-[2rem] px-[1rem]"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             ></input>
             <span
               onClick={() => {
@@ -571,6 +750,7 @@ const ChestionariiOnline = () => {
               className=" border-[2px] border-black w-full lg:w-[30rem] h-[2rem] px-[1rem]"
               value={passwordComfirmed}
               onChange={(e) => setPasswordComfirmed(e.target.value)}
+              required
             ></input>
             <span
               onClick={() => {
@@ -660,6 +840,7 @@ const ChestionariiOnline = () => {
             start !== 3 && "hidden"
           } flex flex-col items-center lg:text-[32px] font-extrabold`}
         >
+     
           <h3 className="text-center  ">SELECTATI CATEGORIA</h3>
           <div className="mt-[2rem] flex flex-col lg:flex-row text-red-500  lg:text-[24px]">
             <span
@@ -706,7 +887,7 @@ const ChestionariiOnline = () => {
           />
         </div>
         <div
-          className={`flex flex-col items-center justify-center text-center h-screen ${
+          className={`flex flex-col items-center justify-center text-center h-full ${
             start !== 5 && "hidden"
           }`}
         >
@@ -794,7 +975,7 @@ const ChestionariiOnline = () => {
 
           <button
             onClick={checkValueCorrectitude}
-            className={`mx-[2rem]  w-[12rem] h-[4rem] shadow-md ${
+            className={`mx-[2rem]  w-[12rem] h-[4rem] shadow-md z-20 ${
               currentQuestionsAsnwers.length !== 0
                 ? "text-white bg-green-400"
                 : "text-gray-400"
