@@ -795,9 +795,7 @@ const ChestionariiOnline = () => {
                         {data[key].chestionareCorecte} <br /> Chestionarele
                         Gresite: {data[key].chestionareGresite} <br />{" "}
                         <ul
-                          className={`overflow-hidden ${
-                            showQuestions === -1 ? "h-[3.5rem] lg:h-[1.5rem]" : "h-full"
-                          }`}
+                          className={`overflow-hidden `}
                         >
                           <li>
                             <span className="flex flex-col lg:flex-row">
