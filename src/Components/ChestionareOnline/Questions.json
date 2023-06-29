@@ -73,7 +73,6 @@
           "Ce vă avertizează indicatorul din imagine însoţit de panoul adiţional?",
           "Care dintre indicatoare se adresează motocicliştilor?",
           "Indicatorul din imagine interzice:",
-          "Ce obligaţii are un motociclist atunci când vrea să execute o depăşire?",
           "Semnificaţia acestui indicator este:",
           "Cum trebuie să procedaţi la întâlnirea acestui indicator:",
           "În cazul în care autocamionul se deplasează cu o viteză mai mică de 40 km/h, poate fi depăşit de motocicletă pe partea dreaptă?",
@@ -99,7 +98,6 @@
           "Ce semnificaţie are un astfel de marcaj rutier?",
           "Ce interzice indicatorul din imagine?",
           "Indicatorul din imagine semnifică:",
-          "Conduita ecologică în conducerea unei motociclete înseamnă:",
           "Care este semnificaţia indicatorului din imagine?",
           "Ce semnificaţie are un astfel de marcaj rutier?",
           "Ce semnificaţie are indicatorul din imagine?",
@@ -113,151 +111,164 @@
           
     ],
     "answersExamenCategoriaA":[
+
       [
         ["A", "legal, nu este stabilit acest aspect;"],
         ["B", "da;"],
         ["C", "nu;"]
       ],  
+
       [
         ["A", "marcaj de traversare pentru pietoni;"],
         ["B", "bandă rezervată circulaţiei vehiculelor lente;"],
         ["C", "spaţiu destinat cântăririi autovehiculelor."]
       ], 
+
       [
         ["A", "panouri suplimentare la nodurile rutiere de pe autostrăzi;"],
         ["B", "panouri suplimentare pentru intersecţia cu calea ferată;"],
         ["C", "panouri succesive la apropierea de drumurile europene."]
       ], 
+
       [
         ["A", "indicatorul 1;"],
         ["B", "indicatorul 2;"],
         ["C", "niciunul."]
       ], 
+
       [
         ["A", "nicio obligaţie;"],
         ["B", "să întoarceţi, deoarece urmează un sector de drum interzis circulaţiei autovehiculelor;"],
         ["C", "să opriţi în dreptul indicatorului."]
       ],
+
       [
         ["A", "viteza maximă obligatorie;"],
         ["B", "limitare de viteză pentru vehiculele care transportă mărfuri;"],
         ["C", "viteza minimă obligatorie."]
       ],
+
       [
         ["A", "semnalizaţi înscrierea în curbă prin mijloace specifice;"],
         ["B", "reduceţi viteza şi circulaţi cu atenţie, deoarece intraţi într-o curbă deosebit de periculoasă;"],
         ["C", "semnalizaţi sonor intrarea în curbă."]
       ],
+
       [
         ["A", "în apropierea străzii există un depou de tramvaie;"],
         ["B", "urmează o intersecţie cu trecere la nivel cu linia de tramvai;"],
         ["C", "se apropie o staţie de tramvai."]
       ],  
+
       [
         ["A", "o zonă cu viteză recomandată de 30 km/h;"],
         ["B", "o zonă pietonală;"],
         ["C", "o zonă rezidenţială."]
       ],
+
       [
         ["A", "urmează o porţiune de drum cu alunecări de teren la 300 m de indicator;"],
         ["B", "urmează o coborâre periculoasă pe o distanţă de 300 m;"],
         ["C", "urmează o coborâre periculoasă care începe la 300 m de locul unde este instalat."]
       ],
+
       [
         ["A", "indicatorul 1;"],
         ["B", "indicatorul 2;"],
         ["C", "indicatorul 3;"]
       ],
+
       [
         ["A", "accesul vehiculelor cu două roţi;"],
         ["B", "accesul autovehiculelor, cu excepţia motocicletelor fără ataş;"],
         ["C", "accesul motocicletelor."]
-      ],
-      [
-        ["A", "să se apropie de axul drumului, să semnalizeze şi să revină pe partea dreaptă după depăşire;"],
-        ["B", "să se asigure, să semnalizeze intenţia, să păstreze o distanţă laterală suficient de mare faţă de vehiculul depăşit şi să reintre pe partea dreaptă, după ce s-a convins că aceasta se poate face fără pericol;"],
-        ["C", "să se asigure că din faţă nu se apropie niciun vehicul."]
-      ],
+      ],  
+
       [
         ["A", "„Drum în rampă şi în pantă“;"],
         ["B", "„Drum cu denivelări“;"],
         ["C", "„Lucrări“."]
       ],
+
       [
         ["A", "opriţi în locul în care aveţi vizibilitate maximă, fără să depăşiţi colţul intersecţiei, vă asiguraţi şi acordaţi prioritate de trecere vehiculelor care circulă pe drumul prioritar;"],
         ["B", "reduceţi viteza, vă asiguraţi şi continuaţi deplasarea dacă nu trece alt vehicul în acel moment;"],
         ["C", "opriţi în locul cu vizibilitate maximă şi acordaţi prioritate vehiculelor care vin din dreapta."]
       ],
+
       [
         ["A", "da, deoarece motocicleta are gabarit mic;"],
         ["B", "nu, deoarece axul drumului este marcat cu linie continuă;"],
         ["C", "nu, în acest caz este interzisă depăşirea prin partea dreaptă."]
       ],
-      [
-        ["A", "da, deoarece motocicleta are gabarit mic;"],
-        ["B", "nu, deoarece axul drumului este marcat cu linie continuă;"],
-        ["C", "nu, în acest caz este interzisă depăşirea prin partea dreaptă."]
-      ],
+
+
       [
         ["A", "marchează sfârşitul zonei unde este interzisă oprirea;"],
         ["B", "marchează începutul zonei unde este interzisă oprirea;"],
         ["C", "marchează începutul zonei unde este interzisă staţionarea."]
       ],
+
       [
         ["A", "circulaţia interzisă în ambele sensuri;"],
         ["B", "drum înfundat;"],
         ["C", "accesul interzis."]
       ],
+
       [
         ["A", "accesul interzis;"],
         ["B", "circulaţia interzisă în ambele sensuri;"],
         ["C", "drum circular."]
       ],
+
       [
-        ["A", "atrebuie să vă retrageţi din timp pe banda din dreapta, deoarece cea din stânga se întrerupe;"],
+        ["A", "trebuie să vă retrageţi din timp pe banda din dreapta, deoarece cea din stânga se întrerupe;"],
         ["B", "banda de lângă acostament este în lucru;"],
         ["C", "drumul are o bandă destinată circulaţiei vehiculelor lente."]
       ],
+
       [
         ["A", "„Circulaţie în ambele sensuri“;"],
         ["B", "„Circulaţia interzisă în ambele sensuri“;"],
         ["C", "„Prioritate pentru circulaţia din sens invers“."]
       ],
+
       [
         ["A", "motocicleta;"],
         ["B", "motocicleta şi autobuzul;"],
         ["C", "autobuzul şi autoturismul."]
       ], 
+
       [
         ["A", "indicatorul 2;"],
         ["B", "indicatorul 1;"],
         ["C", "ambele indicatoare."]
       ],
+
       [
         ["A", "depăşirea interzisă;"],
         ["B", "circulaţia interzisă automobilelor;"],
         ["C", "sfârşitul sectorului de drum unde depăşirea este interzisă."]
       ],
-      [
-        ["A", "depăşirea interzisă;"],
-        ["B", "circulaţia interzisă automobilelor;"],
-        ["C", "sfârşitul sectorului de drum unde depăşirea este interzisă."]
-      ],    
+
       [
         ["A", "urmează un drum pe care sunt montaţi parapeţi de protecţie;"],
         ["B", "urmează o trecere la nivel cu calea ferată prevăzută cu bariere sau semibariere; "],
         ["C", "urmează o trecere pentru pietoni."]
       ],  
+
       [
         ["A", "„Trecere pentru pietoni“;"],
         ["B", "„Alte pericole“;"],
         ["C", "„Semafoare“."]
       ],  
+
       [
         ["A", "numărul drumului judeţean;"],
         ["B", "viteza recomandată;"],
         ["C", "viteza minimă obligatorie."]
       ], 
+
       [
         ["A", "în vecinătatea drumului se află o cale ferată;"],
         ["B", "urmează o trecere la nivel cu calea ferată fără bariere;"],
@@ -312,11 +323,6 @@
         ["A", "drum cu prioritate;"],
         ["B", "terminarea tuturor restricţiilor;"],
         ["C", "sfârşitul drumului cu prioritate."]
-      ],
-      [
-        ["A", "să nu poluaţi fonic mediul înconjurător, folosind sistemul de sonorizare la putere maximă;"],
-        ["B", "să întreţineţi în permanenţă autovehiculul curat, prin spălare şi degresare zilnică;"],
-        ["C", "să fiţi calm şi să anticipaţi situaţiile astfel încât să evitaţi accelerarea şi frânarea bruscă."]
       ],
       [
         ["A", "vă obligă să folosiţi banda de lângă trotuar;"],
@@ -382,7 +388,7 @@
       [2],
       [2],
       [2],
-      [1],
+  
       [1],
       [0],
       [2],
