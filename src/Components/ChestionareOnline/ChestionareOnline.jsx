@@ -40,6 +40,7 @@ const ChestionariiOnline = () => {
   const [timeExpired, setTimerExpired] = useState(false);
   const [IDCursant, setIDCursant] = useState({
     ID: "",
+    numePrenume: "",
     instructor: "",
     chestionareCorecte: "",
     chestionareGresite: "",
@@ -53,14 +54,14 @@ const ChestionariiOnline = () => {
   const [authUser, setAuthUser] = useState(null);
   const [data, setData] = useState(null);
   const [userID,setUserId]=useState("");
-
+  const [IntrebariTerminate,setIntrebariTerminate]=useState([]);
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
         console.log(user);
    
-        localStorage.setItem("userMail", user.email);
+
         setIDCursant({ ...IDCursant, instructor: user.email });
       
       
@@ -76,11 +77,10 @@ const ChestionariiOnline = () => {
     setIDCursant({
       ...IDCursant,
       instructor: localStorage.getItem("userMail"),
-      chestionareCorecte: "",
-      chestionareGresite: "",
+      chestionareCoreste: "",
       contcreat: "nu"
     });
-    const { ID, instructor,chestionareCorecte,chestionareGresite,contCreat } = IDCursant;
+    const { ID, numePrenume, instructor,chestionareCorecte,chestionareGresite,contCreat } = IDCursant;
     console.log({ IDCursant });
     const options = {
       method: "POST",
@@ -89,6 +89,7 @@ const ChestionariiOnline = () => {
       },
       body: JSON.stringify({
         ID,
+        numePrenume,
         instructor,
         chestionareCorecte,
         chestionareGresite,
@@ -188,8 +189,8 @@ const ChestionariiOnline = () => {
         setShowError(3)
       });
   };
-  const CursantLogin = (e) => {
-    e.preventDefault();
+  const CursantLogin = () => {
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log("da")
@@ -206,7 +207,8 @@ const ChestionariiOnline = () => {
   const checkUserExistence = () => {
     console.log("verificare existenta");
     onAuthStateChanged(auth, (user) => {
-      if (user && localStorage.getItem("cursantConectat")===false) {
+      if (user ) {
+        console.log("da,s-a conectat")
         setAuthUser(user);
         localStorage.setItem("userMail",user.email)
         setStart(15);
@@ -229,13 +231,13 @@ const ChestionariiOnline = () => {
       }
     });
   };
-  const userSignOut = (nr) => {
+  const userSignOut = () => {
     signOut(auth);
+    localStorage.setItem("cursantConectat",false);
     localStorage.setItem("userEmailCursant","");
     localStorage.setItem("userMail","");
-    if(nr===1)
-      localStorage.setItem("cursantConectat",false);
-
+    setEmail('')
+    setPassword('');
   };
   const handleChildValue = (value) => {
     setCurrentQuestionsAnswers(value);
@@ -317,30 +319,30 @@ const ChestionariiOnline = () => {
         console.log("numarul de raspunsuri corecte: ", correctAnswers);
         if (correctAnswers >= (start === 6 ? 21 : start === 11 && 16))
           {setStart(8);
-            var memorizedKey=""
-            Object.keys(data).map((key) =>{
-              if(data[key].Email===localStorage.getItem("userEmailCursant"))
-                  {
-                  memorizedKey=key;
-     
-                  }
+          var memorizedKey=""
+          Object.keys(data).map((key) =>{
+            if(data[key].Email===localStorage.getItem("userEmailCursant"))
+                {
+                memorizedKey=key;
+   
+                }
+          })
+          console.log('cheia memorata este:',memorizedKey)
+          const updatedField={chestionareCorecte:data[memorizedKey].chestionareCorecte+" "+correctAnswers};
+          console.log(data[memorizedKey].chestionareCorecte+correctAnswers)
+   
+          fetch(('https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/' + memorizedKey + '.json') , {
+            method: 'PATCH',
+            body: JSON.stringify(updatedField),
+          })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log('Field updated successfully:', updatedData);
+        
             })
-            console.log('cheia memorata este:',memorizedKey)
-            const updatedField={chestionareCorecte:data[memorizedKey].chestionareCorecte+" "+correctAnswers};
-            console.log(data[memorizedKey].chestionareCorecte+correctAnswers)
-     
-            fetch(('https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/' + memorizedKey + '.json') , {
-              method: 'PATCH',
-              body: JSON.stringify(updatedField),
-            })
-              .then((response) => response.json())
-              .then((updatedData) => {
-                console.log('Field updated successfully:', updatedData);
-          
-              })
-              .catch((error) => {
-                console.error('Error updating field:', error);
-              });
+            .catch((error) => {
+              console.error('Error updating field:', error);
+            });
           }
       }
     
@@ -424,7 +426,6 @@ const ChestionariiOnline = () => {
     }
   }, [start]);
   useEffect(()=>{
-
     if(showError!==-1 && (start=== 13 || start===1))
     {
       const timer=setTimeout(()=>{
@@ -449,7 +450,7 @@ const ChestionariiOnline = () => {
       <div className={`flex items-center absolute top-0 left-[1rem] ${(start !==3 && start!==5 && start!==7 && start!==8) && "hidden"}`}>
               <span className="text-[36px] text-red-500"><RxAvatar /></span>
               <p className="ml-2 font-bold">{localStorage.getItem("userEmailCursant")}</p>
-              <button onClick={()=>userSignOut(1)} className="ml-2 bg-red-500  py-[.5rem]  px-[.5rem] text-white font-bold text-[13px] lg:text-[16px]  rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626] ">DECONETARE</button>
+              <button onClick={userSignOut} className={`ml-2 bg-red-500  py-[.5rem]  px-[.5rem] text-white font-bold text-[13px] lg:text-[16px]  rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626] ${(start===7 || start===8) && "hidden"}`}>DECONETARE</button>
           </div>
         <div className="absolute top-[-2rem] left-[1rem] lg:left-0 flex items-centert text-[12px]  lg:text-[14px] text-gray-500 ">
           <a
@@ -556,6 +557,7 @@ const ChestionariiOnline = () => {
           <input
             type="email"
             className=" border-[2px] border-black w-full lg:w-[32rem] h-[2rem] px-[1rem]"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
           <label className="mt-[1rem]">Parola</label>
@@ -587,8 +589,8 @@ const ChestionariiOnline = () => {
           </button>
         </form>
         {/*conectare cursant*/}
-        <form
-        onSubmit={(e)=>CursantLogin(e)}
+        <div
+     
           className={`w-[90%] mt-[2rem] ${
             start !== 1 && "hidden"
           } flex flex-col items-center lg:text-[24px] font-bold`}
@@ -623,6 +625,7 @@ const ChestionariiOnline = () => {
             </span>
           </div>
           <button
+          onClick={CursantLogin}
             type="submit"
             className="mt-[2rem] flex items-center bg-red-500 px-[4rem] py-[1rem] text-white font-bold text-[18px] lg:text-[24px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
           >
@@ -634,14 +637,16 @@ const ChestionariiOnline = () => {
           <div className="flex flex-col items-center mt-[1rem] lg:mt-[2rem] text-center lg:text-[20px] w-[90%] text-gray-600">
             <p>Este prima oara cand incerci sa parcuri aceste chestionare?</p>
             <p>Atunci apasa pe butonul urmator pentru a te inregistra</p>
-            <button
-              onClick={() => setStart(2)}
+        
+          </div>
+          <button
+              onClick={() => {setStart(2); setEmail(""); setPassword("")}}
               className="mt-[1rem] flex items-center bg-red-500 px-[1rem] lg:px-[2rem] py-[.5rem] lg:py-[1rem] text-white font-bold text-[18px] lg:text-[24px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
             >
               INREGISTRARE
             </button>
-          </div>
-        </form>
+        </div>
+     
         {/*Panou de control pentru instructori*/}
         <div
           className={`flex flex-col items-center ${
@@ -654,22 +659,32 @@ const ChestionariiOnline = () => {
               {localStorage.getItem("userMail")}
             </h4>
             <button
-              onClick={()=>userSignOut(2)}
+              onClick={userSignOut}
               className="mr-[1rem] bg-red-500 text-white font-bold px-[2rem] py-[.5rem] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_15px_-5px_#DC2626] text-[12px] lg:text-[15px]"
             >
               IESI DIN CONT
             </button>
           </div>
           <ul className="flex flex-col items-center lg:grid lg:grid-cols-2 items-center  justify-between w-[90%] lg:w-[65rem]">
-          <li className="flex flex-col lg:flex-row items-center my-[.5rem]">
+          <li className="flex flex-col lg:flex-row items-center my-[.5rem] ">
+            <div className="flex flex-col mr-[.5rem]">
               <input
               placeholder="Adauga ID-ul cursantului"
                 value={IDCursant.ID}
                 onChange={(e) =>
                   setIDCursant({ ...IDCursant, ID: e.target.value })
                 }
-                className="w-[15rem]"
+                className="w-[18.5rem] my-[.2rem]"
               />
+                  <input
+              placeholder="Adauga numele si prenumele cursantului"
+                value={IDCursant.numePrenume}
+                onChange={(e) =>
+                  setIDCursant({ ...IDCursant, numePrenume: e.target.value })
+                }
+                className="w-[18.5rem] my-[.2rem]"
+              />
+              </div>
               <button
                 onClick={getData}
                 className="mt-[.5rem] mr-[1rem] bg-red-500 text-white font-bold px-[2rem] py-[.5rem] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_15px_-5px_#DC2626] text-[12px] lg:text-[15px] w-[15rem]"
@@ -679,13 +694,13 @@ const ChestionariiOnline = () => {
          
             </li>
             <li />
-            <li className="flex justify-center font-bold text-[16px] lg:text-[24px]">Toti cursantii</li>
+            <li className="mt-[2rem] flex justify-center font-bold text-[18px] lg:text-[24px]">Toti cursantii</li>
             <li></li>
            
             {data &&
-  Object.keys(data).map((key) => {
+  Object.keys(data).map((key,index) => {
     if (data[key].instructor === localStorage.getItem("userMail")) {
-      return <><li>ID: {data[key].ID}</li>;<li>Email: {data[key].Email==="" ? "Cursanul nu s-a inregistrat": data[key].Email} <br /> Chestionarele Corecte: {data[key].chestionareCorecte} <br />Chestionarele gresite: {data[key].chestionareGresite}</li></>
+      return <><li><span className="font-bold">{index+1}.</span> ID: {data[key].ID} <br /> Nume si Prenume: {data[key].numePrenume} <br /> Email: {data[key].Email==="" ? "Cursanul nu s-a inregistrat": data[key].Email} <br /> Chestionarele Corecte: {data[key].chestionareCorecte} <br /> Chestionarele Gresite: {data[key].chestionareGresite}</li></>
     }
     return null;
   })}
