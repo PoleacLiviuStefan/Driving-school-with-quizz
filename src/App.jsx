@@ -30,16 +30,17 @@ function App() {
   localStorage.setItem("userEmail","")
   localStorage.setItem("cursantConectat",false);
   localStorage.setItem("userEmailCursant","")
-  const [loadingScreen,setLoadingScreen]=useState(true);
+  const [loadingScreen,setLoadingScreen]=useState(false);
   const located=useLocation();
   const [hideLoading,setHideLoading]=useState(false);
   localStorage.setItem("completedQuizz",false);
   useEffect(()=>{ 
+    if(located.pathname==="/" )
    setLoadingScreen(true);
     const timer=setTimeout(()=>{
         setLoadingScreen(false);
         window.scrollTo({top:0,left:0});
-    },3500)
+    },2500)
     return () => clearTimeout(timer);
   },[])
   useEffect(() => {

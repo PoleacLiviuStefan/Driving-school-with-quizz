@@ -20,7 +20,7 @@ const LoadingScreen = () => {
     const timer = setTimeout(() => {
         setShowScoala(true)
         
-    }, 1250);
+    }, 750);
     
     return () => clearTimeout(timer)
 }, []);
@@ -29,7 +29,7 @@ useEffect(() => {
     const timer = setTimeout(() => {
         setShowAuto(true)
         
-    }, 1750);
+    }, 1250);
     
     return () => clearTimeout(timer)
 }, []);

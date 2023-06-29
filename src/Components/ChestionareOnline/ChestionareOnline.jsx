@@ -15,8 +15,10 @@ import {
   AiFillCloseCircle,
   AiFillCheckCircle,
   AiFillCaretRight,
+  AiOutlineCloseCircle,
 } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
+import {TiTick} from "react-icons/ti"
 import IntrebariAcomodare from "./IntrebariAcomodare";
 import ReverseTimer from "./ReverseTimer";
 import dataChestionare from "./Questions";
@@ -338,10 +340,11 @@ const ChestionariiOnline = () => {
               "toate chestionarele",
               data[memorizedKey].chestionareCorecte.length
             );
+       
             const updatedField = {
               chestionareGresite:
                 data[memorizedKey].chestionareGresite + " " + correctAnswers,
-              [quizzNumber]: IntrebariTerminate,
+              [quizzNumber]: [...IntrebariTerminate,correctAnswers],
             };
             console.log(data[memorizedKey].chestionareGresite + correctAnswers);
 
@@ -384,6 +387,8 @@ const ChestionariiOnline = () => {
             toateIntrebarile +
             data[memorizedKey].chestionareCorecte.length +
             data[memorizedKey].chestionareGresite.length;
+            //adaugam in capatul intrebarilor, numarul de raspunsuri corecte
+            setIntrebariTerminate([...IntrebariTerminate, correctAnswers.toString()]);
           const updatedField = {
             chestionareCorecte:
               data[memorizedKey].chestionareCorecte + " " + correctAnswers,
@@ -477,7 +482,7 @@ const ChestionariiOnline = () => {
       }
     }
   };
-
+ //timpul maxim de afisare a erorii
   useEffect(() => {
     if (start === 7 || start === 8) {
       const timer = setTimeout(() => {
@@ -540,7 +545,7 @@ const ChestionariiOnline = () => {
           <span className="mx-[1rem] ">
             <AiOutlineRight />
           </span>
-          <a className="cursor-pointer">Legislatie</a>
+          <a onClick={()=>{window.location.reload(false)}} className="cursor-pointer">Legislatie</a>
         </div>
         <h2
           className={`text-[26px] lg:text-[42px] font-extrabold text-center leading-7 lg:leading-10 ${
@@ -820,7 +825,7 @@ const ChestionariiOnline = () => {
                               <>
                                 
                                 <ul className="flex flex-col my-[1rem]">Chestionarul numarul {index-6}   cu Intreabrile:   {value[1].map((item, subIndex) => (
-            <span key={subIndex}>{subIndex+1 + ". "}  { item}</span>
+            <span className={`flex items-center ${value[1].length-1===subIndex && "font-bold text-[16px] lg:text-[20px]"}`} key={subIndex}>{(value[1].length-1>subIndex) ? (subIndex+1 + ". ") : ("Numarul de raspunsuri corecte: ")}  <span className={` ${value[1].length-1===subIndex && " text-[28px] lg:text-[42px]"}`}>{item} </span> </span>
           ))}</ul>
                               </>
                             );
