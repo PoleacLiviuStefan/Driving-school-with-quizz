@@ -14,8 +14,9 @@ import {
   AiOutlineWarning,
   AiFillCloseCircle,
   AiFillCheckCircle,
+  AiFillCaretRight,
 } from "react-icons/ai";
-import {RxAvatar} from "react-icons/rx"
+import { RxAvatar } from "react-icons/rx";
 import IntrebariAcomodare from "./IntrebariAcomodare";
 import ReverseTimer from "./ReverseTimer";
 import dataChestionare from "./Questions";
@@ -53,18 +54,27 @@ const ChestionariiOnline = () => {
   const [passwordComfirmed, setPasswordComfirmed] = useState("");
   const [authUser, setAuthUser] = useState(null);
   const [data, setData] = useState(null);
-  const [userID,setUserId]=useState("");
-  const [IntrebariTerminate,setIntrebariTerminate]=useState([]);
+  const [userID, setUserId] = useState("");
+  const [IntrebariTerminate, setIntrebariTerminate] = useState([]);
+  const [showQuestions, setShowQuestions] = useState(-1);
+
+  const findNumbersInString = (str) => {
+    const regex = /\d+/g; //
+    const matches = str.match(regex); // Find all matches in the string
+
+    if (matches) {
+      return matches.map(Number); // Convert the matched strings to numbers
+    }
+
+    return [];
+  };
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
         console.log(user);
-   
 
         setIDCursant({ ...IDCursant, instructor: user.email });
-      
-      
       } else {
         setAuthUser(null);
       }
@@ -78,9 +88,16 @@ const ChestionariiOnline = () => {
       ...IDCursant,
       instructor: localStorage.getItem("userMail"),
       chestionareCoreste: "",
-      contcreat: "nu"
+      contcreat: "nu",
     });
-    const { ID, numePrenume, instructor,chestionareCorecte,chestionareGresite,contCreat } = IDCursant;
+    const {
+      ID,
+      numePrenume,
+      instructor,
+      chestionareCorecte,
+      chestionareGresite,
+      contCreat,
+    } = IDCursant;
     console.log({ IDCursant });
     const options = {
       method: "POST",
@@ -93,7 +110,7 @@ const ChestionariiOnline = () => {
         instructor,
         chestionareCorecte,
         chestionareGresite,
-        contCreat
+        contCreat,
       }),
     };
 
@@ -119,8 +136,11 @@ const ChestionariiOnline = () => {
         }
 
         const data = await response.json();
-        setData(data)
-     
+        setData(data);
+        console.log(
+          "data este",
+          Object.entries(data["-NZ6yQ-Omd5zPXhYapIF"])
+        );
       } catch (error) {
         console.log("Error:", error);
       }
@@ -134,41 +154,43 @@ const ChestionariiOnline = () => {
   };
   const registerPasswordHandler = (e) => {
     e.preventDefault();
-    var sameID=false;
-    var memorizedKey=""
-    Object.keys(data).map((key) =>{
-      if(data[key].ID===userID)
-          {sameID=true;
-          memorizedKey=key;
-          console.log("da, exista ID cu acelasi ID din baza de date")
-          }
-    })
-    if (!sameID){
+    var sameID = false;
+    var memorizedKey = "";
+    Object.keys(data).map((key) => {
+      if (data[key].ID === userID) {
+        sameID = true;
+        memorizedKey = key;
+        console.log("da, exista ID cu acelasi ID din baza de date");
+      }
+    });
+    if (!sameID) {
       setShowError(2);
-    } 
-    else if (password !== passwordComfirmed) {
+    } else if (password !== passwordComfirmed) {
       setShowError(0);
     } else if (password.length < 6) {
       setShowError(1);
-
-    }
-    else {
+    } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           console.log(userCredential);
-          const updatedField={Email:email,contCreat:"da"}
-       
-          fetch(('https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/' + memorizedKey + '.json') , {
-            method: 'PATCH',
-            body: JSON.stringify(updatedField),
-          })
+          const updatedField = { Email: email, contCreat: "da" };
+
+          fetch(
+            "https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/" +
+              memorizedKey +
+              ".json",
+            {
+              method: "PATCH",
+              body: JSON.stringify(updatedField),
+            }
+          )
             .then((response) => response.json())
             .then((updatedData) => {
-              console.log('Field updated successfully:', updatedData);
+              console.log("Field updated successfully:", updatedData);
               setStart(3);
             })
             .catch((error) => {
-              console.error('Error updating field:', error);
+              console.error("Error updating field:", error);
             });
         })
         .catch((error) => {
@@ -186,36 +208,35 @@ const ChestionariiOnline = () => {
       })
       .catch((error) => {
         console.log(error);
-        setShowError(3)
+        setShowError(3);
       });
   };
   const CursantLogin = () => {
-
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log("da")
-        localStorage.setItem("cursantConectat",true);
-        localStorage.setItem("userEmailCursant",userCredential.user.email);
-   
+        console.log("da");
+        localStorage.setItem("cursantConectat", true);
+        localStorage.setItem("userEmailCursant", userCredential.user.email);
+
         setStart(3);
       })
       .catch((error) => {
         console.log(error);
-        setShowError(3)
+        setShowError(3);
       });
   };
   const checkUserExistence = () => {
     console.log("verificare existenta");
     onAuthStateChanged(auth, (user) => {
-      if (user ) {
-        console.log("da,s-a conectat")
+      if (user) {
+        console.log("da,s-a conectat");
         setAuthUser(user);
-        localStorage.setItem("userMail",user.email)
+        localStorage.setItem("userMail", user.email);
         setStart(15);
       } else {
         setAuthUser(null);
         setStart(13);
-        localStorage.setItem("userMail","")
+        localStorage.setItem("userMail", "");
       }
     });
   };
@@ -224,23 +245,27 @@ const ChestionariiOnline = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setStart(3);
-        localStorage.setItem("userEmailCursant",user.email)
+        localStorage.setItem("userEmailCursant", user.email);
       } else {
         setStart(1);
-        localStorage.setItem("userEmailCursant","")
+        localStorage.setItem("userEmailCursant", "");
       }
     });
   };
   const userSignOut = () => {
     signOut(auth);
-    localStorage.setItem("cursantConectat",false);
-    localStorage.setItem("userEmailCursant","");
-    localStorage.setItem("userMail","");
-    setEmail('')
-    setPassword('');
+    localStorage.setItem("cursantConectat", false);
+    localStorage.setItem("userEmailCursant", "");
+    localStorage.setItem("userMail", "");
+    setEmail("");
+    setPassword("");
   };
   const handleChildValue = (value) => {
     setCurrentQuestionsAnswers(value);
+  };
+  const handleChildQuestion = (value) => {
+    setIntrebariTerminate([...IntrebariTerminate, value]);
+    console.log(IntrebariTerminate);
   };
   const handleChildTimer = (value) => {
     setTimerExpired(true);
@@ -249,16 +274,18 @@ const ChestionariiOnline = () => {
   };
 
   const checkValueCorrectitude = () => {
-    console.log("ai apasat pe trimite")
+    console.log("ai apasat pe trimite");
     //verificare daca raspunsul este corect
-    console.log(randomNumber)
+    console.log(randomNumber);
     const maxQuestions = start === 6 ? 25 : start === 11 && 19;
     if (currentQuestionsAsnwers.length !== 0) {
       if (start === 4) {
-        console.log(questionNumber)
+        console.log(questionNumber);
         if (
           JSON.stringify(currentQuestionsAsnwers) ===
-          JSON.stringify(dataChestionare.questions.correctOptions[questionNumber])
+          JSON.stringify(
+            dataChestionare.questions.correctOptions[questionNumber]
+          )
         )
           //verificare pentru intrebarile de acomodare
           setCorrectAnswers((prev) => prev + 1);
@@ -270,7 +297,9 @@ const ChestionariiOnline = () => {
               start === 6
                 ? dataChestionare.questions.correctOptionsExamen[randomNumber]
                 : start === 11 &&
-                dataChestionare.questions.correctOptionsExamenCategoriaA[randomNumber]
+                    dataChestionare.questions.correctOptionsExamenCategoriaA[
+                      randomNumber
+                    ]
             ) &&
           (start === 6 || start === 11)
         ) {
@@ -280,32 +309,57 @@ const ChestionariiOnline = () => {
 
           if (wrongAnswers === (start === 6 ? 4 : start === 11 && 2)) {
             //terminare la 5 intrebari gresite
-            
-            setStart(7);    
-            
-            var memorizedKey=""
-            Object.keys(data).map((key) =>{
-              if(data[key].Email===localStorage.getItem("userEmailCursant"))
-                  {
-                  memorizedKey=key;
-     
-                  }
-            })
-            console.log('cheia memorata este:',memorizedKey)
-            const updatedField={chestionareGresite:data[memorizedKey].chestionareGresite+" "+correctAnswers};
-            console.log(data[memorizedKey].chestionareGresite+correctAnswers)
-     
-            fetch(('https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/' + memorizedKey + '.json') , {
-              method: 'PATCH',
-              body: JSON.stringify(updatedField),
-            })
+
+            setStart(7);
+
+            var memorizedKey = "";
+            Object.keys(data).map((key) => {
+              if (
+                data[key].Email === localStorage.getItem("userEmailCursant")
+              ) {
+                memorizedKey = key;
+              }
+            });
+            console.log("cheia memorata este:", memorizedKey);
+            const chestionareCorecte = findNumbersInString(
+              data[memorizedKey].chestionareCorecte
+            );
+            const chestionareGresite = findNumbersInString(
+              data[memorizedKey].chestionareGresite
+            );
+            const quizzNumber =
+              "toateIntrebarile" +
+              (
+                chestionareCorecte.length +
+                chestionareGresite.length +
+                1
+              ).toString();
+            console.log(
+              "toate chestionarele",
+              data[memorizedKey].chestionareCorecte.length
+            );
+            const updatedField = {
+              chestionareGresite:
+                data[memorizedKey].chestionareGresite + " " + correctAnswers,
+              [quizzNumber]: IntrebariTerminate,
+            };
+            console.log(data[memorizedKey].chestionareGresite + correctAnswers);
+
+            fetch(
+              "https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/" +
+                memorizedKey +
+                ".json",
+              {
+                method: "PATCH",
+                body: JSON.stringify(updatedField),
+              }
+            )
               .then((response) => response.json())
               .then((updatedData) => {
-                console.log('Field updated successfully:', updatedData);
-          
+                console.log("Field updated successfully:", updatedData);
               })
               .catch((error) => {
-                console.error('Error updating field:', error);
+                console.error("Error updating field:", error);
               });
           }
         }
@@ -317,78 +371,86 @@ const ChestionariiOnline = () => {
       } else setQuestionNumber((prev) => prev + 1);
       if (questionNumber === maxQuestions) {
         console.log("numarul de raspunsuri corecte: ", correctAnswers);
-        if (correctAnswers >= (start === 6 ? 21 : start === 11 && 16))
-          {setStart(8);
-          var memorizedKey=""
-          Object.keys(data).map((key) =>{
-            if(data[key].Email===localStorage.getItem("userEmailCursant"))
-                {
-                memorizedKey=key;
-   
-                }
-          })
-          console.log('cheia memorata este:',memorizedKey)
-          const updatedField={chestionareCorecte:data[memorizedKey].chestionareCorecte+" "+correctAnswers};
-          console.log(data[memorizedKey].chestionareCorecte+correctAnswers)
-   
-          fetch(('https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/' + memorizedKey + '.json') , {
-            method: 'PATCH',
-            body: JSON.stringify(updatedField),
-          })
+        if (correctAnswers >= (start === 6 ? 21 : start === 11 && 16)) {
+          setStart(8);
+          var memorizedKey = "";
+          Object.keys(data).map((key) => {
+            if (data[key].Email === localStorage.getItem("userEmailCursant")) {
+              memorizedKey = key;
+            }
+          });
+          console.log("cheia memorata este:", memorizedKey);
+          const quizzNumber =
+            toateIntrebarile +
+            data[memorizedKey].chestionareCorecte.length +
+            data[memorizedKey].chestionareGresite.length;
+          const updatedField = {
+            chestionareCorecte:
+              data[memorizedKey].chestionareCorecte + " " + correctAnswers,
+            [quizzNumber]: IntrebariTerminate,
+          };
+          console.log(data[memorizedKey].chestionareCorecte + correctAnswers);
+
+          fetch(
+            "https://scoala-auto-ac5da-default-rtdb.firebaseio.com/IDCursant/" +
+              memorizedKey +
+              ".json",
+            {
+              method: "PATCH",
+              body: JSON.stringify(updatedField),
+            }
+          )
             .then((response) => response.json())
             .then((updatedData) => {
-              console.log('Field updated successfully:', updatedData);
-        
+              console.log("Field updated successfully:", updatedData);
             })
             .catch((error) => {
-              console.error('Error updating field:', error);
+              console.error("Error updating field:", error);
             });
-          }
+        }
       }
-    
-    console.log(questionNumber + laterQuestions.length);
-    const maxQuestionsCategory = start === 6 ? 26 : start === 11 && 20;
-    if (
-      questionNumber + laterQuestions.length >= maxQuestionsCategory &&
-      laterQuestions.length >= 1
-    ) {
-      console.log(
-        questionNumber,
-        "intrebarea la care suntem,",
-        "si numarul de intrebari ramase",
-        laterQuestions
-      );
-      setRandomNumber(laterQuestions[0]);
 
-      const shiftedArray = [...laterQuestions.slice(1), laterQuestions[0]];
-      const newArray = [...shiftedArray];
-      newArray.pop();
-      setLaterQuestions(newArray);
-    } else {
-      const maxRandom = start === 6 ? 89 : start === 11 ? 47 : 20;
-      let currentRandom = Math.floor(Math.random() * maxRandom);
-      while (checkExistence(currentRandom)) {
-        currentRandom = Math.floor(Math.random() * maxRandom);
+      console.log(questionNumber + laterQuestions.length);
+      const maxQuestionsCategory = start === 6 ? 26 : start === 11 && 20;
+      if (
+        questionNumber + laterQuestions.length >= maxQuestionsCategory &&
+        laterQuestions.length >= 1
+      ) {
+        console.log(
+          questionNumber,
+          "intrebarea la care suntem,",
+          "si numarul de intrebari ramase",
+          laterQuestions
+        );
+        setRandomNumber(laterQuestions[0]);
+
+        const shiftedArray = [...laterQuestions.slice(1), laterQuestions[0]];
+        const newArray = [...shiftedArray];
+        newArray.pop();
+        setLaterQuestions(newArray);
+      } else {
+        const maxRandom = start === 6 ? 89 : start === 11 ? 47 : 20;
+        let currentRandom = Math.floor(Math.random() * maxRandom);
+        while (checkExistence(currentRandom)) {
+          currentRandom = Math.floor(Math.random() * maxRandom);
+        }
+        setRandomNumber(currentRandom);
+        setUsedQuestionsIndex([...usedQuestionsIndex, currentRandom]);
       }
-      setRandomNumber(currentRandom);
-      setUsedQuestionsIndex([...usedQuestionsIndex, currentRandom]);
+
+      window.scrollTo({ top: 0, left: 0 });
     }
-
-    window.scrollTo({ top: 0, left: 0 });
-  }
   };
 
   const handleLaterQuestion = () => {
-    console.log("ai apasat pe raspunde")
+    console.log("ai apasat pe raspunde");
     const maxQuestionsLater = start === 6 ? 25 : start === 11 ? 19 : 19;
     if (
       questionNumber + laterQuestions.length === maxQuestionsLater &&
       laterQuestions.length <= 1
     )
-      console.log(
-        "no later",
-        questionNumber + laterQuestions.length
-      ); //problema de rezolvat, raman 2 intrebari si nu mai merge
+      console.log("no later", questionNumber + laterQuestions.length);
+    //problema de rezolvat, raman 2 intrebari si nu mai merge
     else {
       if (questionNumber + laterQuestions.length >= maxQuestionsLater) {
         const firstIndex = laterQuestions[0];
@@ -425,33 +487,47 @@ const ChestionariiOnline = () => {
       return () => clearTimeout(timer);
     }
   }, [start]);
-  useEffect(()=>{
-    if(showError!==-1 && (start=== 13 || start===1))
-    {
-      const timer=setTimeout(()=>{
-          setShowError(-1)
-      },5000)
-      return ()=>clearTimeout(timer);
-    }
-    else
-      {
+  useEffect(() => {
+    if (showError !== -1 && (start === 13 || start === 1)) {
+      const timer = setTimeout(() => {
         setShowError(-1);
-      }
-  },[showError,start])
-
+      }, 5000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowError(-1);
+    }
+  }, [showError, start]);
+  const handleShowQuestions = () => {
+    if (showQuestions === -1) setShowQuestions(0);
+    else setShowQuestions(-1);
+  };
   return (
     <div
       className={`flex justify-center items-center w-full  ${
         start <= 3 ? "bg-chestionareBg bg-cover h-full" : "bg-gray-100 h-full"
       }  py-[5rem]`}
     >
-      
       <div className="relative  flex flex-col items-center justify-center w-full lg:w-[65rem] h-full  py-[4rem]">
-      <div className={`flex items-center absolute top-0 left-[1rem] ${(start !==3 && start!==5 && start!==7 && start!==8) && "hidden"}`}>
-              <span className="text-[36px] text-red-500"><RxAvatar /></span>
-              <p className="ml-2 font-bold">{localStorage.getItem("userEmailCursant")}</p>
-              <button onClick={userSignOut} className={`ml-2 bg-red-500  py-[.5rem]  px-[.5rem] text-white font-bold text-[13px] lg:text-[16px]  rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626] ${(start===7 || start===8) && "hidden"}`}>DECONETARE</button>
-          </div>
+        <div
+          className={`flex items-center absolute top-0 left-[1rem] ${
+            start !== 3 && start !== 5 && start !== 7 && start !== 8 && "hidden"
+          }`}
+        >
+          <span className="text-[36px] text-red-500">
+            <RxAvatar />
+          </span>
+          <p className="ml-2 font-bold">
+            {localStorage.getItem("userEmailCursant")}
+          </p>
+          <button
+            onClick={userSignOut}
+            className={`ml-2 bg-red-500  py-[.5rem]  px-[.5rem] text-white font-bold text-[13px] lg:text-[16px]  rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626] ${
+              (start === 7 || start === 8) && "hidden"
+            }`}
+          >
+            DECONETARE
+          </button>
+        </div>
         <div className="absolute top-[-2rem] left-[1rem] lg:left-0 flex items-centert text-[12px]  lg:text-[14px] text-gray-500 ">
           <a
             onClick={() => {
@@ -501,8 +577,8 @@ const ChestionariiOnline = () => {
             PAROLA TREBUIE SA CONTINA CEL PUTIN 6 CARACTERE
           </h4>
         </div>
-                {/*Eroare numar minim de caractere pentru parola */}
-                <div
+        {/*Eroare numar minim de caractere pentru parola */}
+        <div
           className={`flex items-center justify-center fixed top-[0rem] w-full text-[13px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
             showError !== 2 && "hidden"
           }`}
@@ -511,7 +587,9 @@ const ChestionariiOnline = () => {
             <span className="text-[56px] mr-2">
               <AiOutlineWarning />
             </span>
-            ID-UL NU EXISTA! DACA ESTI INSCRIS LA SCOALA NOASTRA, TE RUGAM SA ITI CONTACTEZI INSTRUCTORUL PENTRU A TE ADAUGA IN BAZA DE DATE DE PE SITE. MULTUMIM!
+            ID-UL NU EXISTA! DACA ESTI INSCRIS LA SCOALA NOASTRA, TE RUGAM SA
+            ITI CONTACTEZI INSTRUCTORUL PENTRU A TE ADAUGA IN BAZA DE DATE DE PE
+            SITE. MULTUMIM!
           </h4>
         </div>
         {/*Verificare parola la login*/}
@@ -590,13 +668,12 @@ const ChestionariiOnline = () => {
         </form>
         {/*conectare cursant*/}
         <div
-     
           className={`w-[90%] mt-[2rem] ${
             start !== 1 && "hidden"
           } flex flex-col items-center lg:text-[24px] font-bold`}
         >
           <label className="mt-[1rem]">EMAIL</label>
-      
+
           <input
             type="text"
             className="mt-[1rem] border-[2px] border-black w-full lg:w-[32rem] h-[2rem] px-[1rem]"
@@ -625,7 +702,7 @@ const ChestionariiOnline = () => {
             </span>
           </div>
           <button
-          onClick={CursantLogin}
+            onClick={CursantLogin}
             type="submit"
             className="mt-[2rem] flex items-center bg-red-500 px-[4rem] py-[1rem] text-white font-bold text-[18px] lg:text-[24px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
           >
@@ -637,16 +714,20 @@ const ChestionariiOnline = () => {
           <div className="flex flex-col items-center mt-[1rem] lg:mt-[2rem] text-center lg:text-[20px] w-[90%] text-gray-600">
             <p>Este prima oara cand incerci sa parcuri aceste chestionare?</p>
             <p>Atunci apasa pe butonul urmator pentru a te inregistra</p>
-        
           </div>
           <button
-              onClick={() => {setStart(2); setEmail(""); setPassword("")}}
-              className="mt-[1rem] flex items-center bg-red-500 px-[1rem] lg:px-[2rem] py-[.5rem] lg:py-[1rem] text-white font-bold text-[18px] lg:text-[24px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
-            >
-              INREGISTRARE
-            </button>
+            onClick={() => {
+              setStart(2);
+              setEmail("");
+              setPassword("");
+              window.location.reload();
+            }}
+            className="mt-[1rem] flex items-center bg-red-500 px-[1rem] lg:px-[2rem] py-[.5rem] lg:py-[1rem] text-white font-bold text-[18px] lg:text-[24px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
+          >
+            INREGISTRARE
+          </button>
         </div>
-     
+
         {/*Panou de control pentru instructori*/}
         <div
           className={`flex flex-col items-center ${
@@ -666,24 +747,24 @@ const ChestionariiOnline = () => {
             </button>
           </div>
           <ul className="flex flex-col items-center lg:grid lg:grid-cols-2 items-center  justify-between w-[90%] lg:w-[65rem]">
-          <li className="flex flex-col lg:flex-row items-center my-[.5rem] ">
-            <div className="flex flex-col mr-[.5rem]">
-              <input
-              placeholder="Adauga ID-ul cursantului"
-                value={IDCursant.ID}
-                onChange={(e) =>
-                  setIDCursant({ ...IDCursant, ID: e.target.value })
-                }
-                className="w-[18.5rem] my-[.2rem]"
-              />
-                  <input
-              placeholder="Adauga numele si prenumele cursantului"
-                value={IDCursant.numePrenume}
-                onChange={(e) =>
-                  setIDCursant({ ...IDCursant, numePrenume: e.target.value })
-                }
-                className="w-[18.5rem] my-[.2rem]"
-              />
+            <li className="flex flex-col lg:flex-row items-center my-[.5rem] ">
+              <div className="flex flex-col mr-[.5rem]">
+                <input
+                  placeholder="Adauga ID-ul cursantului"
+                  value={IDCursant.ID}
+                  onChange={(e) =>
+                    setIDCursant({ ...IDCursant, ID: e.target.value })
+                  }
+                  className="w-[18.5rem] my-[.2rem]"
+                />
+                <input
+                  placeholder="Adauga numele si prenumele cursantului"
+                  value={IDCursant.numePrenume}
+                  onChange={(e) =>
+                    setIDCursant({ ...IDCursant, numePrenume: e.target.value })
+                  }
+                  className="w-[18.5rem] my-[.2rem]"
+                />
               </div>
               <button
                 onClick={getData}
@@ -691,19 +772,66 @@ const ChestionariiOnline = () => {
               >
                 ADAUGA CURSANTUL
               </button>
-         
             </li>
             <li />
-            <li className="mt-[2rem] flex justify-center font-bold text-[18px] lg:text-[24px]">Toti cursantii</li>
+            <li className="mt-[2rem] flex justify-center font-bold text-[18px] lg:text-[24px]">
+              Toti cursantii
+            </li>
             <li></li>
-           
+
             {data &&
-  Object.keys(data).map((key,index) => {
-    if (data[key].instructor === localStorage.getItem("userMail")) {
-      return <><li><span className="font-bold">{index+1}.</span> ID: {data[key].ID} <br /> Nume si Prenume: {data[key].numePrenume} <br /> Email: {data[key].Email==="" ? "Cursanul nu s-a inregistrat": data[key].Email} <br /> Chestionarele Corecte: {data[key].chestionareCorecte} <br /> Chestionarele Gresite: {data[key].chestionareGresite}</li></>
-    }
-    return null;
-  })}
+              Object.keys(data).map((key, index) => {
+                if (data[key].instructor === localStorage.getItem("userMail")) {
+                  return (
+                    <>
+                      <li>
+                        <span className="font-bold">{index + 1}.</span> ID:{" "}
+                        {data[key].ID} <br /> Nume si Prenume:{" "}
+                        {data[key].numePrenume} <br /> Email:{" "}
+                        {data[key].Email === ""
+                          ? "Cursanul nu s-a inregistrat"
+                          : data[key].Email}{" "}
+                        <br /> Chestionarele Corecte:{" "}
+                        {data[key].chestionareCorecte} <br /> Chestionarele
+                        Gresite: {data[key].chestionareGresite} <br />{" "}
+                        <ul
+                          className={`overflow-hidden ${
+                            showQuestions === -1 ? "h-[3.5rem] lg:h-[1.5rem]" : "h-full"
+                          }`}
+                        >
+                          <li>
+                            <span className="flex flex-col lg:flex-row">
+                              Intrebarile de la chestionare
+                          <button className="flex items-center lg:ml-2 bg-red-500 text-white rounded-[8px] px-[.3rem]" onClick={handleShowQuestions}>
+                                Apasa pentru a vedea toate chestionarele     <span
+                                className={` ${
+                                  showQuestions !== -1 ? "rotate-[90deg]" : ""
+                                }`}
+                               
+                              ><AiFillCaretRight />
+                              </span>
+                              </button>
+                            </span>
+                          </li>
+                          {      
+                             Object.entries(data[key]).map((value, index) => {
+                              if(index>=7)
+                            return (
+                              <>
+                                
+                                <ul className="flex flex-col my-[1rem]">Chestionarul numarul {index-6}   cu Intreabrile:   {value[1].map((item, subIndex) => (
+            <span key={subIndex}>{subIndex+1 + ". "}  { item}</span>
+          ))}</ul>
+                              </>
+                            );
+                          })}
+                        </ul>
+                      </li>
+                    </>
+                  );
+                }
+                return null;
+              })}
           </ul>
         </div>
         {/*Inregistrare Cursant*/}
@@ -724,7 +852,7 @@ const ChestionariiOnline = () => {
             type="text"
             className=" border-[2px] border-black w-full w-full lg:w-[32rem] h-[2rem] px-[1rem] "
             value={userID}
-            onChange={(e)=>setUserId(e.target.value)}
+            onChange={(e) => setUserId(e.target.value)}
             required
           />
           <label className="mt-[1rem]">EMAIL</label>
@@ -855,7 +983,6 @@ const ChestionariiOnline = () => {
             start !== 3 && "hidden"
           } flex flex-col items-center lg:text-[32px] font-extrabold`}
         >
-     
           <h3 className="text-center  ">SELECTATI CATEGORIA</h3>
           <div className="mt-[2rem] flex flex-col lg:flex-row text-red-500  lg:text-[24px]">
             <span
@@ -897,6 +1024,7 @@ const ChestionariiOnline = () => {
           <IntrebariAcomodare
             start={start}
             checkedAnswers={handleChildValue}
+            question={handleChildQuestion}
             currentQuestion={questionNumber}
             randomNumber={randomNumber}
           />
