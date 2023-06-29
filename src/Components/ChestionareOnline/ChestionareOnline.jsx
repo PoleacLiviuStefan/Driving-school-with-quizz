@@ -802,7 +802,7 @@ const ChestionariiOnline = () => {
                           <li>
                             <span className="flex flex-col lg:flex-row">
                               Intrebarile de la chestionare
-                          <button className="flex items-center lg:ml-2 bg-red-500 text-white rounded-[8px] px-[.3rem]" onClick={handleShowQuestions}>
+                          <button className="flex items-center lg:ml-2 bg-red-500 text-white rounded-[8px] px-[.3rem] lg:px-0" onClick={handleShowQuestions}>
                                 Apasa pentru a vedea toate chestionarele     <span
                                 className={` ${
                                   showQuestions !== -1 ? "rotate-[90deg]" : ""
