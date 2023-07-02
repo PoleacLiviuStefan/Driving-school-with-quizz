@@ -23,7 +23,56 @@ import IntrebariAcomodare from "./IntrebariAcomodare";
 import ReverseTimer from "./ReverseTimer";
 import dataChestionare from "./Questions";
 import { auth } from "../Firebase/Firebase";
-
+import indicator1 from "./Images/indicator1.jpg";
+import indicator2 from "./Images/indicator2.jpg";
+import indicator3 from "./Images/indicator3.jpg";
+import motoimg1 from "./Images/motoimg1.jpg";
+import motoimg2 from "./Images/motoimg2.jpg";
+import motoimg3 from "./Images/motoimg3.jpg";
+import motoimg4 from "./Images/motoimg4.jpg";
+import motoimg5 from "./Images/motoimg5.jpg";
+import motoimg6 from "./Images/motoimg6.jpg";
+import motoimg7 from "./Images/motoimg7.jpg";
+import motoimg8 from "./Images/motoimg8.jpg";
+import motoimg9 from "./Images/motoimg9.jpg";
+import motoimg10 from "./Images/motoimg10.jpg";
+import motoimg11 from "./Images/motoimg11.jpg";
+import motoimg12 from "./Images/motoimg12.jpg";
+import motoimg13 from "./Images/motoimg13.jpg";
+import motoimg14 from "./Images/motoimg14.jpg";
+import motoimg15 from "./Images/motoimg15.jpg";
+import motoimg16 from "./Images/motoimg16.jpg";
+import motoimg17 from "./Images/motoimg17.jpg";
+import motoimg18 from "./Images/motoimg18.jpg";
+import motoimg19 from "./Images/motoimg19.jpg";
+import motoimg20 from "./Images/motoimg20.jpg";
+import motoimg21 from "./Images/motoimg21.jpg";
+import motoimg22 from "./Images/motoimg22.jpg";
+import motoimg23 from "./Images/motoimg23.jpg";
+import motoimg24 from "./Images/motoimg24.jpg";
+import motoimg25 from "./Images/motoimg25.jpg";
+import motoimg26 from "./Images/motoimg26.jpg";
+import motoimg27 from "./Images/motoimg27.jpg";
+import motoimg28 from "./Images/motoimg28.jpg";
+import motoimg29 from "./Images/motoimg29.jpg";
+import motoimg30 from "./Images/motoimg30.jpg";
+import motoimg31 from "./Images/motoimg31.jpg";
+import motoimg32 from "./Images/motoimg32.jpg";
+import motoimg33 from "./Images/motoimg33.jpg";
+import motoimg34 from "./Images/motoimg34.jpg";
+import motoimg35 from "./Images/motoimg35.jpg";
+import motoimg36 from "./Images/motoimg36.jpg";
+import motoimg37 from "./Images/motoimg37.jpg";
+import motoimg38 from "./Images/motoimg38.jpg";
+import motoimg39 from "./Images/motoimg39.jpg";
+import motoimg40 from "./Images/motoimg40.jpg";
+import motoimg41 from "./Images/motoimg41.jpg";
+import motoimg42 from "./Images/motoimg42.jpg";
+import motoimg43 from "./Images/motoimg43.jpg";
+import motoimg44 from "./Images/motoimg44.jpg";
+import motoimg45 from "./Images/motoimg45.jpg";
+import motoimg46 from "./Images/motoimg46.jpg";
+import motoimg47 from "./Images/motoimg47.jpg";
 const ChestionariiOnline = () => {
   const navigate = useNavigate();
   const [start, setStart] = useState(0);
@@ -49,6 +98,58 @@ const ChestionariiOnline = () => {
     chestionareGresite: "",
     contCreat: "nu",
   });
+  const questionImages = {
+    indicator1: indicator1,
+    indicator2: indicator2,
+    indicator3: indicator3,
+    motoimg1: motoimg1,
+    motoimg2: motoimg2,
+    motoimg3: motoimg3,
+    motoimg4: motoimg4,
+    motoimg5: motoimg5,
+    motoimg6: motoimg6,
+    motoimg7: motoimg7,
+    motoimg8: motoimg8,
+    motoimg9: motoimg9,
+    motoimg10: motoimg10,
+    motoimg11: motoimg11,
+    motoimg12: motoimg12,
+    motoimg13: motoimg13,
+    motoimg14: motoimg14,
+    motoimg15: motoimg15,
+    motoimg16: motoimg16,
+    motoimg17: motoimg17,
+    motoimg18: motoimg18,
+    motoimg19: motoimg19,
+    motoimg20: motoimg20,
+    motoimg21: motoimg21,
+    motoimg22: motoimg22,
+    motoimg23: motoimg23,
+    motoimg24: motoimg24,
+    motoimg25: motoimg25,
+    motoimg26: motoimg26,
+    motoimg27: motoimg27,
+    motoimg28: motoimg28,
+    motoimg29: motoimg29,
+    motoimg30: motoimg30,
+    motoimg31: motoimg31,
+    motoimg32: motoimg32,
+    motoimg33: motoimg33,
+    motoimg34: motoimg34,
+    motoimg35: motoimg35,
+    motoimg36: motoimg36,
+    motoimg37: motoimg37,
+    motoimg38: motoimg38,
+    motoimg39: motoimg39,
+    motoimg40: motoimg40,
+    motoimg41: motoimg41,
+    motoimg42: motoimg42,
+    motoimg43: motoimg43,
+    motoimg44: motoimg44,
+    motoimg45: motoimg45,
+    motoimg46: motoimg46,
+    motoimg47: motoimg47
+  };
   const passwordInput = useRef(null);
   const comfirmedPasswordInput = useRef(null);
   const [email, setEmail] = useState("");
@@ -70,6 +171,22 @@ const ChestionariiOnline = () => {
 
     return [];
   };
+  function extractTextFromImageUrl(imageUrl) {
+    if (typeof imageUrl !== 'string' || !imageUrl) {
+      // Invalid image URL
+      return '';
+    }
+  
+    const lastSlashIndex = imageUrl.lastIndexOf('/');
+    const dotJpgIndex = imageUrl.lastIndexOf('.jpg');
+  
+    if (lastSlashIndex === -1 || dotJpgIndex === -1 || lastSlashIndex >= dotJpgIndex) {
+      // Invalid image URL format
+      return '';
+    }
+    console.log(imageUrl.substring(lastSlashIndex + 1, dotJpgIndex))
+    return imageUrl.substring(lastSlashIndex + 1, dotJpgIndex);
+  }
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -904,7 +1021,7 @@ const ChestionariiOnline = () => {
                                         >
 
                                           {value[1].length - 1 === subIndex ? item:item[0]}{" "}
-                                          {item[1]!=="" && <img className="mt-2" src={item[1]} />}
+                                          {item[1]!=="" && <img className="mt-2" src={questionImages[extractTextFromImageUrl(item[1])]} />}
                                           <div className={` ${subIndex===value[1].length-1 && "hidden"}`}>Raspunsul a fost <span className={`font-bold ${item[2]==="gresit" ? "text-red-500" : "text-green-500"}`}>{item[2]}</span></div>
                                         </span>{" "}
                                       </li>
