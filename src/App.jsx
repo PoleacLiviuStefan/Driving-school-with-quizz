@@ -27,9 +27,6 @@ import News from './Components/News/News'
 import LoadingScreen from './Components/LoadingScreen/LoadingScreen'
 
 function App() {
-  localStorage.setItem("userEmail","")
-  localStorage.setItem("cursantConectat",false);
-  localStorage.setItem("userEmailCursant","")
   const [loadingScreen,setLoadingScreen]=useState(false);
   const located=useLocation();
   const [hideLoading,setHideLoading]=useState(false);

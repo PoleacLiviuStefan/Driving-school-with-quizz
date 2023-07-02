@@ -55,7 +55,7 @@ import data from "./Questions";
 
 const IntrebariAcomodare = ({ start, checkedAnswers, question, currentQuestion,randomNumber }) => {
   const [selectedAnswer, setSelectedAnswer] = useState([]);
-  const [intrebare,setIntrebare]=useState("");
+
   const motoimages=[motoimg1,motoimg2,motoimg3,motoimg4,motoimg5,motoimg6,motoimg7,motoimg8,motoimg9,motoimg10,motoimg11,motoimg12,motoimg13,motoimg14,motoimg15,motoimg16,motoimg17,motoimg18,motoimg19,motoimg20,motoimg21,motoimg22,motoimg23,motoimg24,motoimg25,motoimg26,motoimg27,motoimg28,motoimg29,motoimg30,motoimg31,motoimg32,motoimg33,motoimg34,motoimg35,motoimg36,motoimg37,motoimg38,motoimg39,motoimg40,motoimg41,motoimg42,motoimg43,motoimg44,motoimg45,motoimg46,motoimg47]
   const checkExistence = (element) => {
     return selectedAnswer.includes(element);
@@ -63,18 +63,39 @@ const IntrebariAcomodare = ({ start, checkedAnswers, question, currentQuestion,r
   useEffect(() => {
     checkedAnswers(selectedAnswer);
   }, [selectedAnswer]);
-
+  useEffect(()=>{
+    console.log("da merge")
+  },[randomNumber])
   useEffect(() => {
+    console.log("da,este in useEffect")
     if(start===11)
-    question(data.questions.examenCategoriaA[randomNumber])
-
+    {
+      const quesImg=[data.questions.examenCategoriaB[randomNumber],motoimages[randomNumber],''];
+      question(quesImg);
+    }
    
     else if(start===6)
-    question(data.questions.examenCategoriaB[randomNumber])
- 
-  
+    { 
+      const quesImg=[data.questions.examenCategoriaB[randomNumber]];
+      switch(randomNumber){
+        case 87:
+        quesImg[1]=indicator1
+        break;
+        case 88:
+          quesImg[1]=indicator2
+          break;
+        case 89:
+            quesImg[1]=indicator3
+            break;
+          
+      }
+      quesImg[2]='';
+      question(quesImg)
+
+   
+    }
     setSelectedAnswer([]);
-  }, [currentQuestion]);
+  }, [currentQuestion,start]);
   return (
     <div className={`top-0 w-full `}>
       <div
