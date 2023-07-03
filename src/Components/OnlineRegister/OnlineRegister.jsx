@@ -11,22 +11,23 @@ const OnlineRegister = () => {
   const [checkedCategory,setCheckedCategory]=useState([]);
   const generalCategory=useRef();
   const [category,setCategory]=useState("Categoria A1");
-  const handleSelectCategory = (position) => {
+  const handleSelectCategory = (value) => {
     if (
       !selectCategory.some((element) => {
-        if (element === position) {
+        if (element === value) {
           return true;
         }
       })
     )
-      setSelectedCategory((current) => [...current, position]);
+      setSelectedCategory((current) => [...current, value]);
     else
       setSelectedCategory((current) =>
-        current.filter((element) => element !== position)
+        current.filter((element) => element !== value)
       );
   };
 
   const handleCheckedCategory = (element) => {
+    console.log(checkedCategory.toString())
     if(checkedCategory.find(elementFind=>elementFind === element))
       setCheckedCategory(checkedCategory.filter(item=>item!==element))
       
@@ -122,6 +123,8 @@ const OnlineRegister = () => {
                 name="user_CNP"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="number"
+                minLength={13}
+                maxLength={13}
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
@@ -178,7 +181,8 @@ const OnlineRegister = () => {
               <input
                 name="user_birthDate"
                 className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
-                type="number"
+                type="text"
+                placeholder="ZZ/LL/AAAA"
               ></input>
             </div>
             <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
@@ -217,45 +221,13 @@ const OnlineRegister = () => {
                 className="flex flex-wrap justify-center  cursor-pointer border-[1px] border-black text-[12px] lg:text-[15px]  lg:w-[57rem] lg:h-[2rem] px-[.5rem] lg:px-[1rem] items-center"
               > 
                 {(!showCategories && selectCategory.length===0) ? "APASA PENTRU A VEDEA TOATE CATEGORIILE": selectCategory.map((val) => {
-                  let categoryLabel = "";
-                  switch (val) {
-                    case 0:
-                      categoryLabel = "A1";
-                      break;
-                    case 1:
-                      categoryLabel = "A2";
-                      break;
-                    case 2:
-                      categoryLabel = "A";
-                      break;
-                    case 3:
-                      categoryLabel = "B1";
-                      break;
-                    case 4:
-                      categoryLabel = "B";
-                      break;
-                    case 5:
-                      categoryLabel = "BE";
-                      break;
-                    case 6:
-                      categoryLabel = "C1";
-                      break;
-                    case 7:
-                      categoryLabel = "C1E";
-                      break;
-                    case 8:
-                      categoryLabel = "C";
-                      break;
-                    // Adaugă cazurile pentru alte valori ale lui "val" dacă este necesar
-                    default:
-                      break;
-                  }
+                  
                   return (
                     <div onClick={(e)=>{e.stopPropagation();setSelectedCategory(current=>current.filter((el)=>el!==val))}} className="flex justify-center items-center bg-red-500 text-white w-[4rem] h-[90%] px-[1rem] my-1 lg:my-0 mx-[.25rem] z-20 rounded-[8px]">
                       <span className="text-[20px] mr-2">
                         <AiOutlineCloseCircle />
                       </span>
-                      {categoryLabel}
+                      {val}
                     </div>
                   );
                 })}
@@ -267,10 +239,10 @@ const OnlineRegister = () => {
                 }`}
               >
                 <li
-                  onClick={() => handleSelectCategory(0)}
+                  onClick={() => handleSelectCategory("A1")}
                   className={`flex justify-center items-center ${
                     selectCategory.some((element) => {
-                      if (element === 0) {
+                      if (element === "A1") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -279,10 +251,10 @@ const OnlineRegister = () => {
                   A1
                 </li>
                 <li
-                  onClick={() => handleSelectCategory(1)}
+                  onClick={() => handleSelectCategory("A2")}
                   className={`flex justify-center  items-center ${
                     selectCategory.some((element) => {
-                      if (element === 1) {
+                      if (element === "A2") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -291,10 +263,10 @@ const OnlineRegister = () => {
                   A2
                 </li>
                 <li
-                  onClick={() => handleSelectCategory(2)}
+                  onClick={() => handleSelectCategory("A")}
                   className={`flex justify-center items-center ${
                     selectCategory.some((element) => {
-                      if (element === 2) {
+                      if (element === "A") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -303,10 +275,10 @@ const OnlineRegister = () => {
                   A
                 </li>
                 <li
-                  onClick={() => handleSelectCategory(3)}
+                  onClick={() => handleSelectCategory("B1")}
                   className={`flex justify-center items-center ${
                     selectCategory.some((element) => {
-                      if (element === 3) {
+                      if (element === "B1") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -315,10 +287,10 @@ const OnlineRegister = () => {
                   B1
                 </li>
                 <li
-                  onClick={() => handleSelectCategory(4)}
+                  onClick={() => handleSelectCategory("B")}
                   className={`flex justify-center items-center ${
                     selectCategory.some((element) => {
-                      if (element === 4) {
+                      if (element === "B") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -327,10 +299,10 @@ const OnlineRegister = () => {
                   B
                 </li>
                 <li
-                  onClick={() => handleSelectCategory(5)}
+                  onClick={() => handleSelectCategory("BE")}
                   className={`flex justify-center items-center ${
                     selectCategory.some((element) => {
-                      if (element === 5) {
+                      if (element === "BE") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -339,10 +311,10 @@ const OnlineRegister = () => {
                   BE
                 </li>
                 <li
-                  onClick={() => handleSelectCategory(6)}
+                  onClick={() => handleSelectCategory("C1")}
                   className={`flex justify-center items-center ${
                     selectCategory.some((element) => {
-                      if (element === 6) {
+                      if (element === "C1") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -351,10 +323,10 @@ const OnlineRegister = () => {
                   C1
                 </li>
                 <li
-                  onClick={() => handleSelectCategory(7)}
+                  onClick={() => handleSelectCategory("C1E")}
                   className={`flex justify-center items-center ${
                     selectCategory.some((element) => {
-                      if (element === 7) {
+                      if (element === "C1E") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -363,10 +335,10 @@ const OnlineRegister = () => {
                   C1E
                 </li>
                 <li
-                  onClick={() => handleSelectCategory(8)}
+                  onClick={() => handleSelectCategory("C")}
                   className={`flex justify-center items-center ${
                     selectCategory.some((element) => {
-                      if (element === 8) {
+                      if (element === "C") {
                         return true;
                       }
                     }) && "bg-red-500 text-white"
@@ -464,8 +436,8 @@ const OnlineRegister = () => {
           <div    className="relative mt-[1rem] flex flex-col  items-center  bg-white p-[1rem] w-[90%] lg:w-full h-[20rem]"
             >
               <div className="flex flex-col lg:flex-row w-full justify-between">
-                <input name="user_categoriiDorite" value={generalCategory.toString()} className="hidden"  />
-              <select ref={generalCategory} onChange={()=>setCategory(generalCategory.current.value)}  className="w-[20rem] h-[2rem] border-[1px] border-red-600 focus:outline-none text-center font-bold">
+                <input name="user_categoriiDorite" value={checkedCategory.toString()} className="hidden"  />
+              <select ref={generalCategory} onChange={()=>{setCategory(generalCategory.current.value); console.log(category)}}  className="w-[20rem] h-[2rem] border-[1px] border-red-600 focus:outline-none text-center font-bold">
                 <option value="Categoria A1">Categoria A1</option>
                 <option value="Categoria A2">Categoria A2</option>
                 <option value="Categoria AM">Categoria AM</option>
