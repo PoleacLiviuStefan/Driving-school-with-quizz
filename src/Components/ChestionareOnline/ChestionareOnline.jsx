@@ -171,27 +171,23 @@ const ChestionariiOnline = () => {
 
     return [];
   };
-  const extractTextFromImageUrl = (imageUrl) => {
-
-  
-    const imageKeys = Object.keys(questionImages);
-
-    if (imageUrl && typeof imageUrl === 'string') {
-      for (let i = 0; i < imageKeys.length; i++) {
-        const key = imageKeys[i];
-    
-        if (imageUrl.includes(key)) {
-          // Extract the text associated with the key
-
-          console.log(key);
-          return key;
-        }
-      }
+  function extractTextFromImageUrl(imageUrl) {
+    if (typeof imageUrl !== 'string' || !imageUrl) {
+      // Invalid image URL
+      return '';
     }
   
-    // Return a default value if no matching key is found or imageUrl is not valid
-    return 'No text found';
+    const imageKeys = Object.keys(questionImages);
+    for (let i = imageKeys.length-1; i >= 0; i--) {
+      const key = imageKeys[i];
+      if (imageUrl.includes(key)) {
+        // Extract the text associated with the key
+
+        return key;
+      }
+   
   }
+}
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {

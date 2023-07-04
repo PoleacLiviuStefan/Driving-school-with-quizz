@@ -70,7 +70,7 @@ const IntrebariAcomodare = ({ start, checkedAnswers, question, currentQuestion,r
     console.log("da,este in useEffect")
     if(start===11)
     {
-      const quesImg=[data.questions.examenCategoriaB[randomNumber],motoimages[randomNumber],''];
+      const quesImg=[data.questions.examenCategoriaA[randomNumber],motoimages[randomNumber],''];
       question(quesImg);
     }
    
