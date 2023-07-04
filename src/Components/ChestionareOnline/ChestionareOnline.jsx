@@ -171,21 +171,26 @@ const ChestionariiOnline = () => {
 
     return [];
   };
-  function extractTextFromImageUrl(imageUrl) {
-    if (typeof imageUrl !== 'string' || !imageUrl) {
-      // Invalid image URL
-      return '';
+  const extractTextFromImageUrl = (imageUrl) => {
+
+  
+    const imageKeys = Object.keys(questionImages);
+
+    if (imageUrl && typeof imageUrl === 'string') {
+      for (let i = 0; i < imageKeys.length; i++) {
+        const key = imageKeys[i];
+    
+        if (imageUrl.includes(key)) {
+          // Extract the text associated with the key
+
+          console.log(key);
+          return key;
+        }
+      }
     }
   
-    const lastSlashIndex = imageUrl.lastIndexOf('/');
-    const dotJpgIndex = imageUrl.lastIndexOf('.jpg');
-  
-    if (lastSlashIndex === -1 || dotJpgIndex === -1 || lastSlashIndex >= dotJpgIndex) {
-      // Invalid image URL format
-      return '';
-    }
-    console.log(imageUrl.substring(lastSlashIndex + 1, dotJpgIndex))
-    return imageUrl.substring(lastSlashIndex + 1, dotJpgIndex);
+    // Return a default value if no matching key is found or imageUrl is not valid
+    return 'No text found';
   }
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -1023,7 +1028,7 @@ const ChestionariiOnline = () => {
                                         >
 
                                           {value[1].length - 1 === subIndex ? item:item[0]}{" "}
-                                          {item[1]!=="" && <img className="mt-2" src={questionImages[extractTextFromImageUrl(item[1])]} />}
+                                          <img className="mt-2" src={questionImages[extractTextFromImageUrl(item[1])]} />
                                           <div className={` ${subIndex===value[1].length-1 && "hidden"}`}>Raspunsul a fost <span className={`font-bold ${item[2]==="gresit" ? "text-red-500" : "text-green-500"}`}>{item[2]}</span></div>
                                         </span>{" "}
                                       </li>
