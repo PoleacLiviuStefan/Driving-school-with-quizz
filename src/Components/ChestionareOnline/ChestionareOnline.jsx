@@ -321,6 +321,7 @@ const ChestionariiOnline = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        localStorage.setItem("userMail", userCredential.user.email);
         var mailCursant = false;
         Object.keys(data).map((key) => {
           if (data[key].Email === userCredential.user.email) {
@@ -355,7 +356,7 @@ const ChestionariiOnline = () => {
   const checkUserExistence = () => {
     console.log("verificare existenta");
     onAuthStateChanged(auth, (user) => {
-      if (user) {
+      if (user && localStorage.getItem("cursantConectat")===false) {
         console.log("da,s-a conectat");
         setAuthUser(user);
         localStorage.setItem("userMail", user.email);
@@ -364,6 +365,7 @@ const ChestionariiOnline = () => {
         setAuthUser(null);
         setStart(13);
         localStorage.setItem("userMail", "");
+        localStorage.setItem("cursantConectat",false)
       }
     });
   };

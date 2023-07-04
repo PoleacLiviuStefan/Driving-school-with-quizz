@@ -54,13 +54,13 @@ const DriverLicense = () => {
               Conditiile de inscriere pentru categoria A:
             </h3>
             <ul className="text-[14px] lg:text-[15px]">
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex  my-[.5rem] lg:my-[.7rem]">
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Pentru AM si A1 este necesara varsta minima de 16 ani
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
@@ -80,14 +80,14 @@ const DriverLicense = () => {
               Conditiile de inscriere pentru categoria B:
             </h3>
             <ul className="text-[14px] lg:text-[15px]">
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Pentru B este necesara varsta minima de 18 ani
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex  my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
@@ -99,21 +99,21 @@ const DriverLicense = () => {
               Acte necesare pentru inscriere:
             </h3>
             <ul className="text-[14px] lg:text-[15px]">
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex  my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Copie buletin
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Copie certificat de nastere
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
@@ -121,7 +121,7 @@ const DriverLicense = () => {
                 Copie certificat de casatorie (daca este cazul schimbarii
                 numelui)
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
@@ -129,35 +129,35 @@ const DriverLicense = () => {
                 Copie permis fata/verso (pentru cine vine la adaugarea
                 categoriei)
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Cazier judiciar in original
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Taxa permis
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex  my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Adeverinta notarila de la parinti pentru minori la : AM, A1, B1
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Adeverinta medic de familie
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex  my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
@@ -165,12 +165,51 @@ const DriverLicense = () => {
                 Analize medicale + examen psihologic, facute la clinica avizata
                 scolii de soferi (Policlinica Vlaicu)
               </li>
-              <li className="flex items-center my-[.5rem] lg:my-[.7rem]">
+              <li className="flex  my-[.5rem] lg:my-[.7rem]">
                 {" "}
                 <span className="mr-2">
                   <GiCarWheel />
                 </span>
                 Avans
+              </li>
+              <li>
+                <span className="font-bold text-[16px] lg:text-[20px]">Categoria A</span>
+              </li>
+              <li className="flex  my-[.5rem] lg:my-[.7rem] lg:w-[35rem]">
+                <span className="mr-2">
+                  <GiCarWheel />
+                </span>
+                <p>
+                  In cadrul acestei categorii permis de conducere fac parte
+                  urmatoarele clase suplimentare: A1, A2 si AM. Daca iti doresti
+                  sa conduci vehicule din categoria A cu subclasele de rigoare,
+                  trebuie sa stii ca obtinand permisul de conducere vei putea
+                  conduce motociclete cu sau fara atas si tricicluri cu motor cu
+                  puteri variate (in functie de subcategoria permisului de
+                  conducere). Cel mai important aspect pe care trebuie sa il
+                  cunosti este faptul ca ai nevoie de cel putin 2 ani de
+                  conducere la activ pentru a putea conduce motociclete sau
+                  cvadricicluri.
+                </p>
+              </li>
+              <li>
+                <span className="font-bold text-[16px] lg:text-[20px]">Categoria B</span>
+              </li>
+              <li className="flex  my-[.5rem] lg:my-[.7rem] lg:w-[35rem]">
+                <span className="mr-2">
+                  <GiCarWheel />
+                </span>
+                <p>
+                  Categoriile B, B extins, B1 si BE iti ofera posibilitatea de a
+                  conduce ansamblul de vehicule a caror masa totala maxima
+                  autorizata este curpinsa intre 400-550 kg (pentru categoria
+                  B1) si 3.500-4.250 kg pentru categoriile B, B extins si BE.
+                  Mai mult, ansamblul format dintr-un autovehicul si o remorca
+                  nu trebuie sa aiba un numar de locuri mai mare de 8. In
+                  general, la categoria BE, acest ansamblu este format dintr-un
+                  autovehicul din categoria B la care se ataseaza o remorca a
+                  carei masa maxima autorizata nu este mai mare de 750 kg.
+                </p>
               </li>
             </ul>
           </div>
@@ -182,34 +221,92 @@ const DriverLicense = () => {
           <PriceCard
             durationCard="30"
             titleCard="Categoria AM"
-            benefitsCard={    <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
-        
-            <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]"> <span className="mr-4 text-[24px]"><CiTimer /> </span> 30 ORE PRACTICE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PLATA IN RATE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
-         </ul>}
+            benefitsCard={
+              <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
+                <li className="my-[.5rem] flex justify-center items-start  w-full border-b-[1px] border-b-gray-300  px-[1rem]">
+                  {" "}
+                  <span className="mr-4 text-[24px]">
+                    <CiTimer />{" "}
+                  </span>{" "}
+                  8 ORE
+                </li>
+                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
+                  PLATA IN RATE
+                </li>
+                <li className="my-[.5rem] flex flex-col justify-center items-center w-full   border-b-[1px] border-b-gray-300  px-[1rem]">
+                  <span className="font-bold">VITEZA MAXIMA ADMISA:</span> 45
+                  km/h, pentru mopede pe drumuri publice
+                </li>
+              </ul>
+            }
             priceCard="990"
           />
           <PriceCard
             durationCard="30"
             titleCard="Categoria A1"
-            benefitsCard={    <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
-        
-           <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]"> <span className="mr-4 text-[24px]"><CiTimer /> </span> 30 ORE PRACTICE</li>
-           <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PLATA IN RATE</li>
-           <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
-        </ul>}
+            benefitsCard={
+              <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
+                <li className="my-[.5rem] flex justify-center   w-full border-b-[1px] border-b-gray-300  px-[1rem]">
+                  {" "}
+                  <span className="mr-4 text-[24px]">
+                    <CiTimer />{" "}
+                  </span>{" "}
+                  Stagiul fara detinerea unui permis categoria AM, va fi de 26
+                  de ore. Daca candidatul detine permis categoria AM de mai
+                  putin de 2 ani, stagiul alocat va fi de 20 ore, respectiv daca
+                  detine permis categoria AM de mai mult de 2 ani este de doar
+                  10 ore
+                </li>
+                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
+                  PLATA IN RATE
+                </li>
+                <li className="my-[.5rem] flex flex-col justify-center items-center w-full   border-b-[1px] border-b-gray-300  px-[1rem]">
+                  <span className="font-bold">VITEZE MAXIME ADMISE</span>
+                  <ul>
+                    <li>90 km/h pe autostrazi</li>
+                    <li>
+                      80 km/h pe drumurile expres sau pe cele nationale europene
+                      (E){" "}
+                    </li>
+                    <li>70 km/h pe celelalte tipuri de drumuri</li>
+                  </ul>
+                </li>
+              </ul>
+            }
             priceCard="1990"
           />
           <PriceCard
             durationCard="30"
             titleCard="Categoria A2"
-            benefitsCard={    <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
-        
-            <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]"> <span className="mr-4 text-[24px]"><CiTimer /> </span> 30 ORE PRACTICE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PLATA IN RATE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
-         </ul>} 
+            benefitsCard={
+              <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
+                <li className="my-[.5rem] flex justify-center   w-full border-b-[1px] border-b-gray-300  px-[1rem]">
+                  {" "}
+                  <span className="mr-4 text-[24px]">
+                    <CiTimer />{" "}
+                  </span>{" "}
+                  Stagiul fara detinerea unui permis categoria AM, va fi de 26
+                  de ore. Daca candidatul detine permis categoria AM de mai
+                  putin de 2 ani, stagiul alocat va fi de 20 ore, respectiv daca
+                  detine permis categoria AM de mai mult de 2 ani este de doar
+                  10 ore
+                </li>
+                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
+                  PLATA IN RATE
+                </li>
+                <li className="my-[.5rem] flex flex-col justify-center items-center w-full   border-b-[1px] border-b-gray-300  px-[1rem]">
+                  <span className="font-bold">VITEZE MAXIME ADMISE</span>
+                  <ul>
+                    <li>130 km/h pe autostrazi</li>
+                    <li>
+                      100 km/h pe drumurile expres sau pe cele nationale
+                      europene (E){" "}
+                    </li>
+                    <li>90 km/h pe celelalte tipuri de drumuri</li>
+                  </ul>
+                </li>
+              </ul>
+            }
             priceCard="1990"
           />
           <PriceCard
@@ -217,18 +314,30 @@ const DriverLicense = () => {
             titleCard="Categoria A"
             benefitsCard={
               <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
-                <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]">
+                <li className="my-[.5rem] flex justify-center items-start w-full border-b-[1px] border-b-gray-300  px-[1rem]">
                   {" "}
                   <span className="mr-4 text-[24px]">
                     <CiTimer />{" "}
                   </span>{" "}
-                  30 ORE PRACTICE
+                  Stagiul fara detinerea unui permis categoria AM, va fi de 26
+                  de ore. Daca candidatul detine permis categoria AM de mai
+                  putin de 2 ani, stagiul alocat va fi de 20 ore, respectiv daca
+                  detine permis categoria AM de mai mult de 2 ani este de doar
+                  10 ore
                 </li>
                 <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
                   PLATA IN RATE
                 </li>
-                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
-                  DURATA MINIMA: 6 SAPTAMANI
+                <li className="my-[.5rem] flex flex-col justify-center items-center w-full   border-b-[1px] border-b-gray-300  px-[1rem]">
+                  <span className="font-bold">VITEZE MAXIME ADMISE</span>
+                  <ul>
+                    <li>130 km/h pe autostrazi</li>
+                    <li>
+                      100 km/h pe drumurile expres sau pe cele nationale
+                      europene (E){" "}
+                    </li>
+                    <li>90 km/h pe celelalte tipuri de drumuri</li>
+                  </ul>
                 </li>
               </ul>
             }
@@ -238,21 +347,7 @@ const DriverLicense = () => {
             durationCard="1"
             titleCard="Ora suplimentara Moto"
             benefitsCard={
-              <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
-                <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]">
-                  {" "}
-                  <span className="mr-4 text-[24px]">
-                    <CiTimer />{" "}
-                  </span>{" "}
-                  30 ORE PRACTICE
-                </li>
-                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
-                  PLATA IN RATE
-                </li>
-                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
-                  DURATA MINIMA: 6 SAPTAMANI
-                </li>
-              </ul>
+              <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] "></ul>
             }
             priceCard="70"
           />
@@ -315,14 +410,12 @@ const DriverLicense = () => {
                   <span className="mr-4 text-[24px]">
                     <CiTimer />{" "}
                   </span>{" "}
-                  30 ORE PRACTICE
+                  10 ORE PRACTICE
                 </li>
                 <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
                   PLATA IN RATE
                 </li>
-                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
-                  DURATA MINIMA: 6 SAPTAMANI
-                </li>
+          
               </ul>
             }
             priceCard="990"
@@ -332,18 +425,19 @@ const DriverLicense = () => {
             titleCard="Categoria B Extins"
             benefitsCard={
               <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
+                <li className="my-[.5rem] flex justify-center items-center w-full   border-b-[1px] border-b-gray-300  px-[1rem]">
+                  Acest permis este necesar pentru a conduce un ansamblu de
+                  vehicule format dintr-un autovehicul tragator din categoria B
+                  si o remorca, a carui masa maxima autorizata este mai mare de
+                  3500 kg, dar nu depaseste 4250 kg.
+                </li>
+        
                 <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]">
                   {" "}
                   <span className="mr-4 text-[24px]">
                     <CiTimer />{" "}
                   </span>{" "}
-                  30 ORE PRACTICE
-                </li>
-                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
-                  PLATA IN RATE
-                </li>
-                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
-                  DURATA MINIMA: 6 SAPTAMANI
+                  7 ORE PRACTICE
                 </li>
               </ul>
             }
@@ -354,19 +448,7 @@ const DriverLicense = () => {
             titleCard="Sedinta suplimentara auto"
             benefitsCard={
               <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
-                <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]">
-                  {" "}
-                  <span className="mr-4 text-[24px]">
-                    <CiTimer />{" "}
-                  </span>{" "}
-                  30 ORE PRACTICE
-                </li>
-                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
-                  PLATA IN RATE
-                </li>
-                <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]">
-                  DURATA MINIMA: 6 SAPTAMANI
-                </li>
+          
               </ul>
             }
             priceCard="150"
