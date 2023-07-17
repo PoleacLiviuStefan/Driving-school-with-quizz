@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import {
@@ -16,6 +17,7 @@ import {
   AiFillCheckCircle,
   AiFillCaretRight,
   AiOutlineCloseCircle,
+  AiOutlineCheckCircle,
 } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
@@ -80,7 +82,7 @@ const ChestionariiOnline = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showComfirmedPassword, setShowComfirmedPassword] = useState(false);
   const [selectedCategory, setSelectCategory] = useState(1);
-  const [showError, setShowError] = useState(-1);
+  const [showNotification, setShowNotification] = useState(-1);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [currentQuestionsAsnwers, setCurrentQuestionsAnswers] = useState([]);
@@ -148,7 +150,7 @@ const ChestionariiOnline = () => {
     motoimg44: motoimg44,
     motoimg45: motoimg45,
     motoimg46: motoimg46,
-    motoimg47: motoimg47
+    motoimg47: motoimg47,
   };
   const passwordInput = useRef(null);
   const comfirmedPasswordInput = useRef(null);
@@ -172,22 +174,21 @@ const ChestionariiOnline = () => {
     return [];
   };
   function extractTextFromImageUrl(imageUrl) {
-    if (typeof imageUrl !== 'string' || !imageUrl) {
+    if (typeof imageUrl !== "string" || !imageUrl) {
       // Invalid image URL
-      return '';
+      return "";
     }
-  
+
     const imageKeys = Object.keys(questionImages);
-    for (let i = imageKeys.length-1; i >= 0; i--) {
+    for (let i = imageKeys.length - 1; i >= 0; i--) {
       const key = imageKeys[i];
       if (imageUrl.includes(key)) {
         // Extract the text associated with the key
 
         return key;
       }
-   
+    }
   }
-}
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -281,11 +282,11 @@ const ChestionariiOnline = () => {
       }
     });
     if (!sameID) {
-      setShowError(2);
+      setShowNotification(2);
     } else if (password !== passwordComfirmed) {
-      setShowError(0);
+      setShowNotification(0);
     } else if (password.length < 6) {
-      setShowError(1);
+      setShowNotification(1);
     } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -314,7 +315,7 @@ const ChestionariiOnline = () => {
           console.log(error);
         });
 
-      setShowError(-1);
+      setShowNotification(-1);
     }
   };
   const InstructorLogin = (e) => {
@@ -332,12 +333,12 @@ const ChestionariiOnline = () => {
         if (mailCursant === false) setStart(15);
         else {
           signOut(auth);
-          setShowError(4);
+          setShowNotification(4);
         }
       })
       .catch((error) => {
         console.log(error);
-        setShowError(3);
+        setShowNotification(3);
       });
   };
   const CursantLogin = () => {
@@ -351,13 +352,13 @@ const ChestionariiOnline = () => {
       })
       .catch((error) => {
         console.log(error);
-        setShowError(3);
+        setShowNotification(3);
       });
   };
   const checkUserExistence = () => {
     console.log("verificare existenta");
     onAuthStateChanged(auth, (user) => {
-      if (user && localStorage.getItem("cursantConectat")===false) {
+      if (user && localStorage.getItem("cursantConectat") === false) {
         console.log("da,s-a conectat");
         setAuthUser(user);
         localStorage.setItem("userMail", user.email);
@@ -366,7 +367,7 @@ const ChestionariiOnline = () => {
         setAuthUser(null);
         setStart(13);
         localStorage.setItem("userMail", "");
-        localStorage.setItem("cursantConectat",false)
+        localStorage.setItem("cursantConectat", false);
       }
     });
   };
@@ -434,14 +435,13 @@ const ChestionariiOnline = () => {
           (start === 6 || start === 11)
         ) {
           setCorrectAnswers((prev) => prev + 1);
-            var IntrebariTerminateNew=[...IntrebariTerminate];
-            IntrebariTerminateNew[IntrebariTerminate.length-1][2]="corect"
-            setIntrebariTerminate(IntrebariTerminateNew);
+          var IntrebariTerminateNew = [...IntrebariTerminate];
+          IntrebariTerminateNew[IntrebariTerminate.length - 1][2] = "corect";
+          setIntrebariTerminate(IntrebariTerminateNew);
         } else {
           setWrongAnswers((prev) => prev + 1);
-          var IntrebariTerminateNew=[...IntrebariTerminate];
-          IntrebariTerminateNew[IntrebariTerminate.length-1][2]="gresit"
- 
+          var IntrebariTerminateNew = [...IntrebariTerminate];
+          IntrebariTerminateNew[IntrebariTerminate.length - 1][2] = "gresit";
 
           if (wrongAnswers === (start === 6 ? 4 : start === 11 && 2)) {
             //terminare la 5 intrebari gresite
@@ -525,16 +525,16 @@ const ChestionariiOnline = () => {
             data[memorizedKey].chestionareGresite
           );
           const quizzNumber =
-          "toateIntrebarile" +
-          (
-            chestionareCorecte.length +
-            chestionareGresite.length +
-            1
-          ).toString();
-        console.log(
-          "toate chestionarele",
-          data[memorizedKey].chestionareCorecte.length
-        );
+            "toateIntrebarile" +
+            (
+              chestionareCorecte.length +
+              chestionareGresite.length +
+              1
+            ).toString();
+          console.log(
+            "toate chestionarele",
+            data[memorizedKey].chestionareCorecte.length
+          );
           //adaugam in capatul intrebarilor, numarul de raspunsuri corecte
           setIntrebariTerminate([
             ...IntrebariTerminate,
@@ -643,26 +643,41 @@ const ChestionariiOnline = () => {
       return () => clearTimeout(timer);
     }
   }, [start]);
+  const reset = async () => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      console.log("Email-ul de resetare a fost trimis");
+      setEmail("");
+      setShowNotification(5);
+    } catch (err) {
+      console.log(err);
+      setShowNotification(6);
+    }
+  };
   useEffect(() => {
-    if (showError !== -1 && (start === 13 || start === 1)) {
+    if (
+      showNotification !== -1 &&
+      (start === 13 || start === 1 || start === 16)
+    ) {
       const timer = setTimeout(() => {
-        setShowError(-1);
+        setShowNotification(-1);
       }, 5000);
       return () => clearTimeout(timer);
     } else {
-      setShowError(-1);
+      setShowNotification(-1);
     }
-  }, [showError, start]);
+  }, [showNotification, start]);
   const handleShowQuestions = (quizzIndex) => {
     console.log(quizzIndex);
     if (showQuestions !== quizzIndex) setShowQuestions(quizzIndex);
     else setShowQuestions(-1);
   };
+
   return (
     <div
       className={`flex justify-center items-center w-full  ${
         start <= 3 ? "bg-chestionareBg bg-cover h-full" : "bg-gray-100 h-full"
-      }  py-[5rem]`}
+      }  py-[10rem]`}
     >
       <div className="relative  flex flex-col items-center justify-center w-full lg:w-[65rem] h-full  py-[4rem]">
         <div
@@ -717,7 +732,7 @@ const ChestionariiOnline = () => {
         {/*Eroare parolele nu sunt identice*/}
         <div
           className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
-            showError !== 0 && "hidden"
+            showNotification !== 0 && "hidden"
           }`}
         >
           <h4 className="flex items-center text-center">
@@ -731,7 +746,7 @@ const ChestionariiOnline = () => {
         {/*Eroare numar minim de caractere pentru parola */}
         <div
           className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
-            showError !== 1 && "hidden"
+            showNotification !== 1 && "hidden"
           }`}
         >
           <h4 className="flex items-center text-center">
@@ -744,7 +759,7 @@ const ChestionariiOnline = () => {
         {/*Eroare numar minim de caractere pentru parola */}
         <div
           className={`flex items-center justify-center fixed top-[0rem] w-full text-[13px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
-            showError !== 2 && "hidden"
+            showNotification !== 2 && "hidden"
           }`}
         >
           <h4 className="flex items-center text-center">
@@ -759,7 +774,7 @@ const ChestionariiOnline = () => {
         {/*Verificare parola la login*/}
         <div
           className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
-            showError !== 3 && "hidden"
+            showNotification !== 3 && "hidden"
           }`}
         >
           <h4 className="flex items-center text-center">
@@ -771,7 +786,7 @@ const ChestionariiOnline = () => {
         </div>
         <div
           className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
-            showError !== 4 && "hidden"
+            showNotification !== 4 && "hidden"
           }`}
         >
           <h4 className="flex items-center text-center">
@@ -781,6 +796,32 @@ const ChestionariiOnline = () => {
             NU TE POTI CONECTA CU DATELE DE CURSANT LA UN CONT DE INSTRUCTOR
           </h4>
         </div>
+        <div
+          className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-green-500 px-[2rem] py-[1rem] ${
+            showNotification !== 5 && "hidden"
+          }`}
+        >
+          <h4 className="flex items-center text-center">
+            <span className="text-[56px] mr-2">
+              <AiOutlineCheckCircle />
+            </span>
+            EMAIL-UL DE RESETARE A PAROLEI A FOST TRIMIS, VERIFICA ATAT INBOX-UL
+            CAT SI SPAM-UL
+          </h4>
+        </div>
+        <div
+          className={`flex items-center justify-center fixed top-[0rem] w-full text-[14px] lg:text-[18px] text-white font-extrabold bg-red-500 px-[2rem] py-[1rem] ${
+            showNotification !== 6 && "hidden"
+          }`}
+        >
+          <h4 className="flex items-center text-center">
+            <span className="text-[56px] mr-2">
+              <AiOutlineWarning />
+            </span>
+            EMAIL-UL INTRODUS NU EXISTA IN BAZA DE DATE
+          </h4>
+        </div>
+
         <button
           onClick={checkUserCursantExistence}
           className={`mt-[3rem] ${
@@ -831,6 +872,19 @@ const ChestionariiOnline = () => {
             >
               {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
             </span>
+            
+          </div>
+          <div className="mt-[2rem] flex justify-center items-center text-center text-[14px] lg:text-[18px]">
+            <p className="text-gray-600">
+              Nu iti mai amintesti parola? Poti sa o resetezi apasand
+            </p>
+            <button
+              onClick={() => {setStart(16);setShowNotification(-1)}}
+              type="button"
+              className="ml-[1rem] flex items-center bg-red-500 px-[1rem] lg:px-[2rem] py-[.2rem] lg:py-[.5rem] text-white font-bold text-[12px] lg:text-[16px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
+            >
+              RESETEAZA PAROLA
+            </button>
           </div>
           <button
             type="submit"
@@ -887,8 +941,19 @@ const ChestionariiOnline = () => {
               <AiOutlineArrowRight />
             </span>
           </button>
+          <div className="mt-[2rem] flex justify-center items-center text-center text-[14px] lg:text-[18px]">
+            <p className="text-gray-600">
+              Nu iti mai amintesti parola? Poti sa o resetezi apasand
+            </p>
+            <button
+              onClick={() => setStart(16)}
+              className="ml-[1rem] flex items-center bg-red-500 px-[1rem] lg:px-[2rem] py-[.2rem] lg:py-[.5rem] text-white font-bold text-[12px] lg:text-[16px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
+            >
+              RESETEAZA PAROLA
+            </button>
+          </div>
           <div className="flex flex-col items-center mt-[1rem] lg:mt-[2rem] text-center lg:text-[20px] w-[90%] text-gray-600">
-            <p>Este prima oara cand incerci sa parcuri aceste chestionare?</p>
+            <p>Este prima oara cand incerci sa parcurgi aceste chestionare?</p>
             <p>Atunci apasa pe butonul urmator pentru a te inregistra</p>
           </div>
           <button
@@ -896,14 +961,37 @@ const ChestionariiOnline = () => {
               setStart(2);
               setEmail("");
               setPassword("");
-     
             }}
             className="mt-[1rem] flex items-center bg-red-500 px-[1rem] lg:px-[2rem] py-[.5rem] lg:py-[1rem] text-white font-bold text-[18px] lg:text-[24px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
           >
             INREGISTRARE
           </button>
         </div>
-
+        {/* Resetarea parolei */}
+        <div
+          className={`flex flex-col items-center ${
+            start !== 16 && "hidden"
+          } h-full w-[90%] lg:text-[24px] `}
+        >
+          <label className="font-bold">EMAIL</label>
+          <input
+            type="text"
+            className="mt-[1rem] border-[2px] border-black w-full  lg:w-[32rem] h-[2rem] px-[1rem]"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          ></input>
+          <button
+            onClick={reset}
+            className="mt-[2rem] flex items-center bg-red-500 px-[1rem] lg:px-[2rem] py-[.5rem] lg:py-[1rem] text-white font-bold text-[18px] lg:text-[24px] rounded-[8px] duration-300 transition ease-in-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0px_0px_26px_-5px_#DC2626]"
+          >
+            RESETEAZA PAROLA
+          </button>
+          <p className="mt-[2rem] text-gray-600 text-center w-[90%]">
+            Dupa apasarea butonului "RESETEAZA PAROLA" o sa primesti pe mail-ul
+            mentionat mai sus indicatiile de resetare a parolei,{" "}
+          </p>
+        </div>
         {/*Panou de control pentru instructori*/}
         <div
           className={`flex flex-col items-center ${
@@ -961,7 +1049,6 @@ const ChestionariiOnline = () => {
                   return (
                     <>
                       <li className="w-full my-[1rem] px-[1rem]">
-                      
                         <span className="font-bold">{index + 1}.</span> ID:{" "}
                         {data[key].ID} <br /> Nume si Prenume:{" "}
                         {data[key].numePrenume} <br /> Email:{" "}
@@ -971,7 +1058,6 @@ const ChestionariiOnline = () => {
                         <br /> Chestionarele Corecte:{" "}
                         {data[key].chestionareCorecte} <br /> Chestionarele
                         Gresite: {data[key].chestionareGresite} <br />{" "}
-                  
                         <ul
                           className={`overflow-hidden flex flex-col justify-start ${
                             showQuestions === index
@@ -981,58 +1067,92 @@ const ChestionariiOnline = () => {
                         >
                           <li>
                             <div className="mt-2 flex flex-col lg:flex-row ">
-                              
                               <button
                                 className="flex items-center lg:ml-2 bg-red-500 text-white rounded-[8px] px-[.5rem] "
-                                onClick={()=>handleShowQuestions(index)}
+                                onClick={() => handleShowQuestions(index)}
                               >
                                 Apasa pentru a vedea toate chestionarele{" "}
                                 <span
                                   className={` ${
-                                    showQuestions === index ? "rotate-[90deg]" : ""
+                                    showQuestions === index
+                                      ? "rotate-[90deg]"
+                                      : ""
                                   }`}
                                 >
                                   <AiFillCaretRight />
                                 </span>
                               </button>
-                            </div >
+                            </div>
                           </li>
-                          {Object.entries(data[key]).map((value, indexSecond) => {
-                      
-                            if (indexSecond >= 7)
-                              return (
-                                <>
-                                  <ul className={`flex flex-col my-[1rem]`}>
-                                    Chestionarul numarul {indexSecond - 6} cu
-                                    Intreabrile:{" "}
-                                    {value[1].map((item, subIndex) => (
-                                      <li
-                                        className={`flex items-start p-2 ${subIndex%2===0 ? "bg-white": "bg-gray-200"} ${
-                                          value[1].length - 1 === subIndex &&
-                                          "items-center font-bold text-[16px] lg:text-[20px]"
-                                        }`}
-                                        key={subIndex}
-                                      >
-                                        {value[1].length - 1 > subIndex
-                                          ? subIndex + 1 + ". "
-                                          : "Numarul de raspunsuri corecte: "}{" "}
-                                        <span
-                                          className={`ml-1 ${
+                          {Object.entries(data[key]).map(
+                            (value, indexSecond) => {
+                              if (indexSecond >= 7)
+                                return (
+                                  <>
+                                    <ul className={`flex flex-col my-[1rem]`}>
+                                      Chestionarul numarul {indexSecond - 6} cu
+                                      Intreabrile:{" "}
+                                      {value[1].map((item, subIndex) => (
+                                        <li
+                                          className={`flex items-start p-2 ${
+                                            subIndex % 2 === 0
+                                              ? "bg-white"
+                                              : "bg-gray-200"
+                                          } ${
                                             value[1].length - 1 === subIndex &&
-                                            "  text-[28px] lg:text-[42px]"
+                                            "items-center font-bold text-[16px] lg:text-[20px]"
                                           }`}
+                                          key={subIndex}
                                         >
-
-                                          {value[1].length - 1 === subIndex ? item:item[0]}{" "}
-                                          <img className="mt-2" src={questionImages[extractTextFromImageUrl(item[1])]} />
-                                          <div className={` ${subIndex===value[1].length-1 && "hidden"}`}>Raspunsul a fost <span className={`font-bold ${item[2]==="gresit" ? "text-red-500" : "text-green-500"}`}>{item[2]}</span></div>
-                                        </span>{" "}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </>
-                              );
-                          })}
+                                          {value[1].length - 1 > subIndex
+                                            ? subIndex + 1 + ". "
+                                            : "Numarul de raspunsuri corecte: "}{" "}
+                                          <span
+                                            className={`ml-1 ${
+                                              value[1].length - 1 ===
+                                                subIndex &&
+                                              "  text-[28px] lg:text-[42px]"
+                                            }`}
+                                          >
+                                            {value[1].length - 1 === subIndex
+                                              ? item
+                                              : item[0]}{" "}
+                                            <img
+                                              className="mt-2"
+                                              src={
+                                                questionImages[
+                                                  extractTextFromImageUrl(
+                                                    item[1]
+                                                  )
+                                                ]
+                                              }
+                                            />
+                                            <div
+                                              className={` ${
+                                                subIndex ===
+                                                  value[1].length - 1 &&
+                                                "hidden"
+                                              }`}
+                                            >
+                                              Raspunsul a fost{" "}
+                                              <span
+                                                className={`font-bold ${
+                                                  item[2] === "gresit"
+                                                    ? "text-red-500"
+                                                    : "text-green-500"
+                                                }`}
+                                              >
+                                                {item[2]}
+                                              </span>
+                                            </div>
+                                          </span>{" "}
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </>
+                                );
+                            }
+                          )}
                         </ul>
                       </li>
                     </>

@@ -59,7 +59,7 @@ function App() {
   },[located.pathname])
   return (
     <div className='font-montSerrat'>
-       <div className={`fixed ${!loadingScreen && "hidden"} ${hideLoading && "animate-[disappear_.3s_ease-in-out_forwards]"} z-50 left-0 top-0`}>
+       <div className={`fixed ${!loadingScreen && "hidden"} ${hideLoading && "animate-[disappear_.3s_ease-in-out_forwards]"} z-50 left-0 top-0 bg-[#64748B]`}>
           <LoadingScreen  />
        </div>
       <Navbar />
