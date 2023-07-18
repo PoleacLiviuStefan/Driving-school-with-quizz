@@ -657,7 +657,7 @@ const ChestionariiOnline = () => {
   useEffect(() => {
     if (
       showNotification !== -1 &&
-      (start === 13 || start === 1 || start === 16)
+      ( start === 1 || start===2 || start === 16 || start === 13)
     ) {
       const timer = setTimeout(() => {
         setShowNotification(-1);
@@ -843,20 +843,20 @@ const ChestionariiOnline = () => {
           onSubmit={(e) => InstructorLogin(e)}
           className={`flex flex-col items-center justify-center  ${
             start !== 13 && "hidden"
-          } lg:text-[24px] font-bold h-full `}
+          } lg:text-[24px] font-bold w-[90%] h-full `}
         >
-          <h4 className="text-[20px] lg:text-[32px] font-extrabold w-[15rem] lg:w-full text-center">
-            Introduceti mai jos email-ul si parola
+          <h4 className="text-[16px] lg:text-[32px] font-extrabold w-[80%] lg:w-full text-center">
+            Aceasta sectiune este dedicata strict instructorilor. Va rog introduceti mai jos email-ul si parola
           </h4>
-          <label className="mt-[1rem]">Email</label>
+          <label className="mt-[1rem]">EMAIL</label>
           <input
             type="email"
             className=" border-[2px] border-black w-full lg:w-[32rem] h-[2rem] px-[1rem]"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <label className="mt-[1rem]">Parola</label>
-          <div className="flex">
+          <label className="mt-[1rem]">PAROLA</label>
+          <div className="flex justify-center w-full">
             <input
               type={`${showPassword ? "text" : "password"}`}
               className=" border-[2px] border-black w-full lg:w-[30rem] h-[2rem] px-[1rem]"
