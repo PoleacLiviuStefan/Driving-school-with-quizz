@@ -56,7 +56,7 @@ const PersonalVechicleCourse = () => {
             <div className='mt-[3rem] flex flex-wrap justify-center'>
             <PriceCard
               durationCard="30"
-              titleCard="Conducere Defensiva Nivelul 1
+              titleCard="Perfectionare Auto
               "
               benefitsCard={    <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
           
@@ -65,6 +65,7 @@ const PersonalVechicleCourse = () => {
             <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
           </ul>}
               priceCard="500"
+              customHeight={true}
             />
           </div>            
           </div>

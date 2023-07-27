@@ -1,12 +1,13 @@
 import React from "react";
 import {CiTimer} from 'react-icons/ci'
-const PriceCard = ({ durationCard,titleCard, benefitsCard, priceCard }) => {
+const PriceCard = ({ durationCard,titleCard, benefitsCard, priceCard, customHeight=false }) => {
+  
   return (
-    <div className="relative m-[1.5rem] flex flex-col items-center  w-[23rem] h-[39rem] bg-white shadow-lg overflow-hidden">
+    <div className={`relative m-[1.5rem] flex flex-col items-center  w-[23rem] ${customHeight ? "h-[5rem] ": "h-[39rem]"} bg-white shadow-lg overflow-hidden`}>
       <h3 className="flex flex-col justify-center items-center w-full h-[9.1rem] bg-[#ff0000] text-white text-[18px] lg:text-[24px] font-bold text-center">
         {titleCard}
     
-        <span className="font-extrabold text-[22px] lg:text-[32px]">{priceCard} LEI</span>
+        <span className="font-extrabold text-[26px] lg:text-[32px]">{priceCard} LEI</span>
       </h3>
       <div class="custom-shape-divider-top-1683994501">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

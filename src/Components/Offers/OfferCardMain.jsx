@@ -1,4 +1,3 @@
-import React from 'react'
 import {useNavigate} from 'react-router-dom'
 
 const OfferCardMain = ({offerTitle,reducere,offerImage}) => {
@@ -6,8 +5,8 @@ const OfferCardMain = ({offerTitle,reducere,offerImage}) => {
   return (
     <div className='relative flex flex-col items-center relative bg-white shadow-xl w-[280px] lg:w-[400px] h-[400px] lg:h-[500px] my-[1rem]  lg:m-[1.5rem] '>
         <img src={offerImage} className='w-full' />
-        <div className='absolute saleTicket flex justify-center items-center w-[15rem] h-[3rem] lg:h-[6rem]  left-[-2.5rem] top-0 bg-red-500 text-white font-extrabold text-[20px]'>
-           <h6 className='ml-8 mt-[-1.2rem] lg:mt-[-2.2rem]'>{reducere}</h6>
+        <div className='absolute saleTicket flex justify-center items-center w-[12.5rem] lg:w-[15rem] h-[3rem] lg:h-[6rem]  left-[-2.5rem] top-0 bg-red-500 text-white font-extrabold text-[20px]'>
+           <h6 className='ml-8 mt-[-1.2rem] lg:mt-[-2.2rem] text-[15px] lg:text-[20px]'>{reducere}</h6>
 
         </div>
         {offerTitle} 

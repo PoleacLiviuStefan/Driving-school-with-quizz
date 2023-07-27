@@ -25,6 +25,7 @@ import PerfectionareMoto from './Components/Services/PerfectionareMoto'
 import PersonalVechicleCourse from './Components/Services/PersonalVechicleCourse'
 import News from './Components/News/News'
 import LoadingScreen from './Components/LoadingScreen/LoadingScreen'
+import Instructori from './Components/Instructori/Instructori'
 
 function App() {
   const [loadingScreen,setLoadingScreen]=useState(false);
@@ -80,10 +81,11 @@ function App() {
         <Route path="/oferte" element={ <Offers />} />
         <Route path="/produse" element={<Products />} />
         <Route path="/servicii/obtine-permisul" element={<DriverLicense />} />
-        <Route path="/inscrieri-online" element={<OnlineRegister />} />
         <Route path="/servicii/conducere-defensiva" element={<DefensiveDriving />} />
         <Route path="/servicii/perfectionare-moto" element={<PerfectionareMoto />} />
         <Route path="/servicii/curs-cu-masina-personala" element={<PersonalVechicleCourse />} />
+        <Route path="/inscrieri-online" element={<OnlineRegister />} />
+        <Route path="/instructori" element={<Instructori />} />
         <Route path="/legislatie/chestionare-online" element={<ChestionareOnline />} />
         <Route path="/noutati" element={<News />} />
         <Route path="/galerie" element={<Galery />} />

@@ -1,6 +1,10 @@
 import React from 'react'
 import Product from './Product'
+import manualCatA from '../../Images/manualCatA.jpg'
 import manualCatB from '../../Images/manualCatB.png'
+import manualCatBEngleza from '../../Images/manualCatBEngleza.png'
+import manualCatBRedobandire from '../../Images/manualCatBRedobandire.jpg'
+import voucherReducere from '../../Images/voucher.jpg'
 import {useNavigate} from 'react-router-dom'
 import {AiOutlineRight} from 'react-icons/ai'
 
@@ -18,11 +22,11 @@ const Products = () => {
             </div>
             <h2 className='text-[26px] lg:text-[42px] font-extrabold'>PRODUSELE <span className='text-red-600'> NOASTRE</span></h2>
             <div className='mt-[3rem] flex justify-center w-full flex-wrap '>
-                <Product productTitle="Manual De Legislatie Categoria B" productImage={manualCatB} productPrice="00"/>
-                <Product productTitle="Manual De Legislatie Categoria B (Engleza)" productImage={manualCatB} productPrice="00"/>
-                <Product productTitle="anual De Legislatie Categoria A" productImage={manualCatB} productPrice="00"/>
-                <Product productTitle="Manual De Legislatie Redobandire Permis" productImage={manualCatB} productPrice="00"/>
-                <Product productTitle="Gift Card Cadou" productImage={manualCatB} productPrice="00"/>
+                <Product productTitle="Manual De Legislatie Categoria B" productImage={manualCatB} productPrice="21.99"/>
+                <Product productTitle="Manual De Legislatie Categoria B (Engleza)" productImage={manualCatBEngleza} productPrice="50"/>
+                <Product productTitle="Manual De Legislatie Categoria A" productImage={manualCatA} productPrice="26.99"/>
+                <Product productTitle="Manual De Legislatie Redobandire Permis" productImage={manualCatBRedobandire} productPrice="30"/>
+                <Product productTitle="Voucher De Reducere Cadou" productImage={voucherReducere} productPrice="500"/>
             </div>
         </div>
     </div>

@@ -347,7 +347,15 @@ const DriverLicense = () => {
             durationCard="1"
             titleCard="Ora suplimentara Moto"
             benefitsCard={
-              <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] "></ul>
+              <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
+                  <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]">
+                  {" "}
+                  <span className="mr-4 text-[24px]">
+                    <CiTimer />{" "}
+                  </span>{" "}
+                  2 ORE PRACTICE
+                </li>
+              </ul>
             }
             priceCard="70"
           />
@@ -449,6 +457,13 @@ const DriverLicense = () => {
             benefitsCard={
               <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
           
+          <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]">
+                  {" "}
+                  <span className="mr-4 text-[24px]">
+                    <CiTimer />{" "}
+                  </span>{" "}
+                  2 ORE PRACTICE
+                </li>
               </ul>
             }
             priceCard="150"

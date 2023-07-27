@@ -2,13 +2,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../Images/logo.png'
 import {AiOutlineMail,AiOutlinePhone} from 'react-icons/ai'
-
+import waygital from '../../Images/waygital.webp'
 const Footer = () => {
 
   const navigate=useNavigate();
 
   return (
-    <div className='relative mt-0 flex flex-col justify-center bg-slate-500 items-center py-[1rem] w-full h-full '>
+    <div className='relative mt-0 flex flex-col justify-center bg-slate-600 items-center py-[1rem] w-full h-full '>
       <span className='absolute top-0 w-full h-[2px] bg-red-500' />
         <div className='flex flex-col  items-center  lg:items-start justify-between w-full lg:w-[65rem] h-full text-white'>
            <div className='flex flex-col items-start'>
@@ -39,7 +39,22 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-    
+            <div className='flex mt-[3rem]  flex-col-reverse   lg:flex-row justify-between  items-center lg:items-end w-full lg:w-[60rem]'> 
+            <div className='flex'>powered by<a href="https://www.waygital.ro/" className='relative flex'> <img src={waygital} className='ml-2 w-[60px] h-[20px]'/></a></div>
+        <div className='flex flex-col items-center'>
+          <div className='flex items-center w-[12rem] justify-between'>
+            <div className='bg-stripe bg-cover w-[70px] h-[35px]'/>
+            <div className='bg-visa bg-cover w-[45px] h-[25px]'/>
+            <div className='bg-masterCard bg-cover w-[50px] h-[30px]'/>
+          </div>
+          <h5>@2023 Scoala De Soferi - Scoala Auto Moto Poptean </h5>
+        </div>
+        <div className='relative flex flex-col mb-[2rem] lg:mb-0'>
+        <a href="https://anpc.ro/ce-este-sal/"> <div className='bg-cover bg-sal w-[185px] h-[50px]' /></a>
+                    <a href="https://ec.europa.eu/consumers/odr" ><div className='bg-cover bg-sol w-[185px] h-[50px]' /></a>
+        </div>
+      
+        </div>
         </div>
     </div>
   )

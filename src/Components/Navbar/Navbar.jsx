@@ -51,7 +51,7 @@ const Navbar = () => {
         <ul className="flex relative animate-[textSlideMobile_30s_linear_infinite] lg:animate-[textSlide_30s_linear_infinite]  justify-between items-center ">
             <li className="absolute whitespace-nowrap text-[14px]  font-bold">Reducere de 100 lei pentru studenti, elevi si someri</li>
             <li className="absolute whitespace-nowrap left-[25rem] lg:left-[50rem] text-[14px] font-bold">Serie noua incepand cu 20 iunie</li>
-            <li className="absolute whitespace-nowrap left-[40rem] lg:left-[100rem] text-[14px]  font-bold">Reducere de 10% daca te mai inscri alaturi de cineva</li>
+            <li className="absolute whitespace-nowrap left-[40rem] lg:left-[100rem] text-[14px]  font-bold">Reducere de 10% daca te mai inscrii alaturi de cineva</li>
         </ul>
       </div>
       <a
@@ -70,14 +70,14 @@ const Navbar = () => {
           scrollValue > 400 || located.pathname !== "/"
             ? "bg-white shadow-lg"
             : "bg-transparent"
-        } hidden lg:flex items-center justify-between  w-[65rem]    rounded-[20px] text-[13.5px] font-bold `}
+        } hidden lg:flex items-center justify-between  w-[65rem]    rounded-[20px] text-[12px] font-bold `}
       >
         <li
           onClick={() => {
             navigate("/");
             window.scrollTo({ top: 0, left: 0 });
           }}
-          className={`flex flex-col ml-[1rem]  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 `}
+          className={`flex flex-col ml-[.5rem]  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 `}
         >
           ACASA
         </li>
@@ -126,7 +126,7 @@ const Navbar = () => {
             </span>
           </span>
           <ul
-            className={`absolute mt-[1.2rem] opacity-0 hidden transition ease-in-out duration-1000 group-hover:flex group-hover:opacity-100 group  bg-white   w-[15rem] h-[11.5rem] flex-col justify-between shadow-xl text-black`}
+            className={`absolute mt-[1.1rem] opacity-0 hidden transition ease-in-out duration-1000 group-hover:flex group-hover:opacity-100 group  bg-white   w-[15rem] h-[10rem] flex-col justify-between shadow-xl text-black text-[12px]`}
           >
             <li
               onClick={() => {
@@ -177,6 +177,15 @@ const Navbar = () => {
               <span className="ml-6">CURS CU MASINA PERSONALA</span>
             </li>
           </ul>
+        </li>
+        <li
+          className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 `}
+          onClick={() => {
+            navigate("/instructori");
+            window.scrollTo({ top: 0, left: 0 });
+          }}
+        >
+          INSTRUCTORI
         </li>
         <li
           className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 `}
@@ -264,8 +273,9 @@ const Navbar = () => {
       >
         <div className={`flex justify-center bg-white w-0 ${showMobileMenu ? "animate-[showMobileMenu_.3s_ease-in-out_forwards_.5s]" : "animate-[showMobileMenuReverse_.3s_ease-in-out_forwards]"} h-full overflow-hidden`}>
           <ul
-            className={`  flex flex-col  items-start   w-[10rem]  py-[.5rem] px-[1rem]  text-[13px] font-bold text-black`}
+            className={`  flex flex-col  items-start ${showMobileMenu ? "opacity-0 animate-[appear_.3s_ease-in-out_forwards_.8s]" : "animate-[disappear_.3s_ease-in-out_forwards]"}   w-[10rem]  py-[.5rem] px-[1rem]  text-[13px] font-bold text-black`}
           >
+         
             <li
               onClick={() => {
                 navigate("/");
@@ -276,6 +286,7 @@ const Navbar = () => {
             >
               ACASA
             </li>
+            
             <Link
                         activeClass="active"
                         to="About"
@@ -335,7 +346,7 @@ const Navbar = () => {
               <ul
                 className={`relative ${
                   !servicesMenu && "hidden"
-                } left-[-2.5rem] top-[.7rem]   group  bg-white   w-[15rem] h-[11.5rem] flex-col items-left justify-between  text-black `}
+                } left-[-2.5rem] top-[.7rem]   group  bg-white   w-[15rem] h-[10rem] flex-col items-left justify-between  text-black `}
               >
                 <li
                   onClick={() => {
@@ -390,6 +401,16 @@ const Navbar = () => {
                   <span className="ml-6">CURS CU MASINA PERSONALA</span>
                 </li>
               </ul>
+            </li>
+            <li
+              onClick={() => {
+                navigate("/instructori");
+                window.scrollTo({top:0,left:0});
+                setShowMobileMenu(false);
+              }}
+              className={`flex flex-col whitespace-nowrap  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+            >
+              INSTRUCTORI
             </li>
             <li
               onClick={() => {

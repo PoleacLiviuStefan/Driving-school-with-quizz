@@ -56,13 +56,13 @@ const PerfectionareMoto = () => {
           <div className='mt-[3rem] flex flex-wrap justify-center'>
             <PriceCard
               durationCard="30"
-              titleCard="Conducere Defensiva Nivelul 1
+              titleCard="Perfectionare Moto
               "
               benefitsCard={    <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
           
-            <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]"> <span className="mr-4 text-[24px]"><CiTimer /> </span> 30 ORE PRACTICE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PLATA IN RATE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
+            <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]"> <span className="mr-4 text-[24px]"><CiTimer /> </span> DURATA: 2 ZILE</li>
+            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PERFECTIONARE PENTRU EFICIENTA</li>
+        
           </ul>}
               priceCard="1000"
             />

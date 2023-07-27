@@ -20,14 +20,14 @@ const Galery = () => {
                 </div>
                 <h2 className='text-[26px] lg:text-[42px] font-extrabold text-center'>VIZUALIZEAZA O PARTE DIN <br/>  <span className='text-red-600'>IMAGINILE NOASTRE</span></h2>
                 <div className='flex flex-col  lg:flex-row flex-wrap justify-between '>
-                <img src={masina1} className='w-[300px] m-[1rem] border-[3px] rounded-[8px] border-red-500' />
-            <img src={scuter} className='w-[300px] m-[1rem] border-[3px] rounded-[8px] border-red-500' />
-            <img src={moto1} className='w-[300px] m-[1rem] border-[3px] rounded-[8px] border-red-500' />
-            <img src={masina2} className='w-[300px] m-[1rem] border-[3px] rounded-[8px] border-red-500' />
-            <img src={masina3} className='w-[300px] m-[1rem] border-[3px] rounded-[8px] border-red-500' />
+                <img src={masina1} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={scuter} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={moto1} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={masina2} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={masina3} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
             <div>
-            <img src={masina4} className='w-[300px]  m-[1rem] border-[3px] rounded-[8px] border-red-500' />
-            <img src={masina5} className='w-[300px] m-[1rem] border-[3px] rounded-[8px] border-red-500' />
+            <img src={masina4} className='w-[300px]  m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={masina5} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
             </div>
                   </div>
         </div>

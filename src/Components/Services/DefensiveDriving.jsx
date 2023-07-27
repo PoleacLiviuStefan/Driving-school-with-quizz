@@ -54,18 +54,20 @@ const DefensiveDriving = () => {
               </p>
        
           </div>
-          <div className='mt-[3rem] flex flex-wrap justify-center'>
+          <h2 className="mt-[5rem] text-[26px] text-center lg:text-left lg:text-[36px] font-extrabold">
+          TARIFE CURSURI CONDUCERE DEFENSIVA
+        </h2>
+          <div className='mt-[1rem] flex flex-wrap justify-center mb-[5rem]'>
             <PriceCard
               durationCard="30"
               titleCard="Conducere Defensiva Nivelul 1
               "
               benefitsCard={    <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
           
-            <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]"> <span className="mr-4 text-[24px]"><CiTimer /> </span> 30 ORE PRACTICE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PLATA IN RATE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
+          
           </ul>}
               priceCard="800"
+              customHeight={true}
             />
                 <PriceCard
               durationCard="30"
@@ -73,11 +75,10 @@ const DefensiveDriving = () => {
               "
               benefitsCard={    <ul className="relative flex flex-col items-center lg:text-[18px]  top-[4rem] w-full h-[40rem] ">
           
-            <li className="my-[.5rem] flex justify-center items-center h-[3rem] w-full border-b-[1px] border-b-gray-300  px-[1rem]"> <span className="mr-4 text-[24px]"><CiTimer /> </span> 30 ORE PRACTICE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >PLATA IN RATE</li>
-            <li className="my-[.5rem] flex justify-center items-center w-full h-[3rem]  border-b-[1px] border-b-gray-300  px-[1rem]" >DURATA MINIMA: 6 SAPTAMANI</li>
+    
           </ul>}
               priceCard="800"
+              customHeight={true}
             />
           </div>
         </div>

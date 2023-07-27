@@ -1164,7 +1164,7 @@ const ChestionariiOnline = () => {
         </div>
         {/*Inregistrare Cursant*/}
         <form
-          onSubmit={(e) => registerPasswordHandler(e)}
+          onSubmit={registerPasswordHandler}
           className={`w-[80%] mt-[.5rem] ${
             start !== 2 && "hidden"
           } flex flex-col items-center text-[16px] lg:text-[24px] font-bold h-full`}
