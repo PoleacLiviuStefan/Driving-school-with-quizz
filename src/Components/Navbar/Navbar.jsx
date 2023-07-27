@@ -70,7 +70,7 @@ const Navbar = () => {
           scrollValue > 400 || located.pathname !== "/"
             ? "bg-white shadow-lg"
             : "bg-transparent"
-        } hidden lg:flex items-center justify-between  w-[65rem]    rounded-[20px] text-[12px] font-bold `}
+        } mb-[1rem] hidden lg:flex items-center justify-between  w-[65rem]    rounded-[20px] text-[12px] font-bold `}
       >
         <li
           onClick={() => {

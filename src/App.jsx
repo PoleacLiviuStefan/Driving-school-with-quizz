@@ -26,6 +26,7 @@ import PersonalVechicleCourse from './Components/Services/PersonalVechicleCourse
 import News from './Components/News/News'
 import LoadingScreen from './Components/LoadingScreen/LoadingScreen'
 import Instructori from './Components/Instructori/Instructori'
+import SocialRedirect from './Components/Social/SocialRedirect'
 
 function App() {
   const [loadingScreen,setLoadingScreen]=useState(false);
@@ -73,7 +74,7 @@ function App() {
           <Steps />
    
           <Improvments />
-       
+          <SocialRedirect />
           <ChestionareOnlineMain />
           <GaleryMain />
           

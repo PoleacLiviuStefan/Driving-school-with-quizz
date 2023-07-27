@@ -9,7 +9,7 @@ import moto1 from'../../Images/moto1.jpg'
 const GaleryMain = () => {
   const navigate=useNavigate();
   return (
-    <div className='relative mt-[0rem] lg:mt-[10rem] flex flex-col justify-center items-center py-[10rem] w-full h-full '>
+    <div className='relative mt-[5rem] lg:mt-[10rem] flex flex-col justify-center items-center py-[5rem] w-full h-full '>
       <Fade >
         <div className='flex flex-col  items-center  lg:items-start justify-between w-[90%] lg:w-[65rem] h-full '>
           <h4 className='flex items-center text-center w-full    text-red-600 text-[13px] lg:text-[15px] font-extrabold italic'><span className='h-[2px] w-[4rem] bg-red-600 mr-2  ' /> GALERIE</h4>
