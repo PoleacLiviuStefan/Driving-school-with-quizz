@@ -6,6 +6,10 @@ import masina2 from '../../Images/masina2.jpg'
 import masina3 from '../../Images/masina3.jpg'
 import masina4 from '../../Images/masina4.jpg'
 import masina5 from '../../Images/masina5.jpg'
+import masina6 from '../../Images/bmwAuto_4.jpeg'
+import masina7 from '../../Images/bmwVolan.jpeg'
+import masina8 from '../../Images/citroenAuto_4.jpeg'
+import masina9 from '../../Images/citroenAuto_3.jpeg'
 import scuter from '../../Images/scuter.jpg'
 import moto1 from'../../Images/moto1.jpg'
 const Galery = () => {
@@ -23,8 +27,12 @@ const Galery = () => {
                 <img src={masina1} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
             <img src={scuter} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
             <img src={moto1} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
-            <img src={masina2} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={masina9} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={masina8} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={masina6} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+            <img src={masina7} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
             <img src={masina3} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
+
             <div>
             <img src={masina4} className='w-[300px]  m-[1rem] border-[1px] rounded-[8px] border-red-500' />
             <img src={masina5} className='w-[300px] m-[1rem] border-[1px] rounded-[8px] border-red-500' />
