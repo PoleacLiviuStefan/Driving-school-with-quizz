@@ -22,6 +22,9 @@ export default {
       'lexend': "Lexend, sans-serif; sans-serif"
     },
     backgroundImage:{
+      'bgNews': "url('/public/Images/bmwAuto_3.jpg')",
+      'bgProducts': "url('/public/Images/citroenAuto_5.jpeg')",
+      'bgLicense': "url('/public/Images/bmwAuto_2.jpeg')",
       'bgHero': "url('/public/Images/bgHero.jpg')",
       'bgRegister': "url('/public/Images/bmwInterior.jpg')",
       'roadBg': "url('/public/Images/roadTexture.jpg')",

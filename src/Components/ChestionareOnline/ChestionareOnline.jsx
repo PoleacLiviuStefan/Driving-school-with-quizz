@@ -96,7 +96,7 @@ const ChestionariiOnline = () => {
     ID: "",
     numePrenume: "",
     instructor: "",
-    chestionareCorecte: "",
+    chestionareCorecte: "0",
     chestionareGresite: "",
     contCreat: "nu",
   });
@@ -241,6 +241,7 @@ const ChestionariiOnline = () => {
     );
     if (res) {
       console.log(res);
+      location.reload();
     } else {
       console.log("error receiving data");
     }
@@ -324,6 +325,7 @@ const ChestionariiOnline = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         localStorage.setItem("userMail", userCredential.user.email);
+        localStorage.setItem("instructorConectat", true);
         var mailCursant = false;
         Object.keys(data).map((key) => {
           if (data[key].Email === userCredential.user.email) {
@@ -358,7 +360,7 @@ const ChestionariiOnline = () => {
   const checkUserExistence = () => {
     console.log("verificare existenta");
     onAuthStateChanged(auth, (user) => {
-      if (user && localStorage.getItem("cursantConectat") === false) {
+      if (user && localStorage.getItem("instructorConectat")) {
         console.log("da,s-a conectat");
         setAuthUser(user);
         localStorage.setItem("userMail", user.email);
@@ -374,7 +376,7 @@ const ChestionariiOnline = () => {
   const checkUserCursantExistence = () => {
     console.log("verificare existenta");
     onAuthStateChanged(auth, (user) => {
-      if (user) {
+      if (user && localStorage.getItem("cursantConectat")) {
         setStart(3);
         localStorage.setItem("userEmailCursant", user.email);
       } else {
@@ -1468,7 +1470,7 @@ const ChestionariiOnline = () => {
           </span>
           <p className="mt-[2rem] text-[18px] lg:text-[28px] lg:w-[50rem] font-bold">
             Testul a luat sfarsit. Ati fost declarat respins la examenul de
-            teorie. Poti incerca iarasi pentru a te perfectiona
+            teorie. Poti incerca din nou pentru a te perfectiona
           </p>
         </div>
         <div

@@ -3,7 +3,7 @@ import {CiTimer} from 'react-icons/ci'
 const PriceCard = ({ durationCard,titleCard, benefitsCard, priceCard, customHeight=false }) => {
   
   return (
-    <div className={`relative m-[1.5rem] flex flex-col items-center  w-[23rem] ${customHeight ? "h-[5rem] ": "h-[39rem]"} bg-white shadow-lg overflow-hidden`}>
+    <div className={`relative m-[1.5rem] flex flex-col items-center  w-[23rem] ${customHeight ? "h-[4rem] lg:h-[5rem] ": "h-[39rem]"} bg-white shadow-lg overflow-hidden`}>
       <h3 className="flex flex-col justify-center items-center w-full h-[9.1rem] bg-[#ff0000] text-white text-[18px] lg:text-[24px] font-bold text-center">
         {titleCard}
     

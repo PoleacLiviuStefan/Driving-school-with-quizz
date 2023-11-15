@@ -53,7 +53,7 @@ const OnlineRegister = () => {
       <div className="relative flex flex-col items-center w-[65rem] h-full ">
         <div className="relative   bg-bgRegister bg-cover  w-screen h-[32rem] ">
           <div className="flex flex-col items-center justify-center bg-black bg-opacity-[50%] w-full h-full ">
-            <div className="relative top-0 left-[1rem] lg:left-0 flex items-center text-[12px] lg:text-[14px] text-white w-full lg:w-[65rem] ">
+            <div className="relative mb-4 left-[1rem] lg:left-0 flex items-center text-[12px] lg:text-[14px] text-white w-full lg:w-[65rem] ">
               <a
                 onClick={() => {
                   navigate("/");
@@ -97,7 +97,7 @@ const OnlineRegister = () => {
               <label className="">Prenume</label>
               <input
               name="user_lastName"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
@@ -105,7 +105,7 @@ const OnlineRegister = () => {
               <label className="">Prenumele Tatalui</label>
               <input
                 name="user_fatherName"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
@@ -113,7 +113,7 @@ const OnlineRegister = () => {
               <label className="">Prenumele Mamei</label>
               <input
                 name="user_motherName"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
@@ -121,7 +121,7 @@ const OnlineRegister = () => {
               <label className="">CNP*</label>
               <input
                 name="user_CNP"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="number"
                 minLength={13}
                 maxLength={13}
@@ -131,7 +131,7 @@ const OnlineRegister = () => {
               <label className="">Serie</label>
               <input
                 name="user_IdSeries"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
@@ -139,7 +139,7 @@ const OnlineRegister = () => {
               <label className="">Numar</label>
               <input
                 name="user_IdNumber"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
@@ -147,7 +147,7 @@ const OnlineRegister = () => {
               <label className="">Emis de</label>
               <input
                 name="user_IdTransmitter"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
@@ -155,7 +155,7 @@ const OnlineRegister = () => {
               <label className="">Emis la</label>
               <input
                 name="user_IdIssuedAt"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
@@ -163,7 +163,7 @@ const OnlineRegister = () => {
               <label className="">Expira la</label>
               <input
               name="user_expireDate"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
             </div>
@@ -218,7 +218,7 @@ const OnlineRegister = () => {
               </label>
               <div
                 onClick={() => setShowCategories((prev) => !prev)}
-                className="flex flex-wrap justify-center  cursor-pointer border-[1px] border-black text-[12px] lg:text-[15px]  lg:w-[57rem] lg:h-[2rem] px-[.5rem] lg:px-[1rem] items-center"
+                className="flex flex-wrap justify-center  cursor-pointer border-[1px] border-black text-[12px] lg:text-[15px]  lg:w-[60rem] lg:h-[2rem] px-[.5rem] lg:px-[1rem] items-center"
               > 
                 {(!showCategories && selectCategory.length===0) ? "APASA PENTRU A VEDEA TOATE CATEGORIILE": selectCategory.map((val) => {
                   
@@ -234,13 +234,13 @@ const OnlineRegister = () => {
               </div>
              
               <ul
-                className={` flex flex-row mt-[.5rem]  bg-white shadow-xl  ${
+                className={` flex flex-row mt-[.5rem] text-[13px] lg:text-[16px] bg-white shadow-xl  ${
                   !showCategories && "hidden"
                 }`}
               >
                 <li
                   onClick={() => handleSelectCategory("A1")}
-                  className={`flex justify-center items-center ${
+                  className={`flex justify-center items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "A1") {
                         return true;
@@ -252,7 +252,7 @@ const OnlineRegister = () => {
                 </li>
                 <li
                   onClick={() => handleSelectCategory("A2")}
-                  className={`flex justify-center  items-center ${
+                  className={`flex justify-center  items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "A2") {
                         return true;
@@ -264,7 +264,7 @@ const OnlineRegister = () => {
                 </li>
                 <li
                   onClick={() => handleSelectCategory("A")}
-                  className={`flex justify-center items-center ${
+                  className={`flex justify-center items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "A") {
                         return true;
@@ -276,7 +276,7 @@ const OnlineRegister = () => {
                 </li>
                 <li
                   onClick={() => handleSelectCategory("B1")}
-                  className={`flex justify-center items-center ${
+                  className={`flex justify-center items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "B1") {
                         return true;
@@ -288,7 +288,7 @@ const OnlineRegister = () => {
                 </li>
                 <li
                   onClick={() => handleSelectCategory("B")}
-                  className={`flex justify-center items-center ${
+                  className={`flex justify-center items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "B") {
                         return true;
@@ -300,7 +300,7 @@ const OnlineRegister = () => {
                 </li>
                 <li
                   onClick={() => handleSelectCategory("BE")}
-                  className={`flex justify-center items-center ${
+                  className={`flex justify-center items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "BE") {
                         return true;
@@ -312,7 +312,7 @@ const OnlineRegister = () => {
                 </li>
                 <li
                   onClick={() => handleSelectCategory("C1")}
-                  className={`flex justify-center items-center ${
+                  className={`flex justify-center items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "C1") {
                         return true;
@@ -324,7 +324,7 @@ const OnlineRegister = () => {
                 </li>
                 <li
                   onClick={() => handleSelectCategory("C1E")}
-                  className={`flex justify-center items-center ${
+                  className={`flex justify-center items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "C1E") {
                         return true;
@@ -336,7 +336,7 @@ const OnlineRegister = () => {
                 </li>
                 <li
                   onClick={() => handleSelectCategory("C")}
-                  className={`flex justify-center items-center ${
+                  className={`flex justify-center items-center border-[1px] ${
                     selectCategory.some((element) => {
                       if (element === "C") {
                         return true;
@@ -351,15 +351,15 @@ const OnlineRegister = () => {
             <input name="user_categories" className="hidden" value={selectCategory.toString()}/>
             </div>
          
-          <h4 className="mt-[2rem] text-[18px] w-[90%] lg:w-full font-bold">2.Completeaza cu datele cu datele de contact pentru ca noi sa putem lua legatura</h4>
-          <div   className="mt-[1rem] flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full"
+          <h4 className="mt-[2rem] text-[18px] w-[90%] lg:w-full font-bold">2.Completeaza cu datele de contact pentru ca noi sa putem lua legatura</h4>
+          <div   className=" flex flex-col items-center  lg:grid lg:grid-cols-3 bg-white p-[1rem] w-full h-full"
           >
               
               <div className="mt-[2rem] lg:mt-[3rem] flex flex-col text-left group">
             <label>Email</label>
             <input
                 name="user_email"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text"
               ></input>
               </div>
@@ -367,7 +367,7 @@ const OnlineRegister = () => {
               <label>Telefon</label>
               <input
                 name="user_phone"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" required
               ></input>
               </div>
@@ -419,7 +419,7 @@ const OnlineRegister = () => {
                 <label>Judet/Sector</label>
                  <input
                  name="user_judet"
-                className="mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
+                className="mt-[.5rem] lg:mt-[1rem] border-b-[1px] border-black w-[18rem] !outline-none focus:border-red-500  focus:ring-0"
                 type="text" 
               ></input>
               </div>
@@ -572,7 +572,7 @@ const OnlineRegister = () => {
                 </div>
               </div>
               </div>
-                  <button onClick={()=>{navigate("/inscrieri-online")}}  className="absolute bottom-[1rem] btn2 w-[12rem] lg:w-[16rem] h-[3rem] rounded-[15px]  border border-red-500 bg-red-500 font-semibold tracking-wider leading-none overflow-hidden trasition ease-in-out duration-300 text-white cursor-pointer"
+                  <button onClick={()=>{navigate("/inscrieri-online")}}  className="relative mt-4 btn2 w-[12rem] lg:w-[16rem] h-[3rem] rounded-[15px]  border border-red-500 bg-red-500 font-semibold tracking-wider leading-none overflow-hidden trasition ease-in-out duration-300 text-white cursor-pointer"
        
         >
           <span className="absolute inset-0 bg-red-600 trasition ease-in-out duration-300"  ></span>

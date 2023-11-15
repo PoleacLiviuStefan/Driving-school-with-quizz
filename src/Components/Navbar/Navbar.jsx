@@ -91,7 +91,7 @@ const Navbar = () => {
                         href="About"
                       >
         <li
-       
+          onClick={()=>{console.log(located.pathname); if(located.pathname!=="") {navigate("/");window.scrollTo({top:0, left: 0})}}}
           className={`flex flex-col  cursor-pointer transition ease-in-out    hover:text-red-500 duration-300 `}
         >
           DESPRE NOI
@@ -323,7 +323,7 @@ const Navbar = () => {
               PRODUSE
             </li>
             <li
-              className={`flex flex-col whitespace-nowrap  cursor-pointer transition ease-in-out group    hover:text-red-500 duration-300 my-[.7rem] ${!showMobileMenu && "hidden"}`}
+              className={`flex flex-col whitespace-nowrap  cursor-pointer transition ease-in-out group    hover:text-red-500 duration-300 mt-[.7rem] ${!showMobileMenu && "hidden"}`}
             >
               {" "}
               <span
