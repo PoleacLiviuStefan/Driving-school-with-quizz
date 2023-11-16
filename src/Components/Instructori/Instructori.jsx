@@ -2,10 +2,9 @@
 import {useNavigate} from 'react-router-dom'
 import {AiOutlineRight} from 'react-icons/ai'
 import Instructor from './Instructor';
-import instructorAvatar from '../../Images/Instructor.jpg';
 import MariusPoptean from '../../Images/MariusPoptean.jpeg';
 import IonutLefter from '../../Images/IonutLefter.jpeg'
-import Legislatie from '../../Images/Legislatie.jpeg'
+import Legislatie from '../../Images/legislatie.jpeg'
 const Instructori = () => {
 
     const navigate=useNavigate();
