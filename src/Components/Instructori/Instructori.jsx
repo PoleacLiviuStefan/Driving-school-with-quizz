@@ -5,6 +5,7 @@ import Instructor from './Instructor';
 import MariusPoptean from '../../Images/MariusPoptean.jpeg';
 import IonutLefter from '../../Images/IonutLefter.jpeg'
 import Legislatie from '../../Images/legislatie.jpeg'
+import VirciuIoan from '../../Images/VirciuIoan.jpeg'
 const Instructori = () => {
 
     const navigate=useNavigate();
@@ -32,7 +33,7 @@ const Instructori = () => {
           
                 <Instructor instrcutorName="IONEL LEFTER"  instructorAvatar={IonutLefter} moto={true} auto={true} description="Ionel Lefter instructor auto/moto autorizat categoria A si B cu o experienta de peste 15 ani în trafic." />
                 <Instructor instrcutorName="MARIUS POPTEAN" owner={true} instructorAvatar={MariusPoptean}   auto={true} description="Marius Poptean  fondator al scolii Auto-Moto Poptean și instructor auto autorizat categoria B  cu o experienta  de peste 22 de ani  în trafic." />
-                <Instructor instrcutorName=""  instructorAvatar={Legislatie}  description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quisquam harum quasi recusandae debitis, amet tempora reprehenderit odit voluptas ad aperiam a fugiat. " />
+                <Instructor instrcutorName="VÎRCIU IOAN"  instructorAvatar={VirciuIoan}  description="Profesor de legilatie rutiera autorizat cu o experienta de peste 30 de ani." />
             </div>
 
 

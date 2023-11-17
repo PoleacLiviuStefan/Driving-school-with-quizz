@@ -13,7 +13,7 @@ const News = () => {
             <div className="relative mb-4 left-[1rem] lg:left-0 flex items-center text-[12px] lg:text-[14px] text-white w-full lg:w-[65rem] ">
             <a onClick={()=>{navigate("/")}} className='cursor-pointer'>Scoala Auto-Moto POPTEAN</a> 
               <span className='mx-[1rem] '><AiOutlineRight /></span>
-              <a className='cursor-pointer'>NOUTATI</a>
+              <a className='cursor-pointer'>Noutati</a>
             </div>
 
    
